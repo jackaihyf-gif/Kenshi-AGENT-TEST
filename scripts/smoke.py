@@ -3,13 +3,13 @@
 import json
 import os
 import subprocess
-import sys
+import sysconfig
 import tempfile
 from pathlib import Path
 
 
 def main() -> None:
-    executable = Path(sys.executable).parent / (
+    executable = Path(sysconfig.get_path("scripts")) / (
         "kenshi-test.exe" if os.name == "nt" else "kenshi-test"
     )
     env = {k: v for k, v in os.environ.items() if not k.startswith("KENSHI_TEST_")}

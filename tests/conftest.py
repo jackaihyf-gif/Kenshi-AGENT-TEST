@@ -1,6 +1,6 @@
 import os
 import subprocess
-import sys
+import sysconfig
 from pathlib import Path
 
 import pytest
@@ -14,7 +14,7 @@ def isolated_config(monkeypatch):
 
 @pytest.fixture
 def cli(tmp_path):
-    executable = Path(sys.executable).parent / (
+    executable = Path(sysconfig.get_path("scripts")) / (
         "kenshi-test.exe" if os.name == "nt" else "kenshi-test"
     )
     assert executable.is_file(), "Install this package first: python -m pip install -e '.[dev]'"
