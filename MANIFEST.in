@@ -1,0 +1,6 @@
+include kenshi-test.example.toml .gitattributes .gitignore
+recursive-include docs *.md
+recursive-include examples *.json
+recursive-include scripts *.py
+recursive-include tests *.py
+recursive-include .github *.yml

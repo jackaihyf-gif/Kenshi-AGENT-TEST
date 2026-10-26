@@ -1,0 +1,21 @@
+# Copy to kenshi-test.toml (gitignored). All paths are optional and machine-local.
+# Relative paths resolve from THIS file's directory, not the shell's directory.
+[run]
+adapter = "mock"
+timeout = 5.0
+poll_interval = 0.01
+reports_dir = "reports"
+
+[mock]
+# success | failure | timeout | missing | crash | screenshot-error
+scenario = "success"
+launch_delay = 0.0
+load_delay = 0.0
+
+[game]
+# executable = '${KENSHI_EXE}'
+# Configuring a path does NOT enable the unimplemented real adapter.
+
+[assets]
+paths = []
+# manifest = "local-assets/manifest.json"
