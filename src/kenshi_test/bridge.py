@@ -10,9 +10,44 @@ from uuid import uuid4
 from .adapters.base import Deadline
 from .errors import AdapterError, ConfigError
 
-ACTIONS = {"status", "gait", "move", "halt", "sheathe", "release", "new_test", "replace_test",
-           "finish_editor", "profile_editor", "capture", "pause", "resume", "camera", "overlays", "close_overlay",
-           "nearby", "autosave", "spar", "end_spar", "wear", "sources", "mounts", "motion_trace", "weapon", "visibility", "service", "opponent", "energy", "pose_capture", "craft", "power", "melee_capture", "lifecycle", "stage2_region", "stage2_team"}
+ACTIONS = {
+    "status",
+    "gait",
+    "move",
+    "halt",
+    "sheathe",
+    "release",
+    "new_test",
+    "replace_test",
+    "finish_editor",
+    "profile_editor",
+    "capture",
+    "pause",
+    "resume",
+    "camera",
+    "overlays",
+    "close_overlay",
+    "nearby",
+    "autosave",
+    "spar",
+    "end_spar",
+    "wear",
+    "sources",
+    "mounts",
+    "motion_trace",
+    "weapon",
+    "visibility",
+    "service",
+    "opponent",
+    "energy",
+    "pose_capture",
+    "craft",
+    "power",
+    "melee_capture",
+    "lifecycle",
+    "stage2_region",
+    "stage2_team",
+}
 
 
 class LuaBridge:
@@ -27,11 +62,15 @@ class LuaBridge:
         if len(token) != 64 or any(c not in "0123456789abcdef" for c in token):
             raise ConfigError("Invalid local bridge token")
         identifier = uuid4().hex
-        fields = {"protocol": 1, "id": identifier, "token": token, "command": command,
-                  "expires": int(time.time() + min(deadline.remaining(), 30))}
+        fields = {"protocol": 1, "id": identifier, "token": token, "command": command}
         if command != "status":
-            fields["session"] = self.call("status", deadline)["session"]
+            session = self.call("status", deadline).get("session")
+            if not isinstance(session, str) or not session:
+                raise AdapterError("Bridge status has no valid session")
+            fields["session"] = session
         for key, value in parameters.items():
+            if key in {"protocol", "id", "token", "command", "expires", "session"}:
+                raise ConfigError(f"Reserved bridge argument: {key}")
             if isinstance(value, float) and not math.isfinite(value):
                 raise ConfigError(f"Non-finite bridge argument: {key}")
             fields[key] = value
@@ -49,10 +88,14 @@ class LuaBridge:
         try:
             with os.fdopen(fd, "w") as stream:
                 stream.write(f"pid={os.getpid()}\nid={identifier}\n")
+            # Session discovery spends the same monotonic budget as the action.
+            # Compute wall-clock expiry only when publishing the actual request.
+            fields["expires"] = int(time.time() + min(deadline.remaining(), 30))
             temporary = self.root / f"request-{identifier}.tmp"
             try:
-                temporary.write_text("\n".join(f"{k}={v}" for k, v in fields.items()) + "\n",
-                                     encoding="utf-8")
+                temporary.write_text(
+                    "\n".join(f"{k}={v}" for k, v in fields.items()) + "\n", encoding="utf-8"
+                )
                 os.replace(temporary, self.root / "request.ini")
             finally:
                 temporary.unlink(missing_ok=True)
@@ -67,16 +110,28 @@ class LuaBridge:
                         raise AdapterError("Not a real protocol-1 in-game response")
                     if not response.get("ok"):
                         raise AdapterError(str(response.get("error", "In-game request failed")))
+                    if command != "status" and response.get("session") != fields["session"]:
+                        raise AdapterError("Bridge session changed during request")
                     return response
-                deadline.sleep(.05)
+                deadline.sleep(0.05)
         finally:
             lock.unlink(missing_ok=True)
 
 
-def validate_control(command: str, owner: str | None, gait: str, dx: float,
-                     dz: float, duration: float) -> dict:
-    if command in {"status", "new_test", "finish_editor", "capture", "pause", "resume",
-                   "overlays", "close_overlay", "autosave"}:
+def validate_control(
+    command: str, owner: str | None, gait: str, dx: float, dz: float, duration: float
+) -> dict:
+    if command in {
+        "status",
+        "new_test",
+        "finish_editor",
+        "capture",
+        "pause",
+        "resume",
+        "overlays",
+        "close_overlay",
+        "autosave",
+    }:
         return {}
     if not owner or len(owner) > 160 or any(c not in "0123456789-" for c in owner):
         raise ConfigError("Control requires the exact numeric owner handle from live status")
@@ -84,5 +139,10 @@ def validate_control(command: str, owner: str | None, gait: str, dx: float,
         raise ConfigError("Movement arguments must be finite")
     if not 1 <= duration <= 30 or dx * dx + dz * dz > 64 * 64:
         raise ConfigError("Lease must be 1..30 seconds; move radius cannot exceed 64 game units")
-    return {"owner": owner, "mode": {"walk": 0, "jog": 1, "run": 2}[gait],
-            "dx": dx, "dz": dz, "duration": duration}
+    return {
+        "owner": owner,
+        "mode": {"walk": 0, "jog": 1, "run": 2}[gait],
+        "dx": dx,
+        "dz": dz,
+        "duration": duration,
+    }
