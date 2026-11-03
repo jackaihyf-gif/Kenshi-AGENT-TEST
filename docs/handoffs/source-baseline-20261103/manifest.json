@@ -11,6 +11,34 @@
       "file": "original_appearance_save.lua",
       "installed_sha256": "85372046a8f0b129a8679c3835c5a472dc090697b92fe59aae6c8b89235bb606",
       "shared_lf_sha256": "85372046a8f0b129a8679c3835c5a472dc090697b92fe59aae6c8b89235bb606"
+    },
+    {
+      "file": "power_init.lua",
+      "source_role": "installed-authored-lua",
+      "original_sha256": "495029c5d7081e21c4f8ca05e5a2b90ddfef4d88574ec2350eef8982a5f16385",
+      "shared_lf_sha256": "5b40b174482286e59a0933d17f8c5c2b8a007aba20432b3f2867d88ada61a14d"
+    },
+    {
+      "file": "lamp_init.lua",
+      "source_role": "installed-authored-lua",
+      "original_sha256": "a131c7f4081cecc9e142f95cb99ed797e58093be2cdd637ce99194c5a662ff2a",
+      "shared_lf_sha256": "4698dcb3c6b982930e955e53685b1bf6f8204eea542eea9b8ba92d6c5d2d3c15"
+    },
+    {
+      "file": "t60_power_v092.c",
+      "source_role": "reference-c-source-build-provenance-unverified",
+      "original_sha256": "be60d65b6c4643a01d871a69a5c3ad951c5bda363fab34c0ebf0ae779748432a",
+      "shared_lf_sha256": "be60d65b6c4643a01d871a69a5c3ad951c5bda363fab34c0ebf0ae779748432a"
+    },
+    {
+      "file": "t60_physical_lamp_v092.c",
+      "source_role": "reference-c-source-build-provenance-unverified",
+      "original_sha256": "d1b7e0568fd3593968622ac61fb92ca09783bfeca56afbd5996d3d503d338372",
+      "shared_lf_sha256": "d1b7e0568fd3593968622ac61fb92ca09783bfeca56afbd5996d3d503d338372"
     }
-  ]
+  ],
+  "associated_installed_dlls": {
+    "T60PowerRuntime_v092.dll": "586d72f42600930f75e31745db3f968d16f750fab8e1f95242c87eb93af9881e",
+    "T60PhysicalLamp_v092.dll": "d7befd23d0681aadc1ae635e2c6ba3f68d90382fbcb514974638f34eec225034"
+  }
 }
