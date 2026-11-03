@@ -20,6 +20,7 @@ from .runner import TestRunner
 def parser() -> argparse.ArgumentParser:
     root = argparse.ArgumentParser(prog="kenshi-test", description="Offline-first Kenshi mod tests")
     root.add_argument("--version", action="version", version=__version__)
+
     # Accept shared options before or after the subcommand without overwriting earlier values.
     def common(target: argparse.ArgumentParser) -> None:
         target.add_argument("--config", type=Path, default=argparse.SUPPRESS)
@@ -50,15 +51,42 @@ def parser() -> argparse.ArgumentParser:
     motion.add_argument("--log", type=Path, required=True)
     motion.add_argument("--fingerprints", type=Path, required=True)
     motion.add_argument("--expected-version", required=True)
-    motion.add_argument("--require-gaits", nargs="*", choices=("walk", "jog", "run", "block"),
-                        default=["walk", "jog", "run", "block"])
+    motion.add_argument(
+        "--require-gaits",
+        nargs="*",
+        choices=("walk", "jog", "run", "block"),
+        default=["walk", "jog", "run", "block"],
+    )
     live = sub.add_parser("live", help="Direct in-game KenshiLua control; no desktop input")
     common(live)
-    live.add_argument("action", choices=("status", "gait", "move", "halt", "sheathe", "release",
-                                         "new-test", "finish-editor", "capture", "pause",
-                                         "resume", "camera", "overlays", "close-overlay", "nearby",
-                                         "autosave", "spar", "end-spar", "wear", "sources",
-                                         "mounts", "motion-trace", "weapon"))
+    live.add_argument(
+        "action",
+        choices=(
+            "status",
+            "gait",
+            "move",
+            "halt",
+            "sheathe",
+            "release",
+            "new-test",
+            "finish-editor",
+            "capture",
+            "pause",
+            "resume",
+            "camera",
+            "overlays",
+            "close-overlay",
+            "nearby",
+            "autosave",
+            "spar",
+            "end-spar",
+            "wear",
+            "sources",
+            "mounts",
+            "motion-trace",
+            "weapon",
+        ),
+    )
     live.add_argument("--owner")
     live.add_argument("--gait", choices=("walk", "jog", "run"), default="walk")
     live.add_argument("--dx", type=float, default=0.0)
@@ -83,19 +111,24 @@ def doctor(config: Config) -> dict:
         stream.write(b"write probe")
         stream.flush()
     game_present = bool(config.game_executable and config.game_executable.is_file())
-    bridge_configured = bool(config.game_bridge_dir and
-                             (config.game_bridge_dir / "bridge-config.json").is_file())
-    code = 0 if config.adapter == "mock" else (
-        (0 if bridge_configured else 6) if game_present else 5
+    bridge_configured = bool(
+        config.game_bridge_dir and (config.game_bridge_dir / "bridge-config.json").is_file()
+    )
+    code = (
+        0 if config.adapter == "mock" else ((0 if bridge_configured else 6) if game_present else 5)
     )
     return {
-        "python": sys.version.split()[0], "adapter": config.adapter,
-        "offline_ready": True, "reports_writable": True,
+        "python": sys.version.split()[0],
+        "adapter": config.adapter,
+        "offline_ready": True,
+        "reports_writable": True,
         "game": "configured_file_exists" if game_present else "not_configured_or_missing",
         "game_required_for_mock": False,
-        "real_adapter": "lua_bridge_configured_not_connected" if bridge_configured
+        "real_adapter": "lua_bridge_configured_not_connected"
+        if bridge_configured
         else "not_implemented",
-        "game_verified": False, "exit_code": code,
+        "game_verified": False,
+        "exit_code": code,
         "message": "Offline checks ready. Mock testing does not require Kenshi.",
     }
 
@@ -110,15 +143,26 @@ def run_assets(args: argparse.Namespace, config: Config) -> int:
     checks = [checker.check_file(path) for path in paths]
     if manifest:
         checks.extend(checker.check_manifest(manifest))
-    status = "error" if any(c.status == "error" for c in checks) else (
-        "failed" if any(c.status == "failed" for c in checks) else (
-            "passed" if any(c.status == "passed" for c in checks) else "skipped"
+    status = (
+        "error"
+        if any(c.status == "error" for c in checks)
+        else (
+            "failed"
+            if any(c.status == "failed" for c in checks)
+            else ("passed" if any(c.status == "passed" for c in checks) else "skipped")
         )
     )
     code = {"passed": 0, "failed": 1, "error": 3, "skipped": 6}[status]
     report = RunReport(
-        run_id=new_run_id(), suite="assets", adapter="offline", evidence_kind="static_only",
-        started_at=started_at, finished_at=utc_now(), status=status, exit_code=code, checks=checks,
+        run_id=new_run_id(),
+        suite="assets",
+        adapter="offline",
+        evidence_kind="static_only",
+        started_at=started_at,
+        finished_at=utc_now(),
+        status=status,
+        exit_code=code,
+        checks=checks,
         limitations=[
             "Only stream header, serializer syntax and payload presence are checked.",
             "OGRE chunks, geometry, bones, weights, animation and compatibility are unknown.",
@@ -141,21 +185,27 @@ def main(argv: list[str] | None = None) -> int:
     try:
         config = load_config(getattr(args, "config", None))
         if hasattr(args, "reports_dir"):
-            config = replace(config, reports_dir=resolve_path(
-                str(args.reports_dir), Path.cwd(), "--reports-dir"
-            ))
+            config = replace(
+                config, reports_dir=resolve_path(str(args.reports_dir), Path.cwd(), "--reports-dir")
+            )
         if getattr(args, "adapter", None):
             config = replace(config, adapter=args.adapter)
         if args.command == "doctor":
             data = doctor(config)
-            print(json.dumps(data, indent=2) if args.json else "\n".join(
-                f"{k}: {v}" for k, v in data.items()
-            ))
+            print(
+                json.dumps(data, indent=2)
+                if args.json
+                else "\n".join(f"{k}: {v}" for k, v in data.items())
+            )
             return data["exit_code"]
         if args.command == "report":
             path, data = ReportGenerator(config.reports_dir).latest()
-            print(json.dumps(data, ensure_ascii=False, indent=2) if args.format == "json"
-                  else path.with_suffix(".md").read_text(encoding="utf-8"), end="\n")
+            print(
+                json.dumps(data, ensure_ascii=False, indent=2)
+                if args.format == "json"
+                else path.with_suffix(".md").read_text(encoding="utf-8"),
+                end="\n",
+            )
             return 0  # Reading a failed test report successfully is still a successful read.
         if args.command == "check-assets":
             return run_assets(args, config)
@@ -165,15 +215,19 @@ def main(argv: list[str] | None = None) -> int:
 
             if not config.game_executable:
                 raise ConfigError("Configure game.executable before startup")
-            result = start_game(config.game_executable, Deadline(number(args.timeout, "--timeout")),
-                                attach=args.attach_launcher or args.inspect_launcher,
-                                inspect=args.inspect_launcher,
-                                skip_mod_warnings=args.skip_mod_warnings,
-                                bridge_dir=config.game_bridge_dir)
+            result = start_game(
+                config.game_executable,
+                Deadline(number(args.timeout, "--timeout")),
+                attach=args.attach_launcher or args.inspect_launcher,
+                inspect=args.inspect_launcher,
+                skip_mod_warnings=args.skip_mod_warnings,
+                bridge_dir=config.game_bridge_dir,
+            )
             if not args.inspect_launcher:
                 config.reports_dir.mkdir(parents=True, exist_ok=True)
                 (config.reports_dir / (new_run_id() + "-startup.json")).write_text(
-                    json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8",
+                    json.dumps(result, ensure_ascii=False, indent=2),
+                    encoding="utf-8",
                 )
             print(json.dumps(result, ensure_ascii=False, indent=2))
             return 0
@@ -183,30 +237,50 @@ def main(argv: list[str] | None = None) -> int:
             if config.game_bridge_dir is None:
                 raise ConfigError("Configure game.bridge_dir before direct in-game control")
             action = args.action.replace("-", "_")
-            parameters = validate_control(action, args.owner, args.gait, args.dx,
-                                          args.dz, args.duration)
+            parameters = validate_control(
+                action, args.owner, args.gait, args.dx, args.dz, args.duration
+            )
             if action == "camera":
                 parameters["zoom"] = number(args.zoom, "--zoom")
             if action in {"autosave", "wear", "mounts", "motion_trace"}:
                 parameters["enabled"] = args.enabled
             if action == "weapon":
                 choice = args.target or "status"
-                if choice not in {"status", "draw", "original", "reset-health", "heavy", "katana", "sabre", "polearm", "blunt", "hacker"}:
-                    raise ConfigError("Choose status, draw, original, heavy, katana, sabre, polearm, blunt or hacker")
+                if choice not in {
+                    "status",
+                    "draw",
+                    "original",
+                    "reset-health",
+                    "heavy",
+                    "katana",
+                    "sabre",
+                    "polearm",
+                    "blunt",
+                    "hacker",
+                }:
+                    raise ConfigError(
+                        "Choose status, draw, original, heavy, katana, sabre, "
+                        "polearm, blunt or hacker"
+                    )
                 parameters["target"] = choice
             if action == "spar":
                 if not args.target or any(c not in "0123456789-" for c in args.target):
                     raise ConfigError("Sparring requires an exact NPC handle from live nearby")
                 parameters["target"] = args.target
             result = LuaBridge(config.game_bridge_dir).call(
-                action, Deadline(number(args.timeout, "--timeout")), **parameters,
+                action,
+                Deadline(number(args.timeout, "--timeout")),
+                **parameters,
             )
             print(json.dumps(result, ensure_ascii=False, indent=2))
             return 0
         if args.command == "audit-motion":
             report, directory = audit_motion(
-                args.log.resolve(), args.fingerprints.resolve(), args.expected_version,
-                args.require_gaits, config.reports_dir,
+                args.log.resolve(),
+                args.fingerprints.resolve(),
+                args.expected_version,
+                args.require_gaits,
+                config.reports_dir,
             )
             print(f"{report.status.upper()} [{report.evidence_kind}] - {directory / 'report.json'}")
             return report.exit_code
@@ -216,8 +290,10 @@ def main(argv: list[str] | None = None) -> int:
             if config.adapter != "mock":
                 raise ConfigError("--mock-scenario only applies to --adapter mock")
             config = replace(config, mock=replace(config.mock, scenario=args.mock_scenario))
-        adapter = MockAdapter(config.mock) if config.adapter == "mock" else KenshiAdapter(
-            config.game_executable, config.game_bridge_dir
+        adapter = (
+            MockAdapter(config.mock)
+            if config.adapter == "mock"
+            else KenshiAdapter(config.game_executable, config.game_bridge_dir)
         )
         report, directory = TestRunner(config).run(adapter, args.suite)
         print(f"{report.status.upper()} [{report.evidence_kind}] - {directory / 'report.json'}")
