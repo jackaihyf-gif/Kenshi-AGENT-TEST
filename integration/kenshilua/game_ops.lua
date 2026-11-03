@@ -30,6 +30,7 @@ function M.new(config)
  local A={}
  -- A camera-only probe scoped to the exact isolated fixture. No forced unload.
  local regionProbe
+ local singleTelemetryProof
  function A.stage2_region(w,list,choice)
   assert(not getOptionsHolder().autosave,'Disable autosave first')
   if choice=='begin' then
@@ -503,6 +504,27 @@ function M.new(config)
    local name='T60_'..req.target:sub(6);local f=assert(io.open(path..name..'/quick.save','rb'),'Stage2 save missing');f:close()
    sm:load(name);sm.location=path;return {operation='load',root=path,name=name,deferred=true}
   end
+  if req.target=='single-telemetry'then
+   return dofile(config.root..'/single_telemetry.lua').snapshot(w.player and w.player.playerCharacters[1],config,{
+    world=function()return w end,autosave=function()return getOptionsHolder().autosave end,
+    lifecycle=function()return assert(_G.JACK_T60_WORLD_EPOCH_STATUS,'Lifecycle status unavailable')()end,
+    gui_loading=function()return gui():isLoading()end,
+    load_proof=function()return singleTelemetryProof end,
+    load_status=function()return {name=sm.name,location=sm.location,signal=sm.signal,current_game=sm:getCurrentGame()}end,
+    identity=function()return assert(_G.JACK_T60_IDENTITY_STATUS,'Identity status unavailable')()end,
+    owner=function(c)return assert(_G.JACK_T60_IDENTITY_OWNER,'Identity owner unavailable')(c)end,
+    wear=function()return assert(_G.JACK_T60_WEAR_STATUS,'Wear metadata unavailable')()end,
+    material_slots=function()
+     -- Inspect an already loaded, exact-path production module; never LoadLibrary.
+     ffi.cdef[[unsigned long GetModuleFileNameA(void*,char*,unsigned long);]]
+     local path=(plugins..'/T60MaterialBridge_v091.dll'):gsub('/','\\')
+     local module=kernel.GetModuleHandleA(path);assert(module~=nil,'Material module not already loaded')
+     local filename=ffi.new('char[32768]');local n=tonumber(kernel.GetModuleFileNameA(module,filename,32768))
+     assert(n>0 and n<32768 and ffi.string(filename):lower()==path:lower(),'Material module path mismatch')
+     local address=kernel.GetProcAddress(module,'T60_material_slots');assert(address~=nil,'Material counter export unavailable')
+     return tonumber(ffi.cast('int (*)(void)',address)())
+    end})
+  end
   local count=0;local actor
   for _,c in pairs(list)do assert(c:getName()==config.test_character_name,'Lifecycle limited to isolated actor');actor=c;count=count+1 end
   assert(count<=1,'Lifecycle requires single actor or empty menu')
@@ -553,7 +575,14 @@ function M.new(config)
   -- loadGame executes world teardown synchronously and must not run inside a
   -- GUI-frame observer. Use the engine's normal deferred load request, then
   -- route that request to our fixed test-only location before execute() runs.
+  local before=assert(_G.JACK_T60_IDENTITY_STATUS,'Identity status unavailable')()
+  local boundary=assert(_G.JACK_T60_WORLD_EPOCH_STATUS,'Lifecycle status unavailable')()
+  assert(not before.stopped and type(before.epoch)=='number' and before.epoch>=0,'Identity epoch unavailable or stopped')
+  assert(boundary.guiThread==true and boundary.stable==true and boundary.busy==false,'Lifecycle busy')
+  assert(count==0 or not before.deferred and not boundary.loading and before.sourcegeneration==boundary.generation,'Loaded world not stable')
+  singleTelemetryProof=nil
   sm:load(name);sm.location=root
+  singleTelemetryProof={name=name,root=root,epoch=before.epoch+1,before_generation=boundary.generation}
   return {operation=action,root=root,name=name,deferred=true,signal=sm.signal}
  end
  function A.describe()

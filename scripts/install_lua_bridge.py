@@ -208,6 +208,7 @@ def main():
         root / "service_test_controller.lua",
         root / "craft_test_controller.lua",
         root / "power_test_controller.lua",
+        root / "single_telemetry.lua",
         config_path,
         manifest,
     )
@@ -226,6 +227,8 @@ def main():
     craft_tools = root / "craft_test_controller.lua"
     shutil.copy2(source.with_name("craft_test_controller.lua"), craft_tools)
     power_tools = root / "power_test_controller.lua"
+    telemetry_tools = root / "single_telemetry.lua"
+    shutil.copy2(source.with_name("single_telemetry.lua"), telemetry_tools)
     shutil.copy2(source.with_name("power_test_controller.lua"), power_tools)
 
     def q(s):
@@ -233,7 +236,7 @@ def main():
 
     module_hash = hashlib.sha256(b"".join(
         path.read_bytes() for path in
-        (copied, ops, weapon_tools, service_tools, craft_tools, power_tools)
+        (copied, ops, weapon_tools, service_tools, craft_tools, power_tools, telemetry_tools)
     )).hexdigest()
     init = (
         "-- Kenshi Test CLI: direct game API bridge, no desktop input.\n"
@@ -263,6 +266,7 @@ def main():
                 "service_tools_sha256": hashlib.sha256(service_tools.read_bytes()).hexdigest(),
                 "craft_tools_sha256": hashlib.sha256(craft_tools.read_bytes()).hexdigest(),
                 "power_tools_sha256": hashlib.sha256(power_tools.read_bytes()).hexdigest(),
+                "telemetry_tools_sha256": hashlib.sha256(telemetry_tools.read_bytes()).hexdigest(),
                 "backup": str(backup),
                 "in_game_verified": False,
             },
