@@ -24,6 +24,7 @@ function M.new(config)
  end
  local function snapshot(b)
   local inv=assert(b:getInventory());local r={bench=b.data.stringID,inputs={},counts={},sections={},items={},events=events,queued=b:hasCraftingQueued(),production=b:getProductionItemData()and b:getProductionItemData().stringID or'',power=b.powerOn,output_full=b:isProductionFull()}
+  r.render={position=b:getPosition(),visible=b:getVisible(),entities_loaded=b.entitiesLoaded,entities_to_load=b.entitiesToLoad,floor=b:getFloor(),is_physical=b:isPhysical(),outside=b:getIsOutsideFurniture(),scale=b:getScale(),created=b:isCreated(),root_node=b.rootNode~=nil}
   for _,id in ipairs(mats)do r.counts[id]=inv:countItems(gd(id,4))end
   for key,id in pairs(IDs)do r.counts[id]=inv:countItems(gd(id,key=='armour'and 3 or(key=='laser'or key=='gauss')and 107 or 4))end
   local sections=inv:getAllSections();for i=1,#sections do local s=sections[i];local allowed={};local slots=s.veryLimitedSlot;if slots then for j=1,#slots do allowed[tostring(j)]=slots[j].stringID end end;r.sections[tostring(i)]={name=s.name,width=s.width,height=s.height,stack_min=s.stackingBonusMin,limit=s.itemsLimit,allowed=allowed}end
@@ -118,7 +119,8 @@ function M.new(config)
    local kernel=ffi.load('kernel32');local lib=kernel.GetModuleHandleA('KenshiLib.dll')
    local address=kernel.GetProcAddress(lib,'?createBuilding@RootObjectFactory@@QEAAPEAVBuilding@@PEAVGameData@@VVector3@Ogre@@PEAVTownBase@@PEAVFaction@@VQuaternion@5@PEAVFactoryCallbackInterface@@PEAVLayout@@PEAV2@PEAVGameSaveState@@7_N99H9@Z');assert(address~=nil,'Factory export missing')
    local create=ffi.cast('void* (*)(void*,void*,const AgentCraftVec*,void*,void*,const AgentCraftQuat*,void*,void*,void*,void*,void*,bool,bool,bool,int,bool)',address)
-   local p=c:getPosition();local pos=ffi.new('AgentCraftVec',{p.x+(key=='energy'and 28 or-28),p.y,p.z+28});local q=ffi.new('AgentCraftQuat',{1,0,0,0})
+   -- Exterior factory Y is height above terrain, not actor world elevation.
+   local p=c:getPosition();local pos=ffi.new('AgentCraftVec',{p.x+(key=='energy'and 28 or-28),0,p.z+28});local q=ffi.new('AgentCraftQuat',{1,0,0,0})
    local result=create(raw(w.theFactory),raw(gd(id,0)),pos,nil,raw(c:getFaction()),q,nil,nil,nil,nil,nil,false,true,false,0,true);assert(result~=nil,'Factory returned null');assert(state.pending.object,'Craft constructor was not observed')
    local b=state.pending.object;state.pending=nil;benches[key]=b;b:givePower(10000);return snapshot(b)
   end
