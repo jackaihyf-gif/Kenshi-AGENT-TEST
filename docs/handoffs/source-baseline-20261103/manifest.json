@@ -1,0 +1,16 @@
+{
+  "scope": "authored Lua source snapshots for analysis, not a deployable mod",
+  "production_baseline": "18-hash baseline, unchanged",
+  "files": [
+    {
+      "file": "wear_controller.lua",
+      "installed_sha256": "4f9566ad083512bbd8be6b4c0f282dcb324858f519d023826197174e0e67e826",
+      "shared_lf_sha256": "ed255fc3ab3a24d8acebcb4be4c31fc9775bc3e1c20eed13fbad12ee44defeea"
+    },
+    {
+      "file": "original_appearance_save.lua",
+      "installed_sha256": "85372046a8f0b129a8679c3835c5a472dc090697b92fe59aae6c8b89235bb606",
+      "shared_lf_sha256": "85372046a8f0b129a8679c3835c5a472dc090697b92fe59aae6c8b89235bb606"
+    }
+  ]
+}
