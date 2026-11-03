@@ -1,3 +1,13 @@
+# 最新声音范围：脚步保留原版，高斯原生配置已实射
+
+用户取消新增动力甲落脚/伺服声，保留原版规则。原版Footsteps随动画事件触发，Surface_Material按地面与赤脚状态分支；不能直接说只按鞋材质。额外WAV及自制v112 bank均未安装，后续不自动接入。
+
+本地2333.mod多款步枪/左轮shoot sound=1，M36激光=0。本机高斯110只将该整数0→1，激光100保持0，源Energy.mod SHA7fde01d8…，现装1307594e9132d2919caef549c7d739f174c15c3531131e9118ceef48c17b1d74；整个文件仅偏移8500一个字节不同，其他字段/引用完全一致。桥源码仍8a3d993，别把数据变更当包含在该源码提交内。
+
+首轮驱动过早finish_editor被正确拒绝，0发并退出回滚；补等预览人物后另会话实射3发，7发容量，93RPC无错误。原生日志Bow/Reload/Attack存在，但不是专用Harpoon音色或逐发声音计数证明，人工听感未验证。两轮均退出、停桥、恢复配置，LogAudio恢复false、18项T60哈希与COLD2不变，没有保存、声音库或新音频hook。详见[完整接线、失败及实射证据](native-audio-20261103.md)。
+
+现装保留原生声音字段变更；本地release/Energy_native_sound_20261103为依赖完整模组的数据增量，旧103文件整合候选未覆盖。不要重复两轮或重新运行额外脚步/合成bank实验。下面为历史节点。
+
 # 最新：试玩槽读回及单人计数已实机验证，内容候选已准备
 
 本轮被测源码 **8a3d993750f13604a66d23550fc7594ee290b64f**，测试仪器独立分支 test-machine/single-readonly-observer-20261103 / [Draft PR #4](https://github.com/jackaihyf-gif/Kenshi-AGENT-TEST/pull/4)，基于PR3 d2809fd；没有新的生产回收修复，不合并main。
