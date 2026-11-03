@@ -39,10 +39,24 @@ class KenshiAdapter(GameAdapter):
     def get_state(self, deadline: Deadline) -> GameState:
         deadline.remaining()
         state = self._status(deadline)
-        return GameState(running=True, phase=state["phase"], armor_equipped=any(
-            row.get("upper") == "650-JACK_T60_WearLab.mod"
-            for row in state["characters"].values()
-        ))
+        characters = state.get("characters")
+        rows = characters.values() if isinstance(characters, dict) else ()
+        equipped = False
+        for row in rows:
+            detail = row.get("detail") if isinstance(row, dict) else None
+            wardrobe = detail.get("wardrobe") if isinstance(detail, dict) else None
+            belt = wardrobe.get("14") if isinstance(wardrobe, dict) else None
+            if (
+                isinstance(belt, dict)
+                and belt.get("equipped") is True
+                and belt.get("id") == "650-JACK_T60_WearLab.mod"
+            ):
+                equipped = True
+        # Missing observations never establish readiness or successful equipment.
+        phase = state.get("phase", "unknown")
+        if phase == "ready" and (not isinstance(characters, dict) or not characters):
+            phase = "waiting_for_test_save"
+        return GameState(running=True, phase=phase, armor_equipped=equipped)
 
     def screenshot(self, destination: Path, deadline: Deadline) -> Screenshot:
         deadline.remaining()
