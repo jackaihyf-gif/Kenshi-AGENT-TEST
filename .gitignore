@@ -28,3 +28,9 @@ local-saves/
 *.sav
 *.exe
 *.dll
+*.platoon
+*.gamedata
+*.pdb
+*.lib
+*.dmp
+_screens/
