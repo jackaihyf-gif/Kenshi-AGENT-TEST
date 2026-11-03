@@ -1,0 +1,108 @@
+# 实机测试机交接 — 2026-11-03
+
+本文件是两台电脑、两个 Codex 账号的共享工作入口。不要假定另一账号可读取本机聊天。本 PR 为 Draft，目标 `main`，不合并。
+
+## 目标、分支与被测版本
+
+- 当前目标：冻结真实桥接实现和资源生命周期研究，交给无游戏分析机审查、补测试和提出修复；测试机负责核对修复 SHA 后实测。
+- 测试分支：`test-machine/real-bridge-handoff-20261103`。
+- 原始分支/基点：`main` / `55573b7e1f0c05b6aa538c514f24c2701b5c1727`。
+- 本轮**离线被测源码提交**：`f046af384a7447b9872afc087571ddba650c435d`。从该 commit 的干净 `git archive` 导出运行 pytest，并验证导出包实际导入路径与[源码清单](evidence/code-source-manifest-20261103.json)一致。
+- 最新分支 HEAD 还包含后续交接文档/摘要提交；这些文档提交不是一次新的实机验收。可用 `git log` 区分代码快照和交接提交。
+- **历史实机被测版本**：基点 `55573b7` 加当时未提交的桥/模组工作树，并非纯 `55573b7`；也不能宣称 `f046af3` 的所有新目标都已实测。下面逐项注明范围和未执行项。
+- 本次没有 reset、stash 覆盖或强制切换。原先未提交工作均保留；仅白名单源码进入提交。
+
+## 两台机器与环境
+
+| 项目 | 测试机事实 / 分析机约束 |
+| --- | --- |
+| 角色 | 本机运行真实 Kenshi；另一机无游戏，只做审查、Mock、自动化测试和修复分支 |
+| 平台 | Windows x64；本机 Python/工具具体版本见[聚合摘要](evidence/test-summary-20261103.json) |
+| 游戏 | Steam Kenshi 1.0.65；实际子进程为 RE_Kenshi 构建 |
+| 精确子 EXE SHA-256 | `504b362cde850d56afb1cea6f5b7b0ee014d9dd7b47e188599d91c804502cd3e` |
+| 插件 | RE_Kenshi、KenshiLib、KenshiLua；具体插件版本号未验证，不能据名称推断 ABI |
+| 工具包 | `kenshi-test-cli` 0.1.0；CLI/适配器能力以此提交实现为准 |
+| 原生编译器 | 本机 Zig 0.13.0；`-O1` 默认会关闭 C assert，测试须显式开启并验证 |
+| `game.executable` | 本机私有配置的游戏入口；不要把 launcher 与 RE 实际子 EXE 混用 |
+| `game.bridge_dir` | 本机私有文件 RPC 目录，配置和生成的入口含 token，禁止上传 |
+| `run.reports_dir` | 本机原始报告目录，保持 gitignored |
+| `KENSHI_TEST_LUA51` | 可选 LuaJIT 库路径，用于 Lua API Mock；未设置时部分测试跳过 |
+| `MOD_RESEARCH_ROOT` | 本文对外部模组研究目录的代称，**不是当前 Config 已实现的键**；机器专用 Lua 仍含硬编码路径 |
+
+不共享游戏本体、模型、DLL、原版 SDK、私人存档、桥密钥、原始人物数据或原始日志。没有上传截图；本轮数据/生命周期测试不需要新的人工视觉判断。
+
+## 实际能力矩阵
+
+| 接口 | 已实现 | 未实现 / 证据边界 |
+| --- | --- | --- |
+| `KenshiAdapter.launch` | 检查配置 EXE 存在，通过文件 RPC 附加现有游戏 | 不负责启动，不记录拥有的游戏会话 |
+| `KenshiAdapter.get_state` | 读取真实 status 的 phase，返回简化 GameState | 不提供完整库存；T60 腰甲误从 `upper` 判断，存在已复现误报 |
+| `KenshiAdapter.press_key` | 明确报 `FeatureUnavailable` | I/E 真实装备流程未实现 |
+| `KenshiAdapter.screenshot` | 明确报 `FeatureUnavailable` | 通用适配器截图未实现；不能用专项截图替代此契约 |
+| `KenshiAdapter.stop` | 附加模式不关闭用户游戏 | 空操作，不是拥有进程的回收器 |
+| `run --adapter kenshi --suite observe` | attach + 等待有角色，保留 observation | 本轮未新增端到端实机运行；ready 不等于身体/附件/视觉完成，`game_verified=false` |
+| `run --adapter kenshi --suite armor` | 可尝试附加 | 到 I/E 输入会阻断；不能把 Mock armor 通过当真实通过 |
+| 独立 `start` | Windows 原生启动器握手、已知中英文 Mod 警告、等待新 RPC | 不接受任意警告；`initialized=true` 仅证明桥上线，非 Mod 验收 |
+| 独立 `live` | 固定语义 RPC：状态、指定角色装备/移动、引擎截图等 | 与 GameAdapter 方法不等价；每个动作有各自夹具/暂停/owner 门禁 |
+| Python `LuaBridge` 高级目标 | lifecycle/多人绑定/固定测试槽/研究目标 | 很多目标未在 CLI action 列表公开，依赖本机脚本或 DLL；源码存在不等于已执行 |
+| 原生私有快照研究 | 独立源码和可无游戏运行的 Windows Mock 已共享 | 没有接入生产穿脱/保存；私有释放实机试验未执行；多轮资源回收未完成 |
+
+`run.adapter="mock"` 不会让独立 `start/live` 自动模拟。反过来，真实 `start/live` 可用也不意味着通用适配器完整。Mock、真实 LuaJIT 上的假游戏 API、日志观测、真实游戏状态、人工视觉认可必须分别标注。
+
+## 本轮执行、前提和实际结果
+
+| 命令 / 范围 | 前提与预期 | 实际结果 / 分类 |
+| --- | --- | --- |
+| `python -m pytest -q`，干净导出的 `f046af3` | 已安装包及 CLI；不需要游戏 | **95 passed, 8 skipped, 2 xfailed**，退出0；离线/Mock，不是实机 |
+| `python -m pytest -q tests/test_handoff_known_gaps.py` | 合成状态与模拟时钟；当前缺陷应重现 | **2 XFAIL**，严格预期失败，不能算修复通过 |
+| `python -m pytest --cov=kenshi_test --cov-fail-under=85 ...` | 同一代码内容的本机工作树 | **78.27% < 85%，退出1**；95通过、8跳过、2 XFAIL。launcher 仅15%覆盖 |
+| `python -m ruff check` 提交白名单的 Python 文件 | 静态风格/导入检查 | **27个 E501，退出1**；未隐藏规则、未下调门槛 |
+| `python -m ruff check .` 原始完整工作区 | 包含未整理且未共享的专项脚本 | **2486项**；不代表本次提交包含全部这些文件 |
+| `python scripts/smoke.py` | 独立临时 Mock 配置、已安装 CLI | 结果见聚合摘要；不得当真实游戏 smoke |
+| 6个 `integration/kenshilua/*.lua` 的 `luaL_loadfile` | 本机 LuaJIT，只编译、不调用脚本函数 | **6通过**，静态语法检查，不是游戏执行 |
+| `python experiments/private_snapshot/build_offline.py --compiler <zig.exe> --out <新的输出目录>` | Windows + Zig；不加载游戏/游戏DLL | **断言 sentinel + 两个原生 Mock 通过**；真实断言已开启 |
+| 自动 `start --skip-mod-warnings --timeout 60` 与固定 COLD2 五人流程 | 本机桥和独立夹具；自动存档关闭 | 历史本轮已真实冷启并读到游戏状态，不要求用户手动点 launcher |
+| 五人冷载、6次转队、同进程MIGRATION1读档、5人穿脱、MIGRATION6保存比较 | 已接受的池保护模组基线 | **实际游戏数据范围通过**；完整库存序列化、整机FPS、全面视觉验收未验证 |
+| 私有完整副本：固定人类男/女各一次 | 普通30骨角色，暂停；只修改native私有副本 | **2对/4私有对象通过**：active false→true→false、新键删除、空键保留、八类内容比较、人物源字段与身份不变；未释放对象 |
+| 私有对象真实 native delete，8次/16对象 | 必须先审查指定源码/DLL SHA，保持同一固定现场 | **未执行**：前一轮桥升级被自动审批用量限制阻止，未调用释放；现在审批服务已恢复，仅完成现场收尾 |
+
+完整 pytest 曾输出 Windows LuaJIT protected-error 的 `0xe24c4a02` faulthandler 诊断，但测试进程仍退出0、完成95项通过；这不应写成游戏崩溃。建议将原生库 Mock 隔离到子进程并整理诊断。
+
+## 已确认失败与复现
+
+1. **腰甲误报**：`KenshiAdapter.get_state` 比较 `row.upper == "650-JACK_T60_WearLab.mod"`；真实组件来自腰部 section 14。仓库的合成复现使用现有 `detail.wardrobe["14"]`，上衣为普通衣物，当前适配器却给 false。运行上述 XFAIL 测试可在无游戏机器重现；修复不能只改测试期望。
+2. **慢 session 查询使动作过期**：`LuaBridge.call` 在递归 status 获取 session 前计算 expires。共享总预算60秒、status消耗31秒时，30秒封顶的旧 expires 已过期，尽管仍有29秒预算。第二个 XFAIL 用模拟时钟和文件响应重现，无须冻结游戏线程。
+3. **质量门禁失败**：提交范围 Ruff 27个E501；coverage 78.27% 未达85%。保持 Draft，先修/补测试，不通过排除模块、降低阈值或隐藏规则变绿。
+4. **原生旧 Mock 证据失效**：独立 sentinel 已证明本机 Zig `-O1` 会让 assert 表达式根本不执行。新私有快照 Mock 显式启用；旧“mock passed”不能直接沿用。reader/epoch 屏障显式断言重跑通过；旧lease测试也发现模拟夹具只清 quarantine 却留下 lease 的隔离错误。完整隔离版并发/ABA/溢出通过；`T60_save_generation` 在 quarantine 仍可返回诊断ID，不能把这个ID当释放许可。
+5. **资源回收仍未解决**：旁置引擎对象不能凭队列为空快照释放；新方向只证明私有内容复制。直接借用原始data的早期实验会改写3名男性head，已否决撤回；不能把工厂次数0当外观无损。
+
+短错误摘录：`Required test coverage of 85% not reached. Total coverage: 78.27%`；`E501 Line too long`。模块3游戏操作的旧阻断为自动审批用量服务失败，不是判定代码安全或不安全；该动作未执行。
+
+## 证据位置与本地状态
+
+- 共享的、适合公开的聚合结果：[test-summary-20261103.json](evidence/test-summary-20261103.json)。源码映射：[code-source-manifest-20261103.json](evidence/code-source-manifest-20261103.json)。没有强制添加 `reports/`。
+- 本机原始离线日志：`run.reports_dir/handoff-f046af3-pytest.log`、`handoff-pytest-20261103.log`、`handoff-coverage-20261103.xml`、`handoff-ruff-selected-20261103.json`、`handoff-native-mocks-20261103/results.json`。
+- 本机原始实机证据代称：`MOD_RESEARCH_ROOT/appearance_retirement_20261103/lua_alias_guard/final_validation.json`、`private_snapshot_20261103/capture_retry1.json`、`private_snapshot_complete_20261103/complete_run1.json` 和本轮 `handoff_cleanup_20261103.json`。仅共享结论与哈希，不上传人物字段/存档；远端无法独立检查这些私有原始数据。
+- 接收交接前现场已到安全节点：五人暂停、自动存档关闭、无在途请求。测试机核对会话/实际EXE/句柄后关闭自己创建的游戏，停用桥，核验18项已接受模组运行文件哈希未变。
+- **当前资源：Kenshi测试进程已退出、桥停用、没有实机测试在运行。** 收尾前整个Kenshi进程约4.1GiB工作集/9.3GiB私有内存；包含原版世界，不能归因为模组或据此声称优化。Steam客户端没有被强行关闭。
+- 当前生产模组仍为已通过五人回归的池身份保护版；没有安装快照/释放候选。当前原生上限16次外观累计/32材质槽/128灯池，不清零、不扩容掩盖问题。
+- 仓库剩余未提交工作主要是本机专项脚本，列表：[local-unshared-files-20261103.txt](evidence/local-unshared-files-20261103.txt)。它们保留在本机，没有被重置或打包共享；部分历史文档引用的专项命令因此不在此PR。
+- 外部模组工程仍有研究代码和证据，不属于此仓库。共享的自编研究源码已放入 [experiments/private_snapshot](../../experiments/private_snapshot/README.md)，原始/规范化源码哈希可对应到本机候选；编译产物未上传。
+
+## 请分析机处理的三个修复任务
+
+1. 从本测试分支新建 `fix/...` 分支，修复腰部组件状态与 session/expiry 顺序；扩展未知/缺字段、错误会话、慢 status、deadline耗尽等测试。将对应严格 XFAIL 转为普通通过断言，明确 observe 的“角色存在”和“外观完成”语义，保持 `game_verified=false`。
+2. 修复27项提交内 Ruff 问题，给启动器/真实适配器的可注入系统边界补离线测试，使覆盖达到现有85%而非降阈值。整理 LuaJIT 环境变量与本机硬路径依赖、子进程异常隔离、跨平台跳过原因；CI继续完全不依赖游戏。
+3. 审查私有快照与私有析构候选的所有权、异常隔离、单调计数、槽重用和后续保存借用设计，补显式断言 Mock。当前候选不包含生产保存/恢复协议，禁止仅解除释放开关就宣称长期资源问题修复。PR明确修改的源SHA、构建命令与希望测试机执行的最小验证。
+
+另一账号不要向本测试分支直接堆修复，不合并main，不假定本机私有路径/夹具句柄有效。所有决定、复现和未解决问题写入PR/文档，不能只留在另一聊天。
+
+## 收到修复 commit 后的复测计划
+
+1. 读取 PR diff 和**明确的修复SHA**；在无游戏运行的安全节点通过独立 worktree/导出测试，保留本工作区未提交内容，记录被测SHA和源码清单。
+2. 跑无游戏 pytest、Ruff、coverage、CLI smoke及必要的断言开启原生 Mock，逐项记录跳过/失败。必要时先解决参数化和部署路径，不能假定capsule代码自动替换本机DLL。
+3. 核对游戏与插件构建、18项模组基线；仅按已审查版本构建/部署桥或实验DLL，记录其源码SHA与产物SHA，不覆盖已载入的DLL。默认冷启；只使用独立固定夹具和新证据文件。
+4. 实测腰部slot14与适配器回读一致、上衣变化不造成误报；过期边界先用Mock复现，真实操作只用受限角色和有界动作。状态存在不等同外观完成或人工视觉认可。
+5. 私有析构只有完成独立审查与门禁后才执行：最多8次双对象trial，期望16次私有创建/正常析构返回、保留0、人物字段/身份始终不变，第17次创建尝试拒绝。当前仍**未验证**；任何异常立即停测并隔离，绝不对人物当前data重试free。
+6. 若进一步接入生产快照/保存，另建唯一保存槽并比较原字段/种族/库存范围，再做多轮读档及材质、头灯预算检查。局部私有释放通过不能替代整体回收、跨区、伤病、制作或视觉验收。
+7. 更新此文档和小型共享摘要，保留原始报告在本机，收尾关闭自己创建的测试游戏并停用桥；仍通过 Draft PR 交换，不自动合并。
