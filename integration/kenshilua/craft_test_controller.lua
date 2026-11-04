@@ -136,10 +136,18 @@ function M.new(config)
    return snapshot(b)
   elseif action=='fresh'then
    assert(not b:hasCraftingQueued(),'Finish existing craft first');benches[key]=nil;return {discarded_fixture_reference=true}
+  elseif action=='cancel-single'then
+   -- Only the one recipe queued by this fixture may be cancelled for A/B
+   -- progress sampling. The actor/world/pause guards above remain mandatory.
+   local q=assert(state.singleQueue,'No bounded fixture queue proof')
+   assert(q.bench==b and q.times==1 and state.work==nil,'Not a single native-operated fixture queue')
+   if b:hasCraftingQueued()then b:_removeCraft(0)end
+   assert(not b:hasCraftingQueued(),'Fixture cancellation left a queue')
+   state.singleQueue=nil;return snapshot(b)
   elseif action:match('^queue:')then
    local what=action:sub(7);local name,number=what:match('^(%a+):(%d+)$');local times=number and tonumber(number)or 1;what=name or what;assert(times>=1 and times<=10,'Batch outside fixture limit');local id=assert(IDs[what],'Unknown product');assert(not b:hasCraftingQueued(),'Queue not empty')
    local t=what=='armour'and 3 or(what=='laser'or what=='gauss')and 107 or 4;local item=gd(id,t);local mat=(what=='laser'or what=='gauss')and gd((what=='laser'and'300-'or'310-')..'JACK_EnergyWeapons.mod',50)or item
-   for i=1,times do b:_addCraft(item,mat,0,0)end;b:setProductionItem(item,1,0);return snapshot(b)
+   for i=1,times do b:_addCraft(item,mat,0,0)end;b:setProductionItem(item,1,0);state.singleQueue={bench=b,times=times};return snapshot(b)
   elseif action:match('^deliver:')then
    assert(key=='energy','Deliver from energy bench only');local what=action:sub(9);local id=assert(IDs[what]);assert(id==IDs.servo or id==IDs.frame,'Only manufactured armour components')
    local target=assert(benches.armour);local dst=target:getInventory();local destination
