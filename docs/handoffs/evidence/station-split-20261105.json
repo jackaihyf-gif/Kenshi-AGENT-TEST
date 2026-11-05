@@ -1,7 +1,7 @@
 {
   "craft_sha256": "1f03ee6ccb69a6dae018785bdb53f400178d177b88534ad6eac3dedf95d39182",
   "production_fixture_commit": "1cb3c1b271b8ba13d76259dfe718ba502a8e8a52",
-  "production_source_provenance": "authored build_candidate_local.py copies the exact tested build.py; content candidate is outside Git",
+  "production_source_provenance": "published builder normalized-AST equivalent to exact tested build.py; format/import/lambda/zip-strict=False only; installed candidate unchanged",
   "configured_partitions": {
     "energy": [
       "100-JACK_EnergyWeapons.mod",
@@ -317,5 +317,9 @@
       "phase": "native-menus",
       "result": "correct bench names but empty native recipe lists because disposable slot had not researched technologies; no game/RPC error"
     }
-  ]
+  ],
+  "analysis_machine_prs_not_applied": {
+    "7": "4c6bb22a25f724fdb31dae9622fef3c0f3dcbc86",
+    "8": "c79192003acb622bc5b4c06ae56b9a5ffcc28462"
+  }
 }

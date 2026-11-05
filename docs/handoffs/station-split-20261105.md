@@ -1,4 +1,4 @@
-源码 85fa9614dab102faaf5e1ab96c43596bf41d6b48 / https://github.com/jackaihyf-gif/Kenshi-AGENT-TEST/pull/9；仪器文档HEAD 5f0aad82868578f5e527c616498f59afeb42e71c / https://github.com/jackaihyf-gif/Kenshi-AGENT-TEST/pull/10；实际最终菜单SHA ca6ebdaeea1fc86f5d49c11b5d18d477d0c4cc8c。均Draft未合并。
+发布后源码HEAD 444f5d525496bc2beea74fa288391a734c48d099（仅格式，归一化AST等价/Ruff通过）；实际候选1f03与实测仪器SHA均未变。PR9/10保持Draft；已核分析机PR7/8仅离线格式门禁，未接入本轮、不触发重跑游戏。
 
 # 三工作台分离实机交接（2026-11-05）
 
@@ -48,3 +48,5 @@ Windows x64、16GiB内存，游戏子EXE SHA256 `504b362cde850d56afb1cea6f5b7b0e
 分析机具体任务：①审查210护甲+ITEM混合分派及旧队列迁移；②为真正有界跨区与自然连续队列混箱观察补最小固定仪器，保留门禁；③继续reader/epoch/保存借用/回滚释放协议，提供明确完整修复SHA。修复后本机先核SHA/哈希，再只在对应独立会话测差异，不合并main。
 
 本机备份 `mod.project/research/station_split_20261105`，发行 `mod.project/release/Station_split_20261105` 只有Craft数据增量，依赖原完整模组及既有资产。回退只在无游戏安全节点从该备份恢复fe8；不自动回写存档或改历史清单。共享内容仅作者源码、小摘要及三张独立测试截图，无游戏二进制/存档/凭据/原始报告。
+
+发布后作者构建脚本做纯格式整理，归一化AST等价检查通过、变更文件Ruff通过，未重建/替换候选或重跑游戏。准确归一化见station-split-source-format-20261105.json。另已核远端PR7 `4c6bb22a25f724fdb31dae9622fef3c0f3dcbc86` / PR8 `c79192003acb622bc5b4c06ae56b9a5ffcc28462`，均为分析机Python格式/离线门禁修复，尚未接入本轮分支，也不是新的生产回收/跨区修复；不为此重复实机。基线全量CI仍需这些独立审查，不把本轮变更文件Ruff通过说成整个历史分支质量门禁通过。

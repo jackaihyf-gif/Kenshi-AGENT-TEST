@@ -1,3 +1,5 @@
+发布后源码HEAD 444f5d525496bc2beea74fa288391a734c48d099（仅格式，归一化AST等价/Ruff通过）；实际候选1f03与实测仪器SHA均未变。PR9/10保持Draft；已核分析机PR7/8仅离线格式门禁，未接入本轮、不触发重跑游戏。
+
 源码 85fa9614dab102faaf5e1ab96c43596bf41d6b48 / https://github.com/jackaihyf-gif/Kenshi-AGENT-TEST/pull/9；仪器文档HEAD 5f0aad82868578f5e527c616498f59afeb42e71c / https://github.com/jackaihyf-gif/Kenshi-AGENT-TEST/pull/10；实际最终菜单SHA ca6ebdaeea1fc86f5d49c11b5d18d477d0c4cc8c。均Draft未合并。
 
 # 最新覆盖：三工作台配方分离已安装（2026-11-05）
