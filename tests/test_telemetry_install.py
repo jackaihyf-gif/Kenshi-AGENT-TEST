@@ -8,9 +8,12 @@ import subprocess
 import sys
 from pathlib import Path
 from unittest.mock import Mock
+import pytest
 
 
-def test_observer_install_identity_and_backup(tmp_path, monkeypatch):
+@pytest.mark.parametrize('module,field', [('single_telemetry.lua', 'telemetry_tools_sha256'),
+                                         ('haul_fixture.lua', 'haul_tools_sha256')])
+def test_observer_install_identity_and_backup(tmp_path, monkeypatch, module, field):
     import ctypes
 
     project = tmp_path / "project"
@@ -32,17 +35,17 @@ def test_observer_install_identity_and_backup(tmp_path, monkeypatch):
     monkeypatch.setattr(sys, "argv", [str(installer), "--game", str(game), "--install"])
     runpy.run_path(str(installer), run_name="__main__")
     bridge = project / "local-game/bridge"
-    installed = bridge / "single_telemetry.lua"
+    installed = bridge / module
     original = installed.read_bytes()
     init = mod / "scripts/init/agent_test_bridge.lua"
     first_init = init.read_bytes()
-    change = project / "integration/kenshilua/single_telemetry.lua"
+    change = project / "integration/kenshilua" / module
     change.write_bytes(original + b"\n-- observer revision for upgrade test\n")
     runpy.run_path(str(installer), run_name="__main__")
     manifest = json.loads((bridge / "installation.json").read_text("utf-8"))
     assert installed.read_bytes() == change.read_bytes()
-    assert manifest["telemetry_tools_sha256"] == hashlib.sha256(installed.read_bytes()).hexdigest()
+    assert manifest[field] == hashlib.sha256(installed.read_bytes()).hexdigest()
     assert init.read_bytes() != first_init
     backup = Path(manifest["backup"])
-    assert (backup / "single_telemetry.lua").read_bytes() == original
+    assert (backup / module).read_bytes() == original
     assert (backup / "agent_test_bridge.lua").read_bytes() == first_init

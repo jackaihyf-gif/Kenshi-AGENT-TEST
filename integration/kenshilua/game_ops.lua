@@ -61,7 +61,10 @@ function M.new(config)
   return meleeCapture
  end
  function A.power(c,choice)return dofile(config.root..'/power_test_controller.lua').new(config).select(c,choice or'status')end
- function A.craft(c,choice)return dofile(config.root..'/craft_test_controller.lua').new(config).select(c,choice or'status')end
+ function A.craft(c,choice)
+  if choice and choice:match('^haul%-')then return dofile(config.root..'/haul_fixture.lua').new(config).select(c,choice)end
+  return dofile(config.root..'/craft_test_controller.lua').new(config).select(c,choice or'status')
+ end
  local serviceTests=dofile(config.root..'/service_test_controller.lua').new(config)
  function A.service(c,choice)return serviceTests.select(c,choice or 'status')end
  local weaponTests=dofile(config.root..'/weapon_test_controller.lua').new({
@@ -447,6 +450,7 @@ function M.new(config)
   else assert(item and item.isEquipped and main:hasRoomForItem(item.data,1),'Equipped component and legal space required');local source=assert(inv:getSection(item.inventorySection));assert(source:removeItem(item));if not main:addItem(item,1)then assert(source:addItem(item,1));error('Unequip rolled back')end end
   inv:notifyModified();return {operation=op,name=name,handle=v.handle}
  end
+ local visibilityRebuilds=0
  function A.lifecycle(w,list,req)
   local sm=manager();local root='D:/JACK/KenshiArmorMod/research/lifecycle_v096/saves/'
   if req.target=='ownership:entrypoints'then
@@ -503,6 +507,15 @@ function M.new(config)
    local path='D:/JACK/KenshiArmorMod/research/lifecycle_stage2_20261030/saves/'
    local name='T60_'..req.target:sub(6);local f=assert(io.open(path..name..'/quick.save','rb'),'Stage2 save missing');f:close()
    sm:load(name);sm.location=path;return {operation='load',root=path,name=name,deferred=true}
+  end
+  if req.target=='single-visibility-rebuild'then
+   -- Reuse the full fixed-load/GUI/epoch/single-actor admission proof.
+   local proof=A.lifecycle(w,list,{target='single-telemetry'})
+   assert(proof and visibilityRebuilds<2,'Visibility rebuild fixture budget exhausted')
+   local c=w.player.playerCharacters[1];local a=assert(c:getAppearance())
+   assert(w.paused and not a.isCreatingBody and not a.updateBody,'Pause stable fixture first')
+   visibilityRebuilds=visibilityRebuilds+1;a:reload()
+   return {requested=true,ordinal=visibilityRebuilds,maximum=2,native_reload=true,real_zone_unload=false}
   end
   if req.target=='single-telemetry'then
    return dofile(config.root..'/single_telemetry.lua').snapshot(w.player and w.player.playerCharacters[1],config,{
@@ -981,6 +994,9 @@ function M.new(config)
    end
   end
   if _G.JACK_CRAFT_TEST_STATE and _G.JACK_CRAFT_TEST_STATE.work then dofile(config.root..'/craft_test_controller.lua').new(config).frame()end
+  if _G.JACK_CRAFT_TEST_STATE and _G.JACK_CRAFT_TEST_STATE.haul and _G.JACK_CRAFT_TEST_STATE.haul.active then
+   dofile(config.root..'/haul_fixture.lua').new(config).frame()
+  end
   serviceTests.frame()
   if meleeCapture and meleeCapture.active then
    local mc=meleeCapture;local w=getGameWorld()
