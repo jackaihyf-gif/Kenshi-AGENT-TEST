@@ -63,7 +63,9 @@ function M.new(config)
  function A.power(c,choice)return dofile(config.root..'/power_test_controller.lua').new(config).select(c,choice or'status')end
  function A.craft(c,choice)
   if choice and choice:match('^haul%-')then return dofile(config.root..'/haul_fixture.lua').new(config).select(c,choice)end
-  return dofile(config.root..'/craft_test_controller.lua').new(config).select(c,choice or'status')
+  local r=dofile(config.root..'/craft_test_controller.lua').new(config).select(c,choice or'status')
+  r.operator_skills={armour=c:getStats():getStat(8,true),crossbow=c:getStats():getStat(38,true)}
+  return r
  end
  local serviceTests=dofile(config.root..'/service_test_controller.lua').new(config)
  function A.service(c,choice)return serviceTests.select(c,choice or 'status')end
