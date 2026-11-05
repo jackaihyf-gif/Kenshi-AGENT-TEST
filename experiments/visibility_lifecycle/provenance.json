@@ -1,0 +1,7 @@
+{
+  "dll_sha256": "a5c5c9fea6675256e716d8065e1314abd66b6006f069c3444951dd6b98354d24",
+  "source_sha256": "c53b414627bd63e4d43e56caaf4137db1e1c8615855b154dac82bba67f837821",
+  "binder_sha256": "5b5bf376888ee20f36962e3484574d4b2048155b72b7771a3b9c548518c6856a",
+  "fixture_tested_commit": "24bb0c39b92ecd894455a20c28a11b8c1389f954",
+  "real_scope": "cold equip, two native body reloads, unequip; real zone streaming unverified"
+}

@@ -26,6 +26,7 @@ class Config:
     timeout: float = 5.0
     poll_interval: float = 0.01
     game_executable: Path | None = None
+    game_bridge_dir: Path | None = None
     asset_paths: tuple[Path, ...] = ()
     asset_manifest: Path | None = None
     mock: MockConfig = field(default_factory=MockConfig)
@@ -76,7 +77,7 @@ def load_config(path: Path | None = None) -> Config:
     base = source.parent
     _table(data, "root", {"run", "game", "mock", "assets"})
     run = _table(data.get("run", {}), "run", {"adapter", "timeout", "poll_interval", "reports_dir"})
-    game = _table(data.get("game", {}), "game", {"executable"})
+    game = _table(data.get("game", {}), "game", {"executable", "bridge_dir"})
     mock = _table(data.get("mock", {}), "mock", {"scenario", "launch_delay", "load_delay"})
     assets = _table(data.get("assets", {}), "assets", {"paths", "manifest"})
     adapter = run.get("adapter", "mock")
@@ -97,6 +98,8 @@ def load_config(path: Path | None = None) -> Config:
         poll_interval=number(run.get("poll_interval", 0.01), "run.poll_interval"),
         game_executable=resolve_path(executable, base, "game.executable")
         if executable is not None else None,
+        game_bridge_dir=resolve_path(game["bridge_dir"], base, "game.bridge_dir")
+        if "bridge_dir" in game else None,
         asset_paths=tuple(resolve_path(p, base, "assets.paths") for p in paths),
         asset_manifest=resolve_path(assets["manifest"], base, "assets.manifest")
         if "manifest" in assets else None,
