@@ -1,4 +1,4 @@
-"""A changed observer must change the startup identity and preserve the old file."""
+"A changed observer must change the startup identity and preserve the old file."
 
 import hashlib
 import json
@@ -8,11 +8,14 @@ import subprocess
 import sys
 from pathlib import Path
 from unittest.mock import Mock
+
 import pytest
 
 
-@pytest.mark.parametrize('module,field', [('single_telemetry.lua', 'telemetry_tools_sha256'),
-                                         ('haul_fixture.lua', 'haul_tools_sha256')])
+@pytest.mark.parametrize(
+    "module,field",
+    [("single_telemetry.lua", "telemetry_tools_sha256"), ("haul_fixture.lua", "haul_tools_sha256")],
+)
 def test_observer_install_identity_and_backup(tmp_path, monkeypatch, module, field):
     import ctypes
 
