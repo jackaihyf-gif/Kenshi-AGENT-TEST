@@ -247,3 +247,12 @@ PR1/5/6/9/10/11/12本轮准确源码HEAD全部check-runs通过（含push与PR）
 本机全仓Ruff、sdist/wheel安装后完整pytest135通过/9可选Lua跳过、92.42%覆盖、CLI smoke、额外LuaJIT12通过；120+4加载序合并/字节往返/候选回读通过。准确源HEAD全部14项远端push/PR检查success后，已安装Craft e0c48262fb4489088862d5b02a6c3d25f6b5ce910aa50ffdc25ece2e0e1c5034，Energy仍e85d、mods.cfg53dedc保持；没有改任何DLL。备份research/vanilla_arrow_ammo_20261105，release/Vanilla_arrow_ammo_20261105仅单文件增量，旧清单仍是历史。
 
 用户游戏运行中，只部署下次重启读取的静态数据，不接管/暂停/关闭游戏、不开桥、不改存档；原版菜单/旧档/自然制作仍未验证，不沿用旧专台实机结果。用户正常保存退出再启动后验收两台列表、原科技要求与两配方材料/产出；不先要求导入。完整SHA、证据及最小步骤见[交接](vanilla-arrow-ammo-20261105.md)和[摘要](evidence/vanilla-arrow-ammo-20261105.json)。生产资源free与二次读档NULL midpoint仍未根治，其余既有结论不变；保留全部历史脚本与现场。
+
+
+## 最新用户确认：2026-11-05 弹药增量与激光削弱一起实装
+
+已按用户明确同意，将两弹药ITEM charges1→2，激光五个pierce damage字段统一×0.85：基础30→25.5、低端75/105→63.75/89.25、高端110/150→93.5/127.5。高斯全部字段、两枪num shots30/7、射速/重量/声音/stack100/材料/工时/科技保留；无新DLL/脚本/轮询。用户最初问是否削弱时尚未改，随后“一起实装”授权后才落地，不能把旧试玩数据倒填为新平衡验收。
+
+独立fix/ammo-reserve-20261105，源32e9614cd3680d2d33d278711c784b367c0afa6e / [Draft PR14](https://github.com/jackaihyf-gif/Kenshi-AGENT-TEST/pull/14)，全部14项push/PR检查success后已备份原子安装Energy25fb49234e1fa254e6c6f9e4dfebc6a31820f9bc99ce7c5f46bad3f97c515533。Craft仍e0c48262、120mods.cfg仍53dedcd2、所有DLL不变。初始46009651仅加弹药候选未安装。备份research/ammo_balance_20261105，release/Ammo_balance_20261105仅Energy单文件增量；旧e85d及清单保留，不再按旧哈希误报损坏。
+
+本机全仓Ruff、源码/轮子安装完整pytest135通过/9可选Lua跳过、92.42%覆盖（CLI包）、CLI smoke与实际LuaJIT12通过。14记录完整保留、字节往返/回读一致，当前120+4合并只有7字段变化。用户游戏没有被操作/暂停/关闭、无桥和存档写入，实际伤害、每包消耗及旧枪旧包未验证；不承诺给旧包补满、不把charges×num shots称为已测60/14发。正常重启后以新制弹药和同品质枪验收，旧包/旧枪分开记录，不为此先导入。完整[交接](ammo-balance-20261105.md)及[摘要](evidence/ammo-balance-20261105.json)。其他原版工作台/自然AI/换区和资源生命周期既有未验证项不变，不自动合并main。
