@@ -14,4 +14,19 @@ PR1在独立干净工作树处理，src/scripts/tests Python内容与完整验�
 
 AGENTS.md新增完整提交门禁：全仓Ruff、源码/轮子与安装后完整pytest及85%覆盖率、CLI smoke、原生改动必须有CI断言Mock；核准确HEAD的远端CI后才报告交付，失败先修，不再以仅改动文件或26项子集代替。未提交脚本及原始现场必须保留，必要时隔离工作树检查。
 
-本文件写入时远端新HEAD的CI尚待核对；最终每个分支SHA与Actions结论记录在结果分支同名交接及证据JSON，以准确HEAD为准，不沿用旧绿灯。用户仍让第4项资源/读档稳定性为主，其余功能留晚间人工验收；本轮质量审计完成后回到第4项。
+
+## 远端准确HEAD检查结果
+
+| PR | 分支 | 已核对HEAD | 全部检查 |
+|---|---|---|---|
+| #1 | `test-machine/real-bridge-handoff-20261103` | `63bbf99d0f4d73b735d4577535c51f235b759009` | 12项全部成功 |
+| #5 | `fix/local-playability-20261105` | `7d4775de57e4319283d390f49ce57900301424ad` | 14项全部成功 |
+| #6 | `test-machine/local-fix-fixture-20261105` | `b686be67fb0353a26e9e1f58650179449a4be6d1` | 14项全部成功 |
+| #9 | `fix/station-separation-20261105` | `8414d1fdc3967a6a986f5ed52afde86c4562c100` | 14项全部成功 |
+| #10 | `test-machine/station-separation-20261105` | `af23e550a93fe4dd11f8d2ef1be1671ae0dead50` | 14项全部成功 |
+| #11 | `fix/save-reader-lifecycle-20261105` | `817830d98b7d6adc4ff66cd6e0304b092a92e2e5` | 16项全部成功 |
+| #12 | `test-machine/save-reader-lifecycle-20261105` | `1334fc453f3886e6299b66d909cdb10f9c08f82d` | 14项全部成功 |
+
+除连接器返回的PR触发记录外，另查同SHA全部check-runs（push/PR触发），全部完成且success。明细见[evidence](evidence/pr-quality-audit-20261105.json)。本报告写回后的PR1追加提交仅更新交接，仍会检查其新HEAD的CI；上述PR1行为源码核对点明确保留为63bbf99d，不将文档提交倒填旧实测。当前原生实测源码9d95a9cb33ed138175fc42042fd969e2174e6d4b、仪器7f5d1b9f8f7e18e37b7a6fafcabf40acfdfa7d92及三运行文件安装哈希不变。CI通过不代表真实NULL分支命中或生产资源free完成。
+
+当前继续第4项；其他功能仍留用户晚间人工验收，不因质量审计重跑游戏。所有PR继续Draft，不合并main。

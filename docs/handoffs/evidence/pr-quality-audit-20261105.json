@@ -1,0 +1,278 @@
+{
+  "audit_date": "2026-11-05",
+  "all_checked_heads_success": true,
+  "heads": [
+    {
+      "pr": 5,
+      "branch": "fix/local-playability-20261105",
+      "sha": "7d4775de57e4319283d390f49ce57900301424ad",
+      "checks_count": 14,
+      "conclusion": "success",
+      "check_names": [
+        "Windows visibility lifecycle mock",
+        "ubuntu-latest / Python 3.11",
+        "ubuntu-latest / Python 3.12",
+        "ubuntu-latest / Python 3.13",
+        "windows-latest / Python 3.11",
+        "windows-latest / Python 3.12",
+        "windows-latest / Python 3.13"
+      ],
+      "check_ids": [
+        127161865960,
+        127161865922,
+        127161865896,
+        127161865859,
+        127161865736,
+        127161865586,
+        127161864988,
+        127161839127,
+        127161838973,
+        127161838950,
+        127161838917,
+        127161838899,
+        127161838804,
+        127161838527
+      ]
+    },
+    {
+      "pr": 6,
+      "branch": "test-machine/local-fix-fixture-20261105",
+      "sha": "b686be67fb0353a26e9e1f58650179449a4be6d1",
+      "checks_count": 14,
+      "conclusion": "success",
+      "check_names": [
+        "Windows native ownership mocks",
+        "ubuntu-latest / Python 3.11",
+        "ubuntu-latest / Python 3.12",
+        "ubuntu-latest / Python 3.13",
+        "windows-latest / Python 3.11",
+        "windows-latest / Python 3.12",
+        "windows-latest / Python 3.13"
+      ],
+      "check_ids": [
+        127161910377,
+        127161910202,
+        127161910111,
+        127161910015,
+        127161910010,
+        127161909888,
+        127161909798,
+        127161872349,
+        127161872142,
+        127161871999,
+        127161871982,
+        127161871936,
+        127161871843,
+        127161871583
+      ]
+    },
+    {
+      "pr": 9,
+      "branch": "fix/station-separation-20261105",
+      "sha": "8414d1fdc3967a6a986f5ed52afde86c4562c100",
+      "checks_count": 14,
+      "conclusion": "success",
+      "check_names": [
+        "Windows visibility lifecycle mock",
+        "ubuntu-latest / Python 3.11",
+        "ubuntu-latest / Python 3.12",
+        "ubuntu-latest / Python 3.13",
+        "windows-latest / Python 3.11",
+        "windows-latest / Python 3.12",
+        "windows-latest / Python 3.13"
+      ],
+      "check_ids": [
+        127161940743,
+        127161940736,
+        127161940636,
+        127161940630,
+        127161940520,
+        127161940441,
+        127161940373,
+        127161906349,
+        127161906227,
+        127161906078,
+        127161905961,
+        127161905950,
+        127161905844,
+        127161905667
+      ]
+    },
+    {
+      "pr": 10,
+      "branch": "test-machine/station-separation-20261105",
+      "sha": "af23e550a93fe4dd11f8d2ef1be1671ae0dead50",
+      "checks_count": 14,
+      "conclusion": "success",
+      "check_names": [
+        "Windows native ownership mocks",
+        "ubuntu-latest / Python 3.11",
+        "ubuntu-latest / Python 3.12",
+        "ubuntu-latest / Python 3.13",
+        "windows-latest / Python 3.11",
+        "windows-latest / Python 3.12",
+        "windows-latest / Python 3.13"
+      ],
+      "check_ids": [
+        127161972137,
+        127161972125,
+        127161972082,
+        127161972024,
+        127161971984,
+        127161971805,
+        127161971615,
+        127161949747,
+        127161949685,
+        127161949672,
+        127161949590,
+        127161949576,
+        127161949502,
+        127161949259
+      ]
+    },
+    {
+      "pr": 11,
+      "branch": "fix/save-reader-lifecycle-20261105",
+      "sha": "817830d98b7d6adc4ff66cd6e0304b092a92e2e5",
+      "checks_count": 16,
+      "conclusion": "success",
+      "check_names": [
+        "Windows save-reader and reset-guard mocks",
+        "Windows visibility lifecycle mock",
+        "ubuntu-latest / Python 3.11",
+        "ubuntu-latest / Python 3.12",
+        "ubuntu-latest / Python 3.13",
+        "windows-latest / Python 3.11",
+        "windows-latest / Python 3.12",
+        "windows-latest / Python 3.13"
+      ],
+      "check_ids": [
+        127162015795,
+        127162015688,
+        127162015679,
+        127162015554,
+        127162015538,
+        127162015279,
+        127162014997,
+        127162014825,
+        127161991830,
+        127161991622,
+        127161991478,
+        127161991395,
+        127161991340,
+        127161991308,
+        127161991111,
+        127161991012
+      ]
+    },
+    {
+      "pr": 12,
+      "branch": "test-machine/save-reader-lifecycle-20261105",
+      "sha": "1334fc453f3886e6299b66d909cdb10f9c08f82d",
+      "checks_count": 14,
+      "conclusion": "success",
+      "check_names": [
+        "Windows native ownership mocks",
+        "ubuntu-latest / Python 3.11",
+        "ubuntu-latest / Python 3.12",
+        "ubuntu-latest / Python 3.13",
+        "windows-latest / Python 3.11",
+        "windows-latest / Python 3.12",
+        "windows-latest / Python 3.13"
+      ],
+      "check_ids": [
+        127162053684,
+        127162053643,
+        127162053615,
+        127162053597,
+        127162053585,
+        127162053488,
+        127162053101,
+        127162030668,
+        127162030550,
+        127162030516,
+        127162030489,
+        127162030405,
+        127162030335,
+        127162030307
+      ]
+    },
+    {
+      "pr": 1,
+      "branch": "test-machine/real-bridge-handoff-20261103",
+      "sha": "63bbf99d0f4d73b735d4577535c51f235b759009",
+      "checks_count": 12,
+      "conclusion": "success",
+      "check_names": [
+        "ubuntu-latest / Python 3.11",
+        "ubuntu-latest / Python 3.12",
+        "ubuntu-latest / Python 3.13",
+        "windows-latest / Python 3.11",
+        "windows-latest / Python 3.12",
+        "windows-latest / Python 3.13"
+      ],
+      "check_ids": [
+        127162097102,
+        127162096997,
+        127162096985,
+        127162096960,
+        127162096847,
+        127162096599,
+        127162069886,
+        127162069760,
+        127162069679,
+        127162069651,
+        127162069627,
+        127162069463
+      ]
+    }
+  ],
+  "source_family_local": {
+    "family": "source",
+    "junit": {
+      "tests": 139,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 9
+    },
+    "coverage_percent": 92.42,
+    "coverage_minimum": 85,
+    "all_gates_passed": true
+  },
+  "fixture_family_local": {
+    "family": "fixture",
+    "junit": {
+      "tests": 127,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 10
+    },
+    "coverage_percent": 92.42,
+    "coverage_minimum": 85,
+    "all_gates_passed": true
+  },
+  "extra_luajit": {
+    "source_family": {
+      "passed": 12,
+      "skipped": 0
+    },
+    "fixture_family": {
+      "passed": 13,
+      "skipped": 0
+    }
+  },
+  "native_visibility": {
+    "result": "passed",
+    "game_launched": false,
+    "production_dll_built": false,
+    "ndebug_build_rejected": true,
+    "assertion_sentinel_executed": true,
+    "source_sha256": "2f85b13add41ab4e55c25c631e31998bff18430ab13002c1885c5f12e4442416",
+    "stdout": "PASS attach intent weapon >2s destruction address-reuse end appearance-dtor epoch"
+  },
+  "native_save_reset": "Local assertion-enabled mocks and new remote workflow passed; native output DLLs disposable, not installed or uploaded",
+  "installed_game_files_changed": false,
+  "game_launched": false,
+  "historical_untracked_scripts_preserved": 75,
+  "note": "PR1 checked code head precedes a subsequent handoff-only commit; final PR1 head must also be checked in Actions. Runtime evidence remains source9d95a9c/fixture7f5d1b9; CI is not new game validation."
+}

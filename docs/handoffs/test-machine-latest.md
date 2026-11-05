@@ -1,3 +1,9 @@
+# 最新：远端PR质量审计已补齐（2026-11-05）
+
+PR1/5/6/9/10/11/12本轮准确源码HEAD全部check-runs通过（含push与PR）。已吸收PR7/8及PR2既有接口修复：腰槽14、发送时计算过期、session/保留字段检查；两个旧XFAIL已转回正常回归。源码家族130通过/9可选Lua跳过，仪器117通过/10跳过，均92.42%覆盖且85%门槛不变；本机另显式LuaJIT 12/13项通过。visibility和save/reset原生断言Mock现接CI，不再只报子集或改动文件检查。
+
+当前源码PR11 `817830d98b7d6adc4ff66cd6e0304b092a92e2e5`；仪器PR12 `1334fc453f3886e6299b66d909cdb10f9c08f82d`。本轮仅Python测试工具/格式/测试/CI/交接，未启动游戏、未更换已安装DLL/.mod/资源；原生实际被测源9d95a9cb33ed138175fc42042fd969e2174e6d4b、仪器7f5d1b9f8f7e18e37b7a6fafcabf40acfdfa7d92保持，不把新QA HEAD当新实机。原生产free仍未完成，reset midpoint未实机命中。用户仍让本机只推进第4项，其他晚上人工验收。详见[原因、修复、全量门禁与准确SHA表](pr-quality-audit-20261105.md)。下方历史以本段覆盖。
+
 源码HEAD 5a343fd794e100077a5d9eb006f67503738a709f / https://github.com/jackaihyf-gif/Kenshi-AGENT-TEST/pull/11；实际被测源 9d95a9cb33ed138175fc42042fd969e2174e6d4b，被测仪器 7f5d1b9f8f7e18e37b7a6fafcabf40acfdfa7d92 / https://github.com/jackaihyf-gif/Kenshi-AGENT-TEST/pull/12。所有PR保持Draft，不合并main。
 
 # 最新任务覆盖：只推进资源与读档稳定性（2026-11-05）
