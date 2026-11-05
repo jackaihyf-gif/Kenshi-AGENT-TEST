@@ -1,0 +1,5 @@
+# 三工作台固定仪器
+
+当前实测HEAD ca6ebdaeea1fc86f5d49c11b5d18d477d0c4cc8c；实际制作采样为1cb3c1b271b8ba13d76259dfe718ba502a8e8a52，初次菜单为fdc8f07e2321221b9774f69e5ff8eddbc513c890，不把HEAD倒填旧结果。依赖PR6 b7ea1d4，不含生产外观释放修复。
+
+新增固定ammo台，queue只接受实际GameData声明列表，快照读取三类crafts及操作者技能。recipe-menu核GUI线程/稳定/库存归属/精确vtable，使用原生按钮回调；single-station-research复用完整single-telemetry证明，只本会话一次完成固定三科技，无任意参数、保存或自然研究声明。EXE哈希和门禁详见结果分支docs/handoffs/station-split-20261105.md。26项离线LuaJIT Mock/桥边界回归通过，真实三台7/3/2菜单另有受控实机截图。不应用玩家现场，不以此冒充自然科研/AI。
