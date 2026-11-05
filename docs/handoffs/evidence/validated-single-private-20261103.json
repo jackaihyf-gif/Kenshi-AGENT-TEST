@@ -1,0 +1,556 @@
+{
+  "tested_commit": "d2809fd8df7ca4c1d0093bd78c1efd9a01d56b8b",
+  "pr": 3,
+  "memory_policy": "user removed 2 GiB stop threshold; observation only; real faults and native limits unchanged",
+  "graphics": "temporary reduced graphics as recorded in prior attempt7; original restored",
+  "single": {
+    "cycles": {
+      "completed_rounds": 3,
+      "character_fields_equal_after_each": true,
+      "resource_counts": "unverified/missing interface"
+    },
+    "save_readback": {
+      "slot": "T60_LIFE_096_SINGLE_20261103_160733",
+      "live_fields_equal": true,
+      "resource_counts": "unverified/missing interface",
+      "full_inventory": "unverified"
+    },
+    "save_field_comparison": {
+      "source_slot": "T60_LIFE_096_ORDINARY_D",
+      "new_slot": "T60_LIFE_096_SINGLE_20261103_160733",
+      "stats_equal": true,
+      "appearance_fields_equal": true,
+      "appearance_refs_equal": true,
+      "diff_keys": {
+        "stats": [],
+        "appearance": [],
+        "refs": []
+      },
+      "source_field_counts": {
+        "stats": 44,
+        "appearance": 75,
+        "refs": 1
+      },
+      "name_has_unicode_replacement": false,
+      "scope": "single unique type25 matched with preceding type66 in player platoon; inventory ownership unverified"
+    },
+    "stages": [
+      {
+        "label": "cold-ordinary-stable",
+        "working_bytes": 4344778752,
+        "private_bytes": 7759421440,
+        "physical_available": 2471817216,
+        "commit_available": 19737018368,
+        "appearance_allocations": null,
+        "known_retained_objects": null,
+        "material_slots": null,
+        "counter_blocker": "existing single-actor RPC does not expose these counters; five-actor gates unchanged",
+        "bones": 30,
+        "logical": "17-gamedata.quack",
+        "visual": "17-gamedata.quack",
+        "raw_strength": 50.756847381592,
+        "raw_dexterity": 50.239974975586,
+        "epoch": 1
+      },
+      {
+        "label": "round-1-wear-requested",
+        "working_bytes": 4534607872,
+        "private_bytes": 8092946432,
+        "physical_available": 2169651200,
+        "commit_available": 19397943296,
+        "appearance_allocations": null,
+        "known_retained_objects": null,
+        "material_slots": null,
+        "counter_blocker": "existing single-actor RPC does not expose these counters; five-actor gates unchanged",
+        "bones": 30,
+        "logical": "17-gamedata.quack",
+        "visual": "670-JACK_T60_WearLab.mod",
+        "raw_strength": 50.756847381592,
+        "raw_dexterity": 50.239974975586,
+        "epoch": 1
+      },
+      {
+        "label": "round-1-worn-stable",
+        "working_bytes": 4561022976,
+        "private_bytes": 8082501632,
+        "physical_available": 2157826048,
+        "commit_available": 19410886656,
+        "appearance_allocations": null,
+        "known_retained_objects": null,
+        "material_slots": null,
+        "counter_blocker": "existing single-actor RPC does not expose these counters; five-actor gates unchanged",
+        "bones": 82,
+        "logical": "17-gamedata.quack",
+        "visual": "670-JACK_T60_WearLab.mod",
+        "raw_strength": 50.756847381592,
+        "raw_dexterity": 50.239974975586,
+        "epoch": 1
+      },
+      {
+        "label": "round-1-unwear-requested",
+        "working_bytes": 4561072128,
+        "private_bytes": 8079679488,
+        "physical_available": 2154500096,
+        "commit_available": 19400364032,
+        "appearance_allocations": null,
+        "known_retained_objects": null,
+        "material_slots": null,
+        "counter_blocker": "existing single-actor RPC does not expose these counters; five-actor gates unchanged",
+        "bones": 82,
+        "logical": "17-gamedata.quack",
+        "visual": "17-gamedata.quack",
+        "raw_strength": 50.756847381592,
+        "raw_dexterity": 50.239974975586,
+        "epoch": 1
+      },
+      {
+        "label": "round-1-ordinary-idle",
+        "working_bytes": 4558319616,
+        "private_bytes": 8073515008,
+        "physical_available": 2165518336,
+        "commit_available": 19421224960,
+        "appearance_allocations": null,
+        "known_retained_objects": null,
+        "material_slots": null,
+        "counter_blocker": "existing single-actor RPC does not expose these counters; five-actor gates unchanged",
+        "bones": 30,
+        "logical": "17-gamedata.quack",
+        "visual": "17-gamedata.quack",
+        "raw_strength": 50.756847381592,
+        "raw_dexterity": 50.239974975586,
+        "epoch": 1
+      },
+      {
+        "label": "round-2-wear-requested",
+        "working_bytes": 4561448960,
+        "private_bytes": 8083296256,
+        "physical_available": 2146766848,
+        "commit_available": 19412713472,
+        "appearance_allocations": null,
+        "known_retained_objects": null,
+        "material_slots": null,
+        "counter_blocker": "existing single-actor RPC does not expose these counters; five-actor gates unchanged",
+        "bones": 82,
+        "logical": "17-gamedata.quack",
+        "visual": "670-JACK_T60_WearLab.mod",
+        "raw_strength": 50.756847381592,
+        "raw_dexterity": 50.239974975586,
+        "epoch": 1
+      },
+      {
+        "label": "round-2-worn-stable",
+        "working_bytes": 4562243584,
+        "private_bytes": 8084090880,
+        "physical_available": 2136723456,
+        "commit_available": 19412398080,
+        "appearance_allocations": null,
+        "known_retained_objects": null,
+        "material_slots": null,
+        "counter_blocker": "existing single-actor RPC does not expose these counters; five-actor gates unchanged",
+        "bones": 82,
+        "logical": "17-gamedata.quack",
+        "visual": "670-JACK_T60_WearLab.mod",
+        "raw_strength": 50.756847381592,
+        "raw_dexterity": 50.239974975586,
+        "epoch": 1
+      },
+      {
+        "label": "round-2-unwear-requested",
+        "working_bytes": 4562305024,
+        "private_bytes": 8080740352,
+        "physical_available": 2161123328,
+        "commit_available": 19426164736,
+        "appearance_allocations": null,
+        "known_retained_objects": null,
+        "material_slots": null,
+        "counter_blocker": "existing single-actor RPC does not expose these counters; five-actor gates unchanged",
+        "bones": 30,
+        "logical": "17-gamedata.quack",
+        "visual": "17-gamedata.quack",
+        "raw_strength": 50.756847381592,
+        "raw_dexterity": 50.239974975586,
+        "epoch": 1
+      },
+      {
+        "label": "round-2-ordinary-idle",
+        "working_bytes": 4559261696,
+        "private_bytes": 8074244096,
+        "physical_available": 2158129152,
+        "commit_available": 19440099328,
+        "appearance_allocations": null,
+        "known_retained_objects": null,
+        "material_slots": null,
+        "counter_blocker": "existing single-actor RPC does not expose these counters; five-actor gates unchanged",
+        "bones": 30,
+        "logical": "17-gamedata.quack",
+        "visual": "17-gamedata.quack",
+        "raw_strength": 50.756847381592,
+        "raw_dexterity": 50.239974975586,
+        "epoch": 1
+      },
+      {
+        "label": "round-3-wear-requested",
+        "working_bytes": 4561645568,
+        "private_bytes": 8094502912,
+        "physical_available": 2152349696,
+        "commit_available": 19418148864,
+        "appearance_allocations": null,
+        "known_retained_objects": null,
+        "material_slots": null,
+        "counter_blocker": "existing single-actor RPC does not expose these counters; five-actor gates unchanged",
+        "bones": 82,
+        "logical": "17-gamedata.quack",
+        "visual": "670-JACK_T60_WearLab.mod",
+        "raw_strength": 50.756847381592,
+        "raw_dexterity": 50.239974975586,
+        "epoch": 1
+      },
+      {
+        "label": "round-3-worn-stable",
+        "working_bytes": 4561698816,
+        "private_bytes": 8083206144,
+        "physical_available": 2151731200,
+        "commit_available": 19425988608,
+        "appearance_allocations": null,
+        "known_retained_objects": null,
+        "material_slots": null,
+        "counter_blocker": "existing single-actor RPC does not expose these counters; five-actor gates unchanged",
+        "bones": 82,
+        "logical": "17-gamedata.quack",
+        "visual": "670-JACK_T60_WearLab.mod",
+        "raw_strength": 50.756847381592,
+        "raw_dexterity": 50.239974975586,
+        "epoch": 1
+      },
+      {
+        "label": "round-3-unwear-requested",
+        "working_bytes": 4562305024,
+        "private_bytes": 8079855616,
+        "physical_available": 2144477184,
+        "commit_available": 19424256000,
+        "appearance_allocations": null,
+        "known_retained_objects": null,
+        "material_slots": null,
+        "counter_blocker": "existing single-actor RPC does not expose these counters; five-actor gates unchanged",
+        "bones": 30,
+        "logical": "17-gamedata.quack",
+        "visual": "17-gamedata.quack",
+        "raw_strength": 50.756847381592,
+        "raw_dexterity": 50.239974975586,
+        "epoch": 1
+      },
+      {
+        "label": "round-3-ordinary-idle",
+        "working_bytes": 4559257600,
+        "private_bytes": 8073359360,
+        "physical_available": 2140082176,
+        "commit_available": 19428466688,
+        "appearance_allocations": null,
+        "known_retained_objects": null,
+        "material_slots": null,
+        "counter_blocker": "existing single-actor RPC does not expose these counters; five-actor gates unchanged",
+        "bones": 30,
+        "logical": "17-gamedata.quack",
+        "visual": "17-gamedata.quack",
+        "raw_strength": 50.756847381592,
+        "raw_dexterity": 50.239974975586,
+        "epoch": 1
+      },
+      {
+        "label": "final-ordinary-idle-15s",
+        "working_bytes": 4561223680,
+        "private_bytes": 8075018240,
+        "physical_available": 2140409856,
+        "commit_available": 19432435712,
+        "appearance_allocations": null,
+        "known_retained_objects": null,
+        "material_slots": null,
+        "counter_blocker": "existing single-actor RPC does not expose these counters; five-actor gates unchanged",
+        "bones": 30,
+        "logical": "17-gamedata.quack",
+        "visual": "17-gamedata.quack",
+        "raw_strength": 50.756847381592,
+        "raw_dexterity": 50.239974975586,
+        "epoch": 1
+      },
+      {
+        "label": "before-save",
+        "working_bytes": 4561231872,
+        "private_bytes": 8075018240,
+        "physical_available": 2145714176,
+        "commit_available": 19431706624,
+        "appearance_allocations": null,
+        "known_retained_objects": null,
+        "material_slots": null,
+        "counter_blocker": "existing single-actor RPC does not expose these counters; five-actor gates unchanged",
+        "bones": 30,
+        "logical": "17-gamedata.quack",
+        "visual": "17-gamedata.quack",
+        "raw_strength": 50.756847381592,
+        "raw_dexterity": 50.239974975586,
+        "epoch": 1
+      },
+      {
+        "label": "after-save",
+        "working_bytes": 4625793024,
+        "private_bytes": 8140599296,
+        "physical_available": 2090508288,
+        "commit_available": 19376340992,
+        "appearance_allocations": null,
+        "known_retained_objects": null,
+        "material_slots": null,
+        "counter_blocker": "existing single-actor RPC does not expose these counters; five-actor gates unchanged",
+        "bones": 30,
+        "logical": "17-gamedata.quack",
+        "visual": "17-gamedata.quack",
+        "raw_strength": 50.756847381592,
+        "raw_dexterity": 50.239974975586,
+        "epoch": 1
+      },
+      {
+        "label": "after-readback-stable",
+        "working_bytes": 4747616256,
+        "private_bytes": 8218693632,
+        "physical_available": 1978576896,
+        "commit_available": 19319619584,
+        "appearance_allocations": null,
+        "known_retained_objects": null,
+        "material_slots": null,
+        "counter_blocker": "existing single-actor RPC does not expose these counters; five-actor gates unchanged",
+        "bones": 30,
+        "logical": "17-gamedata.quack",
+        "visual": "17-gamedata.quack",
+        "raw_strength": 50.756847381592,
+        "raw_dexterity": 50.239974975586,
+        "epoch": 2
+      }
+    ],
+    "memory": {
+      "samples": 157,
+      "seconds": 157.22,
+      "minimum_available_GiB": 1.8016,
+      "maximum_working_MiB": 4559.79,
+      "maximum_private_MiB": 7837.96,
+      "csv": "validated-single-memory-20261103.csv"
+    },
+    "cleanup": {
+      "game_closed": true,
+      "bridge_disabled": true,
+      "baseline_18_unchanged": true,
+      "fixed_fixture_unchanged": true,
+      "host": {
+        "physical_available": 6565675008,
+        "commit_available": 27490926592,
+        "physical_total": 17053007872
+      }
+    },
+    "config_restore": {
+      "test_settings": {
+        "Auto save": "0",
+        "texture resolution gimping": "2",
+        "shadow mode": "0",
+        "distant town range": "0",
+        "view distance": "2000",
+        "Decal Resolution": "512"
+      },
+      "exit_code": 0,
+      "changed_keys": [
+        "Auto save",
+        "Decal Resolution",
+        "Shadow Range",
+        "distant town range",
+        "shadow mode",
+        "texture resolution gimping",
+        "view distance"
+      ],
+      "original_config_restored": true,
+      "before_sha256": "e47805785b1f3986321221ad9e02023f983e7a2c1780cdcae920118425e0eb8f"
+    }
+  },
+  "private": {
+    "result": {
+      "tested_commit": "d2809fd8df7ca4c1d0093bd78c1efd9a01d56b8b",
+      "complete": [
+        {
+          "profile": "human_male",
+          "capture_code": 0,
+          "roundtrip_code": 0,
+          "retained": 2,
+          "source_fields_equal": true
+        },
+        {
+          "profile": "human_female",
+          "capture_code": 0,
+          "roundtrip_code": 0,
+          "retained": 4,
+          "source_fields_equal": true
+        }
+      ],
+      "release": [
+        {
+          "profile": "human_male",
+          "code": 0,
+          "source_fields_equal": true,
+          "stats": {
+            "deleted": 2,
+            "retained": 0,
+            "quarantines": 0,
+            "completed": 1,
+            "last_id": 1,
+            "reserved": 0,
+            "attempts": 2,
+            "stopped": 0,
+            "created": 2
+          }
+        },
+        {
+          "profile": "human_female",
+          "code": 0,
+          "source_fields_equal": true,
+          "stats": {
+            "deleted": 4,
+            "retained": 0,
+            "quarantines": 0,
+            "completed": 2,
+            "last_id": 2,
+            "reserved": 0,
+            "attempts": 4,
+            "stopped": 0,
+            "created": 4
+          }
+        }
+      ],
+      "production_appearance": 5,
+      "production_material": 5,
+      "complete_objects_retained": 4,
+      "private_released_objects": 4,
+      "scope": "module-owned objects only; source untouched in captured fields; no production reclamation protocol",
+      "budget_ceiling_game_test": "not executed; no extra trials",
+      "visual": "unverified"
+    },
+    "memory": {
+      "samples": 75,
+      "seconds": 74.55,
+      "minimum_available_GiB": 1.6661,
+      "maximum_working_MiB": 4505.48,
+      "maximum_private_MiB": 7886.9,
+      "csv": "validated-private-memory-20261103.csv"
+    },
+    "dlls": {
+      "private_snapshot_complete": {
+        "sha256": "82e3e3f963974a9e16a43ba688264760be319ec8b8c9bfc2d7b617c3c7c12b43",
+        "exports": [
+          "T60_complete_prepare",
+          "T60_complete_roundtrip",
+          "T60_complete_stats",
+          "T60_snapshot_attempts",
+          "T60_snapshot_capture",
+          "T60_snapshot_confirm_save",
+          "T60_snapshot_prepare",
+          "T60_snapshot_ready",
+          "T60_snapshot_status",
+          "T60_snapshot_status_size",
+          "T60_snapshot_write_files"
+        ],
+        "machine": "AMD64"
+      },
+      "private_release": {
+        "sha256": "d2840d9d29cd4f6cbedd17a0008b5388bbb3677c23f9c6ed983fd1763727181b",
+        "exports": [
+          "T60_private_release_ready",
+          "T60_private_release_stats",
+          "T60_private_release_trial"
+        ],
+        "machine": "AMD64"
+      }
+    },
+    "native_source_unmodified": true,
+    "bridge_binding_sha256": "2cef46c41f2bca8ed12f7da1d82202eaa675bebbbdf08d8663da591300ef2964",
+    "loaded_modules": {
+      "before-private-init-modules.json": [],
+      "complete-initialized-modules.json": [
+        "private_snapshot_complete.dll"
+      ],
+      "release-human_female-modules.json": [
+        "private_snapshot_complete.dll",
+        "private_release.dll"
+      ],
+      "release-human_male-modules.json": [
+        "private_snapshot_complete.dll",
+        "private_release.dll"
+      ]
+    },
+    "path_verification_order": "complete path checked before copy; release absolute DLL path was hash-bound before call and enumerated after its first trial",
+    "source_comparison_scope": "8 value maps plus 4 named reference lists, not all hidden/native fields",
+    "external_serialization_export": "not executed",
+    "cleanup": {
+      "game_closed": true,
+      "bridge_disabled": true,
+      "baseline_18_unchanged": true,
+      "fixed_fixture_unchanged": true,
+      "host": {
+        "physical_available": 6914764800,
+        "commit_available": 27504291840,
+        "physical_total": 17053007872
+      }
+    },
+    "config_restore": {
+      "test_settings": {
+        "Auto save": "0",
+        "texture resolution gimping": "2",
+        "shadow mode": "0",
+        "distant town range": "0",
+        "view distance": "2000",
+        "Decal Resolution": "512"
+      },
+      "exit_code": 0,
+      "changed_keys": [
+        "Auto save",
+        "Decal Resolution",
+        "Shadow Range",
+        "distant town range",
+        "shadow mode",
+        "texture resolution gimping",
+        "view distance"
+      ],
+      "original_config_restored": true,
+      "before_sha256": "e47805785b1f3986321221ad9e02023f983e7a2c1780cdcae920118425e0eb8f"
+    }
+  },
+  "evidence_sha256": {
+    "single-series8-20261103/continuous-memory.json": "6b28543a3e0ef0f15ba1ba1c49ae894544a7a77288b4f44b735512ad710c7d20",
+    "single-series8-20261103/rpc-raw.json": "1984917cb5a2899a608dd8e8edcd2a9407a607e40ef83e4a7ee2db959a83c2e7",
+    "single-series8-20261103/stages.json": "0f9b30b39bf83db9249bf41867d729208c9aa00c7688d8987c29492b8f1ffccd",
+    "single-series8-20261103/saved-fields-comparison.json": "3ed1e69597731a244a62e30be213ad01dea9149fe0e7d91457f5c9302e3ee07b",
+    "single-series8-20261103/cleanup.json": "b971feaed52a9c9468f3e89823e5ddfff3319f1f90cfff14dd7d52f93d7becb4",
+    "single-series8-20261103/run_single.py": "6a14e74eeeaf37a6925db9f866dc63bf1133477cc827d5509470a9683c0673e4",
+    "private-isolated-20261103/continuous-memory.json": "49fc4bc26fc1613487509b8a59e4e754efc5fecb182a3f77164808c499104eb5",
+    "private-isolated-20261103/rpc-raw.json": "08c6b40c2e4e4580c3fa5d8b8b6d214fd758a46211d369f55751bd6a21034525",
+    "private-isolated-20261103/result.json": "d86fb340177fe94abc60071a58c08ff62ba8b63a9db817f0c933d57d4e0fcc28",
+    "private-isolated-20261103/cleanup.json": "ab3f8de3b5074e860bb62cf407ea7c6a06080ec224329199ed5c2847d589f647",
+    "private-isolated-20261103/deployed-binding.json": "cfae0d03243f81350e6d4a70ea2b47451617f5c1ec487a37adba68206d0250c0",
+    "private-isolated-20261103/run_private.py": "79d3521c6ce6c27165f224f45f5b0bdffdca6e93b5137e86e2304e774b2c927a"
+  },
+  "not_verified": [
+    "single-actor appearance allocation/native retention/material counts: no bounded RPC",
+    "more than one save/load or long-term memory convergence",
+    "private release budget ceiling in game: only two trials executed",
+    "production save/reader/epoch borrow and reclamation integration",
+    "full inventory serialization",
+    "visual correctness",
+    "true actor zone unload/return"
+  ],
+  "correction": "Earlier suspicion of replacement characters in legacy SaveReader names was terminal encoding; saved-fields comparison confirms no replacement in original name.",
+  "game_verified": false,
+  "evidence_kind": "scoped_real_game_observation_and_private_trials",
+  "rpc": {
+    "single": {
+      "requests": 145,
+      "errors": 0
+    },
+    "private": {
+      "requests": 53,
+      "errors": 0
+    }
+  }
+}

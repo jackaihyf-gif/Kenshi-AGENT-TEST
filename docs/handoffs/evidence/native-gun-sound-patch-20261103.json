@@ -1,0 +1,15 @@
+{
+  "record": "110-JACK_EnergyWeapons.mod",
+  "field": "shoot sound",
+  "before": 0,
+  "after": 1,
+  "enum": "GunSounds.HARPOON_GUN",
+  "laser_enum_unchanged": 0,
+  "original_sha256": "7fde01d8e063ff1d99d338bd0824a23a22448da77f43b18b80a6a81ea78bc085",
+  "candidate_sha256": "1307594e9132d2919caef549c7d739f174c15c3531131e9118ceef48c17b1d74",
+  "changed_bytes": [
+    8500
+  ],
+  "all_other_decoded_fields_and_references_equal": true,
+  "scope": "authored FCS data recipe; refuse a different baseline; no original audio or bank included"
+}

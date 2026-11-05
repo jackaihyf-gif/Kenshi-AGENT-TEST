@@ -1,0 +1,110 @@
+{
+  "kind": "offline_saved_state_observation",
+  "base_commit": "07bd0da042608fcbbbe7783bf7edbbca6cbe7edd",
+  "controlled_reproduction": "unverified",
+  "fix_verified": false,
+  "private_save_modified": false,
+  "runtime_bridge_used": false,
+  "rows": [
+    {
+      "slot": "quicksave",
+      "worker_spring_steel": 0,
+      "current_recipe": "400-JACK_WastelandCraft.mod",
+      "queue_entries": 13.0,
+      "input_items": [
+        {
+          "base data sid": "42160-gamedata.base",
+          "quantity": 4,
+          "section": "in1"
+        },
+        {
+          "base data sid": "42164-gamedata.base",
+          "quantity": 4,
+          "section": "in2"
+        }
+      ],
+      "platoon_sha256": "f9a772e3a5d6aa5053032c66b80790fe069a24fca3391ee5a938065654fe6ea3",
+      "zone_sha256": "80b00c98c21a5dde00549453274fd2724a9004eafab501a5d6eabdeed303e326"
+    },
+    {
+      "slot": "autosave2",
+      "worker_spring_steel": 0,
+      "current_recipe": "410-JACK_WastelandCraft.mod",
+      "queue_entries": 19.0,
+      "input_items": [
+        {
+          "base data sid": "400-JACK_WastelandCraft.mod",
+          "quantity": 4,
+          "section": "in1"
+        },
+        {
+          "base data sid": "97089-rebirth.mod",
+          "quantity": 3,
+          "section": "in2"
+        }
+      ],
+      "platoon_sha256": "c296a93a6164a8991132fb62d5b65e900d138e9b5fcb781d150d52e84c764067",
+      "zone_sha256": "67088dac960dcc116d7486068de6de74802b41f18c785917d7a08aa339f2d34f"
+    },
+    {
+      "slot": "goout",
+      "worker_spring_steel": 0,
+      "current_recipe": "410-JACK_WastelandCraft.mod",
+      "queue_entries": 19.0,
+      "input_items": [
+        {
+          "base data sid": "400-JACK_WastelandCraft.mod",
+          "quantity": 4,
+          "section": "in1"
+        },
+        {
+          "base data sid": "97089-rebirth.mod",
+          "quantity": 3,
+          "section": "in2"
+        }
+      ],
+      "platoon_sha256": "188681bff389a9400a6daae607a9c513c442e60e76fbbb0cb178451e49541bcc",
+      "zone_sha256": "448d8823081b8b447f457610e8a53dc33baca8ed4d72b42139e4c0640b57cba1"
+    },
+    {
+      "slot": "autosave0",
+      "worker_spring_steel": 7,
+      "current_recipe": "410-JACK_WastelandCraft.mod",
+      "queue_entries": 17.0,
+      "input_items": [
+        {
+          "base data sid": "400-JACK_WastelandCraft.mod",
+          "quantity": 5,
+          "section": "in1"
+        },
+        {
+          "base data sid": "97089-rebirth.mod",
+          "quantity": 4,
+          "section": "in2"
+        }
+      ],
+      "platoon_sha256": "a3d63161e350d6ddacdd063842e118991aaff36a4fe9f007370707fa39d21077",
+      "zone_sha256": "d026e28085e2416421f6358e14a3a02a1f6da87e5c02d1fb1515e7ab93d24f8e"
+    },
+    {
+      "slot": "autosave1",
+      "worker_spring_steel": 9,
+      "current_recipe": "410-JACK_WastelandCraft.mod",
+      "queue_entries": 13.0,
+      "input_items": [
+        {
+          "base data sid": "400-JACK_WastelandCraft.mod",
+          "quantity": 3,
+          "section": "in1"
+        },
+        {
+          "base data sid": "97089-rebirth.mod",
+          "quantity": 2,
+          "section": "in2"
+        }
+      ],
+      "platoon_sha256": "787718a4379d1001c3647ea3ee5ce56a4dc2e5dda19fb571b126c3be238e0519",
+      "zone_sha256": "b8c61f434102929373e45b3ed81caa3daeeddc65af6759e76ebf407df6e36eaf"
+    }
+  ]
+}
