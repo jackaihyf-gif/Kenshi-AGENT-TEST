@@ -60,7 +60,7 @@ function M.new(config)
    assert(section,'Box cannot accept both seed items')
    add(w,c,xinv,PART,1,section);add(w,c,xinv,SPRING,7,section);xinv:notifyModified()
    local bp=b:getPosition();local cp=c:getPosition();assert((cp.x-bp.x)^2+(cp.z-bp.z)^2<=64^2,'Actor outside 64-unit bound')
-   state.seeded=true;state.active=true;state.started=nil;state.stop_reason=nil;state.owner=handle(c);state.center={x=bp.x,z=bp.z};state.world=raw(w)
+   state.seeded=true;state.active=true;state.started=nil;state.stop_reason=nil;state.owner=handle(c);state.center={x=cp.x,z=cp.z};state.world=raw(w)
    c:clearAllAIGoals();c:addGoal(TaskType.OPERATE_MACHINERY,b)
    return snap(c)
   elseif choice=='haul-snapshot'then return snap(c) end
