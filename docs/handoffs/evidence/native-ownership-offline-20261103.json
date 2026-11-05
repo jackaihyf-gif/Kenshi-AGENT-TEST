@@ -1,0 +1,110 @@
+{
+  "evidence_kind": "native_mock",
+  "game_verified": false,
+  "compiler": "Zig 0.13.0",
+  "flags": [
+    "-std=c11",
+    "-fms-extensions",
+    "-O1",
+    "-UNDEBUG"
+  ],
+  "baseline_commit": "30d1ee84ddb79ede55822992f1d7c651d5b73806",
+  "baseline_id_alias_regression": "assertion failed on original source; expected",
+  "tests": [
+    {
+      "test": "assert_sentinel",
+      "compile_exit": 0,
+      "exit_code": 0,
+      "cases": [
+        {
+          "case": null,
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "test": "complete",
+      "compile_exit": 0,
+      "exit_code": 0,
+      "cases": [
+        {
+          "case": null,
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "test": "release",
+      "compile_exit": 0,
+      "exit_code": 0,
+      "cases": [
+        {
+          "case": null,
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "test": "id_ownership",
+      "compile_exit": 0,
+      "exit_code": 0,
+      "cases": [
+        {
+          "case": null,
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "test": "release_guards",
+      "compile_exit": 0,
+      "exit_code": 0,
+      "cases": [
+        {
+          "case": "budget",
+          "exit_code": 0
+        },
+        {
+          "case": "alloc-null",
+          "exit_code": 0
+        },
+        {
+          "case": "scratch-null",
+          "exit_code": 0
+        },
+        {
+          "case": "readers",
+          "exit_code": 0
+        },
+        {
+          "case": "pair-alias",
+          "exit_code": 0
+        },
+        {
+          "case": "exception-stop",
+          "exit_code": 0
+        }
+      ]
+    }
+  ],
+  "source_sha256": {
+    "build_offline.py": "68d3f6921eb086ea65e58d2144bc8a46352fac053c33d0d844e8cc9a1ff0bfa0",
+    "private_ownership.h": "0f999048a9412327e533e19f5918689f59b2ca2471d334ca3c0da469657924cb",
+    "private_release.c": "75e7da30b0813ce5480acc3dd8a5abb53646e1f185875092d3a0e2e745ec2e89",
+    "private_snapshot_complete.c": "85429e02fb6d6e852f146c845bee17936ad069f321968e213365b3198b0a0586",
+    "test_complete.c": "b3a49b64009366a59b96f9bf1791c058bddd2154d4d205b3184d5c2618edf934",
+    "test_id_ownership.c": "03d81ef58b1f90a49d0479d99648aa1c3725abbdf65eb08222fccf3fe6d29a3b",
+    "test_release.c": "42209467d134ed775a193a0ea66250f38ed780df70bc736ded690ca3a03527a4",
+    "test_release_guards.c": "d0918702354900b1fbe5e0e935a7b672baf2b137a98d01bef32eb0ae59b04a5a"
+  },
+  "canonical_lf_sha256": {
+    "build_offline.py": "68d3f6921eb086ea65e58d2144bc8a46352fac053c33d0d844e8cc9a1ff0bfa0",
+    "private_ownership.h": "0f999048a9412327e533e19f5918689f59b2ca2471d334ca3c0da469657924cb",
+    "private_release.c": "58db7d6d9dc74ea6ce96082eca786e7cc4021085a35acd3c5b9bd31c793a1dbd",
+    "private_snapshot_complete.c": "e528505c89a997cc2aa9ac7d3a2a4ce702307ad35641900bf891931bbb033506",
+    "test_complete.c": "b3a49b64009366a59b96f9bf1791c058bddd2154d4d205b3184d5c2618edf934",
+    "test_id_ownership.c": "03d81ef58b1f90a49d0479d99648aa1c3725abbdf65eb08222fccf3fe6d29a3b",
+    "test_release.c": "ccdec07a9e3ad57e1b1a70db7af38dc999ff3b2aff2cc652778cbb596bf70bfd",
+    "test_release_guards.c": "d0918702354900b1fbe5e0e935a7b672baf2b137a98d01bef32eb0ae59b04a5a"
+  }
+}
