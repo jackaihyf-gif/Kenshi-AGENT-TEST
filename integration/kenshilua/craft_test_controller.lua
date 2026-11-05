@@ -22,9 +22,19 @@ function M.new(config)
   local w=assert(getGameWorld());assert(w.player and #w.player.playerCharacters==1 and w.player.playerCharacters[1]==c and c:getName()==config.test_character_name,'Craft fixture requires isolated actor')
   assert(w.paused and not getOptionsHolder().autosave,'Pause and disable autosave first');assert(not c:isDead()and not c:isUnconcious(),'Actor unavailable');return w
  end
+ local function recipes(b)
+  local sid=b.data:getFromList('functionality',0);local f=gd(sid,62)
+  local r={functionality=sid,lists={}}
+  for _,key in ipairs({'item crafts','crossbow crafts','armour crafts'})do
+   local list={};local n=f:getListSize(key);assert(n>=0 and n<=32,'Unexpected recipe list size')
+   for i=0,n-1 do list[#list+1]=f:getFromList(key,i)end;r.lists[key]=list
+  end
+  return r
+ end
  local function snapshot(b)
   local inv=assert(b:getInventory());local r={bench=b.data.stringID,inputs={},counts={},sections={},items={},events=events,queued=b:hasCraftingQueued(),production=b:getProductionItemData()and b:getProductionItemData().stringID or'',power=b.powerOn,output_full=b:isProductionFull()}
   r.render={position=b:getPosition(),visible=b:getVisible(),entities_loaded=b.entitiesLoaded,entities_to_load=b.entitiesToLoad,floor=b:getFloor(),is_physical=b:isPhysical(),outside=b:getIsOutsideFurniture(),scale=b:getScale(),created=b:isCreated(),root_node=b.rootNode~=nil}
+  r.configured_crafts=recipes(b);r.special_craft_type=b.specialCraftItemType
   for _,id in ipairs(mats)do r.counts[id]=inv:countItems(gd(id,4))end
   for key,id in pairs(IDs)do r.counts[id]=inv:countItems(gd(id,key=='armour'and 3 or(key=='laser'or key=='gauss')and 107 or 4))end
   local sections=inv:getAllSections();for i=1,#sections do local s=sections[i];local allowed={};local slots=s.veryLimitedSlot;if slots then for j=1,#slots do allowed[tostring(j)]=slots[j].stringID end end;r.sections[tostring(i)]={name=s.name,width=s.width,height=s.height,stack_min=s.stackingBonusMin,limit=s.itemsLimit,allowed=allowed}end
@@ -113,21 +123,21 @@ function M.new(config)
    return result
   end
   if choice=='status'then local r={benches={},events=events,deliveries=state.deliveries or{},work_calls=state.work_calls or 0,work_active=state.work~=nil};for k,b in pairs(benches)do r.benches[k]=snapshot(b)end;return r end
-  if choice=='create-energy'or choice=='create-armour'then
-   local key=choice:sub(8);assert(not benches[key],'Fixture already exists');local id=(key=='energy'and'100-'or'200-')..'JACK_WastelandCraft.mod';state.pending={id=id}
+  if choice=='create-energy'or choice=='create-armour'or choice=='create-ammo'then
+   local key=choice:sub(8);assert(not benches[key],'Fixture already exists');local id=({energy='100-',armour='200-',ammo='500-'})[key]..'JACK_WastelandCraft.mod';state.pending={id=id}
    ffi.cdef[[typedef struct {float x,y,z;} AgentCraftVec;typedef struct {float w,x,y,z;} AgentCraftQuat;]]
    local kernel=ffi.load('kernel32');local lib=kernel.GetModuleHandleA('KenshiLib.dll')
    local address=kernel.GetProcAddress(lib,'?createBuilding@RootObjectFactory@@QEAAPEAVBuilding@@PEAVGameData@@VVector3@Ogre@@PEAVTownBase@@PEAVFaction@@VQuaternion@5@PEAVFactoryCallbackInterface@@PEAVLayout@@PEAV2@PEAVGameSaveState@@7_N99H9@Z');assert(address~=nil,'Factory export missing')
    local create=ffi.cast('void* (*)(void*,void*,const AgentCraftVec*,void*,void*,const AgentCraftQuat*,void*,void*,void*,void*,void*,bool,bool,bool,int,bool)',address)
    -- Exterior factory Y is height above terrain, not actor world elevation.
-   local p=c:getPosition();local pos=ffi.new('AgentCraftVec',{p.x+(key=='energy'and 28 or-28),0,p.z+28});local q=ffi.new('AgentCraftQuat',{1,0,0,0})
+   local p=c:getPosition();local pos=ffi.new('AgentCraftVec',{p.x+(key=='energy'and 28 or key=='armour'and-28 or 0),0,p.z+28});local q=ffi.new('AgentCraftQuat',{1,0,0,0})
    local result=create(raw(w.theFactory),raw(gd(id,0)),pos,nil,raw(c:getFaction()),q,nil,nil,nil,nil,nil,false,true,false,0,true);assert(result~=nil,'Factory returned null');assert(state.pending.object,'Craft constructor was not observed')
    local b=state.pending.object;state.pending=nil;benches[key]=b;b:givePower(10000);return snapshot(b)
   end
   local key,action=choice:match('^(energy|armour)%-(.+)$')
   -- Lua patterns do not implement alternation.
   if not key then key,action=choice:match('^(%a+)%-(.+)$')end
-  assert(key=='energy'or key=='armour','Unknown fixture');local b=assert(benches[key],'Create fixture first');local inv=b:getInventory()
+  assert(key=='energy'or key=='armour'or key=='ammo','Unknown fixture');local b=assert(benches[key],'Create fixture first');local inv=b:getInventory()
   if action=='clear-all'then
    assert(not b:hasCraftingQueued(),'Finish existing craft first');inv:clearAll(true,false);return snapshot(b)
   elseif action=='clear-output'then
@@ -146,6 +156,8 @@ function M.new(config)
    state.singleQueue=nil;return snapshot(b)
   elseif action:match('^queue:')then
    local what=action:sub(7);local name,number=what:match('^(%a+):(%d+)$');local times=number and tonumber(number)or 1;what=name or what;assert(times>=1 and times<=10,'Batch outside fixture limit');local id=assert(IDs[what],'Unknown product');assert(not b:hasCraftingQueued(),'Queue not empty')
+   local config=recipes(b);local allowed=false;for _,list in pairs(config.lists)do for _,sid in ipairs(list)do if sid==id then allowed=true end end end
+   assert(allowed,'Product is absent from this bench configured recipe lists')
    local t=what=='armour'and 3 or(what=='laser'or what=='gauss')and 107 or 4;local item=gd(id,t);local mat=(what=='laser'or what=='gauss')and gd((what=='laser'and'300-'or'310-')..'JACK_EnergyWeapons.mod',50)or item
    for i=1,times do b:_addCraft(item,mat,0,0)end;b:setProductionItem(item,1,0);state.singleQueue={bench=b,times=times};return snapshot(b)
   elseif action:match('^deliver:')then
