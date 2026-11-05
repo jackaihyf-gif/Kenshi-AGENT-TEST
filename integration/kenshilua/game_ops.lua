@@ -453,6 +453,7 @@ function M.new(config)
   inv:notifyModified();return {operation=op,name=name,handle=v.handle}
  end
  local visibilityRebuilds=0
+ local stationResearchPrepared=false
  function A.lifecycle(w,list,req)
   local sm=manager();local root='D:/JACK/KenshiArmorMod/research/lifecycle_v096/saves/'
   if req.target=='ownership:entrypoints'then
@@ -509,6 +510,18 @@ function M.new(config)
    local path='D:/JACK/KenshiArmorMod/research/lifecycle_stage2_20261030/saves/'
    local name='T60_'..req.target:sub(6);local f=assert(io.open(path..name..'/quick.save','rb'),'Stage2 save missing');f:close()
    sm:load(name);sm.location=path;return {operation='load',root=path,name=name,deferred=true}
+  end
+  if req.target=='single-station-research'then
+   -- Test setup only: never natural research, arbitrary IDs, or player saves.
+   A.lifecycle(w,list,{target='single-telemetry'})
+   assert(not stationResearchPrepared,'Fixed station research setup is single-use')
+   local technology=assert(w.player.technology,'Player research is unavailable')
+   local ids={'310-JACK_WastelandCraft.mod','320-JACK_WastelandCraft.mod','330-JACK_WastelandCraft.mod'}
+   local data={};for i,id in ipairs(ids)do data[i]=assert(w.gamedata:getData(id,21));assert(data[i].stringID==id,'Unexpected fixed technology')end
+   local address=kernel.GetProcAddress(lib,'?completeResearch@Research@@QEAAXPEAVGameData@@@Z');assert(address~=nil,'Research completion export missing')
+   local complete=ffi.cast('void(*)(void*,void*)',address);stationResearchPrepared=true
+   for _,item in ipairs(data)do complete(technology,ffi.cast('void**',item)[0])end
+   return {fixture_only=true,natural_research=false,completed=ids,single_use=true}
   end
   if req.target=='single-visibility-rebuild'then
    -- Reuse the full fixed-load/GUI/epoch/single-actor admission proof.
