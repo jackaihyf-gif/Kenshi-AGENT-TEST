@@ -237,10 +237,21 @@ def main():
     def q(s):
         return json.dumps(str(s), ensure_ascii=False)
 
-    module_hash = hashlib.sha256(b"".join(
-        path.read_bytes() for path in
-        (copied, ops, weapon_tools, service_tools, craft_tools, power_tools, telemetry_tools, haul_tools)
-    )).hexdigest()
+    module_hash = hashlib.sha256(
+        b"".join(
+            path.read_bytes()
+            for path in (
+                copied,
+                ops,
+                weapon_tools,
+                service_tools,
+                craft_tools,
+                power_tools,
+                telemetry_tools,
+                haul_tools,
+            )
+        )
+    ).hexdigest()
     init = (
         "-- Kenshi Test CLI: direct game API bridge, no desktop input.\n"
         f"-- Module hash: {module_hash}\n"
