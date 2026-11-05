@@ -1,3 +1,11 @@
+源码 85fa9614dab102faaf5e1ab96c43596bf41d6b48 / https://github.com/jackaihyf-gif/Kenshi-AGENT-TEST/pull/9；仪器文档HEAD 5f0aad82868578f5e527c616498f59afeb42e71c / https://github.com/jackaihyf-gif/Kenshi-AGENT-TEST/pull/10；实际最终菜单SHA ca6ebdaeea1fc86f5d49c11b5d18d477d0c4cc8c。均Draft未合并。
+
+# 最新覆盖：三工作台配方分离已安装（2026-11-05）
+
+用户同意分离，当前Craft `1f03ee6ccb69a6dae018785bdb53f400178d177b88534ad6eac3dedf95d39182`，覆盖旧fe8。能量武器台7项、动力装甲台3项、新弹药台2项；甲部件用护甲锻造8，枪/弹用弩制造38，弹药独立倍率2，其他恢复1。复用已有part，无新增资产/轮询，Energy伤害/30发/.5kg/stack100及16/32/128不变。
+
+受控原生制作被测仪器 `1cb3c1b271b8ba13d76259dfe718ba502a8e8a52`：两弹药、伺服、结构、T60各产出1，枪/线圈仅进度样本；非自然AI/施工供电。原生菜单最终被测 `ca6ebdaeea1fc86f5d49c11b5d18d477d0c4cc8c`：固定三科技准备后代理逐图确认7/3/2，非自然科研/用户旧档验证。26项离线回归通过。3个有效冷会话均退出、停桥、恢复设置、零保存写入，内存只记录无阈值；本轮外观计数未采集。旧台队列迁移、真跨区/自然搬料/长期稳定及生产free仍未验证，不重复旧通过项。完整阶段、失败、SHA、证据、备份与下一轮见[station-split-20261105.md](station-split-20261105.md)。下方是历史，不覆盖本段。
+
 修复源码提交：38310acf6f5380a8357351bf66020f086db7ce61 / https://github.com/jackaihyf-gif/Kenshi-AGENT-TEST/pull/5；仪器分支：b7ea1d4a488694ce10963046b85fbb289e59c2aa / https://github.com/jackaihyf-gif/Kenshi-AGENT-TEST/pull/6。均Draft未合并。
 
 # 最新：本机修复候选及弹药产速已安装（2026-11-05）
