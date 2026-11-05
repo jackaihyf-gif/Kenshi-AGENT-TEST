@@ -5,7 +5,12 @@
 
 当前实现：CLI、严格 TOML 配置、MockAdapter、armor 模拟流程、异常与超时处理、JSON / Markdown
 报告、OGRE 静态检查基础框架、pytest 和 GitHub Actions。
-`KenshiAdapter` 是明确拒绝执行的接口占位；真实启动、输入、状态识别、截图均未实现。
+本机集成版新增可选 KenshiLua 文件 RPC 后端和 `live` 语义指令，可直接读取游戏状态、
+控制配置的测试角色移动、切换速度档位、停止和收起武器。见
+[本机 T-60 接入](docs/local-t60-integration.md)。已实测直接启动、识别 Mod 警告、
+创建独立测试开局、确认人物编辑、移动及格挡采样，并取得游戏自身输出的 JPG。
+工具流程打通不代表 T-60 动作合格；本机 v0.8.2 实机验收仍未通过。
+默认配置与 CI 继续使用 Mock，未配置 `game.bridge_dir` 时真实适配器拒绝执行。
 
 ## Windows 快速开始
 
@@ -137,3 +142,6 @@ GitHub Actions 自动构建 wheel，再从 wheel 运行测试与验收命令；�
   这些通用格式资料不能代替对 Kenshi 实际使用版本和资产的验证。
 - 所有第一阶段报告均为 `game_verified: false`；`mock_simulation`、`static_only`、
   `unverified_game_attempt` 分别表示模拟、离线静态检查和未完成的真实游戏尝试。
+# 双机协作交接
+
+真实测试机和无游戏分析机请先读 [最新交接](docs/handoffs/test-machine-latest.md) 与 [协作规则](AGENTS.md)。当前桥接/专项命令不等于通用真实适配器全部完成；Draft PR 的已知失败和未验证项保留在交接文档中。

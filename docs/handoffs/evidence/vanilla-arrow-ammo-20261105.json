@@ -1,0 +1,36 @@
+{
+  "source_sha256": "1f03ee6ccb69a6dae018785bdb53f400178d177b88534ad6eac3dedf95d39182",
+  "candidate_sha256": "e0c48262fb4489088862d5b02a6c3d25f6b5ce910aa50ffdc25ece2e0e1c5034",
+  "energy_sha256": "e85dbe46581ff0d7f424d745d862a0394ec969914e1701675a09f05b279e3bb2",
+  "records_before": 26,
+  "records_after": 28,
+  "enabled_mods": 120,
+  "loaded_files": 124,
+  "original_records_unchanged": true,
+  "byte_roundtrip_and_readback": true,
+  "vanilla_building_function_links": {
+    "96184-Newwworld.mod": [
+      "96451-crafting.mod"
+    ],
+    "97091-rebirth.mod": [
+      "97092-rebirth.mod"
+    ]
+  },
+  "patch_functions": [
+    "96451-crafting.mod",
+    "97092-rebirth.mod"
+  ],
+  "new_recipe_references": 4,
+  "third_party_dependency_added": false,
+  "original_recipes_fields_materials_research_unchanged": true,
+  "production_multiplier": "vanilla unchanged; existing dedicated bench remains 2x",
+  "gameplay_and_old_save_menu": "unverified; player session not controlled",
+  "offline": {
+    "ruff": "pass",
+    "sdist_wheel_installed_tests": "135 passed, 9 optional Lua skipped",
+    "coverage_percent": 92.42,
+    "cli_smoke": "pass",
+    "extra_luajit": "12 passed, 0 skipped",
+    "game_test": "unverified"
+  }
+}
