@@ -1,7 +1,30 @@
 # KenshiAdapter 第二阶段接入约定
 
-当前状态：接口已定义，真实启动、按键、状态读取与截图全部未实现。
-配置可执行文件后返回 `not_implemented`，缺失返回 `game_missing`。不把路径存在当成游戏可运行证据。
+最新双机交接见 [test-machine-latest.md](handoffs/test-machine-latest.md)。下面的第一阶段设计记录不能作为当前实现能力证明。
+
+## 当前代码的实际边界
+
+| 入口 | 实际实现 | 未实现或未验证 |
+| --- | --- | --- |
+| `KenshiAdapter.launch` | 检查 EXE 并通过 RPC 附加现有会话 | 不启动、不拥有游戏进程 |
+| `get_state` | 读取 phase 和简化装备判断 | 腰部组件被误按 upper 判断；不返回完整库存/外观判定 |
+| `press_key` / `screenshot` | 明确返回 FeatureUnavailable | 通用 I/E 流程与适配器截图未实现 |
+| `stop` | 附加模式不关闭用户进程 | 不等于拥有完整进程回收器 |
+| 独立 `start` | Windows 原生启动器握手及新 RPC 回包检查 | 工具返回初始化成功不等于 Mod 验收成功 |
+| 独立 `live` / `LuaBridge` | 固定语义操作和专项受限测试 | 不自动补全 GameAdapter 方法；部分高级目标仅 Python RPC 暴露 |
+
+`observe` 的 ready 当前只表示观测到角色，不证明身体加载、附件、动画或视觉完成。`game_verified` 仍为 false。默认 CI 不依赖游戏，LuaJIT Mock 也不属于实机测试。
+
+本机集成版已实现可选 KenshiLua 文件 RPC 后端，支持实际状态读取和固定语义控制命令；
+`start` 可通过原生命令确认启动器，并在显式 `--skip-mod-warnings` 时确认已识别的 Mod 警告。
+2026-10-26 已实测确认中文 Mod 警告后进入主菜单，获取真实新会话 RPC 回包。
+详见 [本机接入记录](local-t60-integration.md)。
+
+未配置 `game.bridge_dir` 时仍返回 `not_implemented`；缺失游戏路径返回 `game_missing`。
+已通过 `live new-test/finish-editor` 创建并进入固定测试开局，
+通过 `live capture` 和记录脚本获取真实引擎截图。旧 armor 套件的 I/E 映射仍未集成。
+本机 v0.8.2 已实测但未通过动作验收，详见本机记录；工具可用与 Mod 合格是两个结论。
+以下职责表和未实现清单保留为第一阶段设计记录，当前支持范围以本机接入记录为准。
 
 ## 接口及职责
 
