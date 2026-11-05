@@ -1,0 +1,188 @@
+{
+  "tested_sha": "d2809fd8df7ca4c1d0093bd78c1efd9a01d56b8b",
+  "result": "single actor loading still crossed unchanged 2 GiB line; no wear cycles, save/readback or private release completed",
+  "attempts": [
+    {
+      "attempt": 1,
+      "samples": 15,
+      "seconds": 14.09,
+      "start_available_GiB": 6.1657,
+      "minimum_available_GiB": 4.4508,
+      "peak_working_MiB": null,
+      "peak_private_MiB": null,
+      "reason": {
+        "error": "menu autosave must already be disabled; no empty-menu bypass",
+        "kind": "AssertionError",
+        "guard_reason": null
+      },
+      "raw_memory_sha256": "5c56f4a607e5b37dc37ad6f3b55536f8d7f43dacd6e75592c6b34965914a69dd"
+    },
+    {
+      "attempt": 2,
+      "samples": 49,
+      "seconds": 48.41,
+      "start_available_GiB": 5.9676,
+      "minimum_available_GiB": 1.9963,
+      "peak_working_MiB": 3812.36,
+      "peak_private_MiB": 7417.9,
+      "reason": {
+        "error": "available physical or commit below 2 GiB",
+        "kind": "AssertionError",
+        "guard_reason": "available physical or commit below 2 GiB"
+      },
+      "raw_memory_sha256": "d5b020feef76dbbf057afed5ddc120113429af01a89f80aa2d93e8491ed4e6b1",
+      "shared_csv": "single-loading-attempt2-20261103.csv"
+    },
+    {
+      "attempt": 3,
+      "samples": 51,
+      "seconds": 50.38,
+      "start_available_GiB": 6.2129,
+      "minimum_available_GiB": 1.9276,
+      "peak_working_MiB": 3832.02,
+      "peak_private_MiB": 7532.37,
+      "reason": {
+        "error": "available physical or commit below 2 GiB",
+        "kind": "AssertionError",
+        "guard_reason": "available physical or commit below 2 GiB"
+      },
+      "raw_memory_sha256": "e534a542743c4f4faef3b0a585ff6e568d46889f545aede1bf9cadc812bacff2",
+      "shared_csv": "single-loading-attempt3-20261103.csv"
+    },
+    {
+      "attempt": 4,
+      "samples": 60,
+      "seconds": 59.5,
+      "start_available_GiB": 6.8651,
+      "minimum_available_GiB": 6.7301,
+      "peak_working_MiB": null,
+      "peak_private_MiB": null,
+      "reason": {
+        "error": "Operation exceeded the run timeout",
+        "kind": "OperationTimeout",
+        "guard_reason": null
+      },
+      "raw_memory_sha256": "76ed7a36ae7ff8156fe1ae0b4ba0c470c3598e3ad71b534b1c179f1a7b0dd4f0"
+    },
+    {
+      "attempt": 5,
+      "samples": 60,
+      "seconds": 59.48,
+      "start_available_GiB": 6.8117,
+      "minimum_available_GiB": 6.772,
+      "peak_working_MiB": null,
+      "peak_private_MiB": null,
+      "reason": {
+        "error": "Operation exceeded the run timeout",
+        "kind": "OperationTimeout",
+        "guard_reason": null
+      },
+      "raw_memory_sha256": "6dd34f826bebecfa7dc233f9a3e44886d5517efb06cc3d8c510fe75470da4a72"
+    },
+    {
+      "attempt": 6,
+      "samples": 60,
+      "seconds": 59.36,
+      "start_available_GiB": 5.6661,
+      "minimum_available_GiB": 5.4427,
+      "peak_working_MiB": null,
+      "peak_private_MiB": null,
+      "reason": {
+        "error": "Operation exceeded the run timeout",
+        "kind": "OperationTimeout",
+        "guard_reason": null
+      },
+      "raw_memory_sha256": "764a7685f971792527c485b93ef5e78e9212bd7e48db5801b738af69a8a1c7ca"
+    },
+    {
+      "attempt": 7,
+      "samples": 49,
+      "seconds": 48.31,
+      "start_available_GiB": 5.6605,
+      "minimum_available_GiB": 1.9535,
+      "peak_working_MiB": 3550.2,
+      "peak_private_MiB": 5732.73,
+      "reason": {
+        "error": "available physical or commit below 2 GiB",
+        "kind": "AssertionError",
+        "guard_reason": "available physical or commit below 2 GiB"
+      },
+      "raw_memory_sha256": "cdf20a4e18a9627d7f30618d3f198a2d3448348a213f3195f29be9d115bb71fb",
+      "shared_csv": "single-loading-attempt7-20261103.csv"
+    }
+  ],
+  "completed": {
+    "wear_cycles": 0,
+    "new_saves": 0,
+    "readbacks": 0,
+    "private_copy_trials": 0,
+    "private_release_trials": 0
+  },
+  "counter_interface": {
+    "appearance_allocations": null,
+    "known_retained_native_objects": null,
+    "material_slots": null,
+    "reason": "single-actor RPC missing; existing five-actor gate not bypassed"
+  },
+  "actions": {
+    "music_closed": true,
+    "community_processes_closed_with_UAC": 6,
+    "unrelated_launcher_processes_closed_with_UAC": 5,
+    "steam_shutdown_experiment": "failed startup Steam dll error; restored normal desktop permissions",
+    "steam_restored_pid": 9424,
+    "graphics_settings": "attempt3 texture=1; attempt7 texture=2 shadows=0 distant towns=0 view distance=2000 decals=512; all restored"
+  },
+  "cleanup": {
+    "no_active_game": true,
+    "bridge_disabled": true,
+    "rpc_lock_clear": true,
+    "production_18_hashes_verified": true,
+    "runtime_sha256": {
+      "plugin/player_epoch_probe.dll": "4c7559a71e495579f0cd16dc25ebc294686d6e153bf65e6be5ef4e9964523af4",
+      "scripts/back_carry_controller.lua": "19b46ddcd974d9132beabaa2d5b3ecd4bc7e58b154fc41c6232104ebebb62622",
+      "scripts/character_identity.lua": "c7dde780e36eeb6564b6e68c6d3ab7b52ca84f6d6158ff694264274cc7ed01fd",
+      "scripts/character_identity_core.lua": "d252ab33a3232e3b21812f809ad691042567f143799d2438115881cfefa49c1b",
+      "scripts/equipment_visibility.lua": "6099a5740ecd8b39b8b0cb61b51572b7443a3685b757f701e752409fd49ff76e",
+      "scripts/material_controller.lua": "435d23759dfcb2196e46662dec022a1036163b16f7e01c4632c2d31db6fc8622",
+      "scripts/t60_world_epoch_adapter.lua": "b63cf6d808831519d96d550f1b484f7c4e94219e01c321cacd480f1066dd3657",
+      "scripts/wear_controller.lua": "4f9566ad083512bbd8be6b4c0f282dcb324858f519d023826197174e0e67e826",
+      "scripts/init/a00_character_identity.lua": "bec982849f8b5690d989e198c96ca7e6cc8b2004da37d21a0f290af1527aacfb",
+      "scripts/init/t60_back_carry_v08.lua": "1baef615c5350fe083d48f24de24773ebcd0406b6cecb8e4a611b3e7ee84bdc5",
+      "scripts/init/t60_lamp_v092.lua": "a131c7f4081cecc9e142f95cb99ed797e58093be2cdd637ce99194c5a662ff2a",
+      "scripts/init/t60_material_v08.lua": "ade27bb13e8254d3e4176df36beb660c983d33382a30e2cfb1a0d9f75bfec0be",
+      "scripts/init/t60_power_v092.lua": "495029c5d7081e21c4f8ca05e5a2b90ddfef4d88574ec2350eef8982a5f16385",
+      "scripts/init/t60_wear.lua": "817487b51c5da00067080ba5e0d02fb0777bcceadb3239a4f10079c320f2809f",
+      "plugin/T60AttachmentRebind_ready_reason_20261102.dll": "1079e1b6970cc9aae4211b2c71733ea04df2da25c697b1fe160160f47491a6bc",
+      "scripts/attachment_cache.lua": "4514c7d8da972decfbbe481c3fa1be240d2e0c14c294d0481fc3bb2c4e1da07d",
+      "plugin/T60EquipmentVisibility_indexed.dll": "4b3ed988f6ba8f24e78b047c8f31cb8a2c70e7744169301fee09a37240842735",
+      "scripts/original_appearance_save.lua": "85372046a8f0b129a8679c3835c5a472dc090697b92fe59aae6c8b89235bb606"
+    },
+    "settings_restored_to_pre_attempt2_bytes": true,
+    "limits_changed": false
+  },
+  "scope": {
+    "memory_series": "1-second continuous loading/preflight samples, not wear-round trends",
+    "game_memory_blank": "before positive ownership/startup proof, unknown; not zero",
+    "not_proven": [
+      "single-wear stability",
+      "object retention trend",
+      "material trend",
+      "full character preservation",
+      "native leak",
+      "private destructor correctness"
+    ]
+  },
+  "new_observed_harness_issues": [
+    "empty-menu autosave cannot be disabled through single-actor RPC; used backed-up normal config, not bypass",
+    "Steam fatal error was not recognized promptly; startup timed out",
+    "driver originally recorded process ownership only after successful startup; fixed local driver to record launch intent and cleanup on failure; not a production source fix"
+  ],
+  "raw_root_alias": "PR3_WORKTREE/reports/single-series*-20261103",
+  "private_artifacts_not_uploaded": [
+    "raw RPC/session data",
+    "settings backups",
+    "process paths",
+    "game and save data",
+    "candidate DLLs"
+  ]
+}

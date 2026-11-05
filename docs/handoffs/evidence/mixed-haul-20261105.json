@@ -1,0 +1,235 @@
+{
+  "natural_ai": true,
+  "synthetic_work_calls": 0,
+  "wrong_spring_seen": false,
+  "completed_recipe": false,
+  "player_saves_modified": false,
+  "fixture_tested_commit": "24bb0c39b92ecd894455a20c28a11b8c1389f954",
+  "samples": [
+    {
+      "actor": {
+        "410-JACK_WastelandCraft.mod": 0,
+        "97090-rebirth.mod": 0,
+        "400-JACK_WastelandCraft.mod": 0,
+        "97089-rebirth.mod": 0
+      },
+      "box": {
+        "410-JACK_WastelandCraft.mod": 0,
+        "97090-rebirth.mod": 7,
+        "400-JACK_WastelandCraft.mod": 0,
+        "97089-rebirth.mod": 1
+      },
+      "bench": {
+        "410-JACK_WastelandCraft.mod": 0,
+        "97090-rebirth.mod": 0,
+        "400-JACK_WastelandCraft.mod": 50,
+        "97089-rebirth.mod": 0
+      }
+    },
+    {
+      "actor": {
+        "410-JACK_WastelandCraft.mod": 0,
+        "97090-rebirth.mod": 0,
+        "400-JACK_WastelandCraft.mod": 0,
+        "97089-rebirth.mod": 0
+      },
+      "box": {
+        "410-JACK_WastelandCraft.mod": 0,
+        "97090-rebirth.mod": 7,
+        "400-JACK_WastelandCraft.mod": 0,
+        "97089-rebirth.mod": 0
+      },
+      "bench": {
+        "410-JACK_WastelandCraft.mod": 0,
+        "97090-rebirth.mod": 0,
+        "400-JACK_WastelandCraft.mod": 49,
+        "97089-rebirth.mod": 0
+      }
+    },
+    {
+      "actor": {
+        "410-JACK_WastelandCraft.mod": 0,
+        "97090-rebirth.mod": 0,
+        "400-JACK_WastelandCraft.mod": 0,
+        "97089-rebirth.mod": 0
+      },
+      "box": {
+        "410-JACK_WastelandCraft.mod": 0,
+        "97090-rebirth.mod": 7,
+        "400-JACK_WastelandCraft.mod": 0,
+        "97089-rebirth.mod": 0
+      },
+      "bench": {
+        "410-JACK_WastelandCraft.mod": 0,
+        "97090-rebirth.mod": 0,
+        "400-JACK_WastelandCraft.mod": 49,
+        "97089-rebirth.mod": 0
+      }
+    },
+    {
+      "actor": {
+        "410-JACK_WastelandCraft.mod": 0,
+        "97090-rebirth.mod": 0,
+        "400-JACK_WastelandCraft.mod": 0,
+        "97089-rebirth.mod": 0
+      },
+      "box": {
+        "410-JACK_WastelandCraft.mod": 0,
+        "97090-rebirth.mod": 7,
+        "400-JACK_WastelandCraft.mod": 0,
+        "97089-rebirth.mod": 0
+      },
+      "bench": {
+        "410-JACK_WastelandCraft.mod": 0,
+        "97090-rebirth.mod": 0,
+        "400-JACK_WastelandCraft.mod": 49,
+        "97089-rebirth.mod": 0
+      }
+    },
+    {
+      "actor": {
+        "410-JACK_WastelandCraft.mod": 0,
+        "97090-rebirth.mod": 0,
+        "400-JACK_WastelandCraft.mod": 0,
+        "97089-rebirth.mod": 0
+      },
+      "box": {
+        "410-JACK_WastelandCraft.mod": 0,
+        "97090-rebirth.mod": 7,
+        "400-JACK_WastelandCraft.mod": 0,
+        "97089-rebirth.mod": 0
+      },
+      "bench": {
+        "410-JACK_WastelandCraft.mod": 0,
+        "97090-rebirth.mod": 0,
+        "400-JACK_WastelandCraft.mod": 49,
+        "97089-rebirth.mod": 0
+      }
+    },
+    {
+      "actor": {
+        "410-JACK_WastelandCraft.mod": 0,
+        "97090-rebirth.mod": 0,
+        "400-JACK_WastelandCraft.mod": 0,
+        "97089-rebirth.mod": 0
+      },
+      "box": {
+        "410-JACK_WastelandCraft.mod": 0,
+        "97090-rebirth.mod": 7,
+        "400-JACK_WastelandCraft.mod": 0,
+        "97089-rebirth.mod": 0
+      },
+      "bench": {
+        "410-JACK_WastelandCraft.mod": 0,
+        "97090-rebirth.mod": 0,
+        "400-JACK_WastelandCraft.mod": 49,
+        "97089-rebirth.mod": 0
+      }
+    },
+    {
+      "actor": {
+        "410-JACK_WastelandCraft.mod": 0,
+        "97090-rebirth.mod": 0,
+        "400-JACK_WastelandCraft.mod": 0,
+        "97089-rebirth.mod": 0
+      },
+      "box": {
+        "410-JACK_WastelandCraft.mod": 0,
+        "97090-rebirth.mod": 7,
+        "400-JACK_WastelandCraft.mod": 0,
+        "97089-rebirth.mod": 0
+      },
+      "bench": {
+        "410-JACK_WastelandCraft.mod": 0,
+        "97090-rebirth.mod": 0,
+        "400-JACK_WastelandCraft.mod": 49,
+        "97089-rebirth.mod": 0
+      }
+    },
+    {
+      "actor": {
+        "410-JACK_WastelandCraft.mod": 0,
+        "97090-rebirth.mod": 0,
+        "400-JACK_WastelandCraft.mod": 0,
+        "97089-rebirth.mod": 0
+      },
+      "box": {
+        "410-JACK_WastelandCraft.mod": 0,
+        "97090-rebirth.mod": 7,
+        "400-JACK_WastelandCraft.mod": 0,
+        "97089-rebirth.mod": 0
+      },
+      "bench": {
+        "410-JACK_WastelandCraft.mod": 0,
+        "97090-rebirth.mod": 0,
+        "400-JACK_WastelandCraft.mod": 49,
+        "97089-rebirth.mod": 0
+      }
+    },
+    {
+      "actor": {
+        "410-JACK_WastelandCraft.mod": 0,
+        "97090-rebirth.mod": 0,
+        "400-JACK_WastelandCraft.mod": 0,
+        "97089-rebirth.mod": 0
+      },
+      "box": {
+        "410-JACK_WastelandCraft.mod": 0,
+        "97090-rebirth.mod": 7,
+        "400-JACK_WastelandCraft.mod": 0,
+        "97089-rebirth.mod": 0
+      },
+      "bench": {
+        "410-JACK_WastelandCraft.mod": 0,
+        "97090-rebirth.mod": 0,
+        "400-JACK_WastelandCraft.mod": 49,
+        "97089-rebirth.mod": 0
+      }
+    },
+    {
+      "actor": {
+        "410-JACK_WastelandCraft.mod": 0,
+        "97090-rebirth.mod": 0,
+        "400-JACK_WastelandCraft.mod": 0,
+        "97089-rebirth.mod": 0
+      },
+      "box": {
+        "410-JACK_WastelandCraft.mod": 0,
+        "97090-rebirth.mod": 7,
+        "400-JACK_WastelandCraft.mod": 0,
+        "97089-rebirth.mod": 0
+      },
+      "bench": {
+        "410-JACK_WastelandCraft.mod": 0,
+        "97090-rebirth.mod": 0,
+        "400-JACK_WastelandCraft.mod": 49,
+        "97089-rebirth.mod": 0
+      }
+    },
+    {
+      "actor": {
+        "410-JACK_WastelandCraft.mod": 0,
+        "97090-rebirth.mod": 0,
+        "400-JACK_WastelandCraft.mod": 0,
+        "97089-rebirth.mod": 0
+      },
+      "box": {
+        "410-JACK_WastelandCraft.mod": 0,
+        "97090-rebirth.mod": 7,
+        "400-JACK_WastelandCraft.mod": 0,
+        "97089-rebirth.mod": 0
+      },
+      "bench": {
+        "410-JACK_WastelandCraft.mod": 0,
+        "97090-rebirth.mod": 0,
+        "400-JACK_WastelandCraft.mod": 49,
+        "97089-rebirth.mod": 0
+      }
+    }
+  ],
+  "max_actor_displacement": 0.0,
+  "seed_parts": 1,
+  "seed_spring": 7,
+  "total_unpaused_wait_seconds_requested": 10,
+  "real_reproduction": "not reproduced in this bounded scene"
+}

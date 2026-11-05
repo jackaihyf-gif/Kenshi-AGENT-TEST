@@ -1,0 +1,31 @@
+name: Native visibility tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  visibility-mock:
+    name: Windows visibility lifecycle mock
+    runs-on: windows-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned standalone compiler
+        run: python -m pip install ziglang==0.13.0
+      - name: Verify active assertions and run synthetic visibility lifecycle
+        run: python -c "import pathlib, subprocess, sys, ziglang; subprocess.check_call([sys.executable, 'experiments/visibility_lifecycle/build_offline.py', '--compiler', str(pathlib.Path(ziglang.__file__).parent / 'zig.exe'), '--out', 'reports/visibility-ci'])"
+      - name: Upload synthetic summary only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visibility-native-summary
+          path: reports/visibility-ci/results.json
+          if-no-files-found: ignore
