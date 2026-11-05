@@ -1,3 +1,11 @@
+源码HEAD 5a343fd794e100077a5d9eb006f67503738a709f / https://github.com/jackaihyf-gif/Kenshi-AGENT-TEST/pull/11；实际被测源 9d95a9cb33ed138175fc42042fd969e2174e6d4b，被测仪器 7f5d1b9f8f7e18e37b7a6fafcabf40acfdfa7d92 / https://github.com/jackaihyf-gif/Kenshi-AGENT-TEST/pull/12。所有PR保持Draft，不合并main。
+
+# 最新任务覆盖：只推进资源与读档稳定性（2026-11-05）
+
+用户让本机推进第4项，其余换区视觉/混箱/三台自然生产验收留用户晚间，自动化不要抢跑。新保存借用DLL及重置NULL保护候选已安装；被测源9d95a9cb33ed138175fc42042fd969e2174e6d4b、仪器7f5d1b9f8f7e18e37b7a6fafcabf40acfdfa7d92。独立单人新槽保存1次/读回3次、9人物字段、75原外观字段及1引用列表一致；238内存点，无游戏/RPC错误，游戏已退出停桥恢复设置。
+
+保存读者全阶段归0、无隔离，代号0→3、clear epoch1→4；累计外观0→1→2→3、材质0→1→2→3，普通态Lua池0。生产free仍未完成、原生全存活量/长期收敛未验证，16/32/128不变。重置崩溃转储恢复14层有界栈，定位到队伍销毁时虚调用NULL后加0x3d0而访问0x3d8；具体上游原因未定。护栏clear hook实机4次，但midpoint checks=0、null_skips=0，原失败分支没有进入，只由汇编Mock覆盖，绝不能称原崩溃根治。详见[新SHA、候选哈希、原生证据、连续内存、边界与下一步](save-lifecycle-20261105.md)。下方均历史。
+
 发布后源码HEAD 444f5d525496bc2beea74fa288391a734c48d099（仅格式，归一化AST等价/Ruff通过）；实际候选1f03与实测仪器SHA均未变。PR9/10保持Draft；已核分析机PR7/8仅离线格式门禁，未接入本轮、不触发重跑游戏。
 
 源码 85fa9614dab102faaf5e1ab96c43596bf41d6b48 / https://github.com/jackaihyf-gif/Kenshi-AGENT-TEST/pull/9；仪器文档HEAD 5f0aad82868578f5e527c616498f59afeb42e71c / https://github.com/jackaihyf-gif/Kenshi-AGENT-TEST/pull/10；实际最终菜单SHA ca6ebdaeea1fc86f5d49c11b5d18d477d0c4cc8c。均Draft未合并。
