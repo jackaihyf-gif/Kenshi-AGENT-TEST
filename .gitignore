@@ -34,3 +34,6 @@ local-saves/
 *.lib
 *.dmp
 _screens/
+
+# Local pytest temporary projects and synthetic RPC files; preserve on disk.
+/pytest-of-*/
