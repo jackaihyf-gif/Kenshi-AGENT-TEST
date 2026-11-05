@@ -62,16 +62,15 @@ class LuaBridge:
         if len(token) != 64 or any(c not in "0123456789abcdef" for c in token):
             raise ConfigError("Invalid local bridge token")
         identifier = uuid4().hex
-        fields = {
-            "protocol": 1,
-            "id": identifier,
-            "token": token,
-            "command": command,
-            "expires": int(time.time() + min(deadline.remaining(), 30)),
-        }
+        fields = {"protocol": 1, "id": identifier, "token": token, "command": command}
         if command != "status":
-            fields["session"] = self.call("status", deadline)["session"]
+            session = self.call("status", deadline).get("session")
+            if not isinstance(session, str) or not session:
+                raise AdapterError("Bridge status has no valid session")
+            fields["session"] = session
         for key, value in parameters.items():
+            if key in {"protocol", "id", "token", "command", "expires", "session"}:
+                raise ConfigError(f"Reserved bridge argument: {key}")
             if isinstance(value, float) and not math.isfinite(value):
                 raise ConfigError(f"Non-finite bridge argument: {key}")
             fields[key] = value
@@ -89,6 +88,9 @@ class LuaBridge:
         try:
             with os.fdopen(fd, "w") as stream:
                 stream.write(f"pid={os.getpid()}\nid={identifier}\n")
+            # Session discovery spends the same monotonic budget as the action.
+            # Compute wall-clock expiry only when publishing the actual request.
+            fields["expires"] = int(time.time() + min(deadline.remaining(), 30))
             temporary = self.root / f"request-{identifier}.tmp"
             try:
                 temporary.write_text(
@@ -108,6 +110,8 @@ class LuaBridge:
                         raise AdapterError("Not a real protocol-1 in-game response")
                     if not response.get("ok"):
                         raise AdapterError(str(response.get("error", "In-game request failed")))
+                    if command != "status" and response.get("session") != fields["session"]:
+                        raise AdapterError("Bridge session changed during request")
                     return response
                 deadline.sleep(0.05)
         finally:

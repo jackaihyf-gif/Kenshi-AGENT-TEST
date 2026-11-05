@@ -3,29 +3,29 @@
 import json
 from pathlib import Path
 
-import pytest
-
 from kenshi_test.adapters.kenshi import KenshiAdapter
 from kenshi_test.bridge import LuaBridge
 
 
-@pytest.mark.xfail(strict=True, reason="T60 is in belt/wardrobe[14], not upper-body armor")
 def test_real_adapter_observes_component_in_existing_belt_detail(tmp_path, monkeypatch):
     adapter = KenshiAdapter(tmp_path / "kenshi_x64.exe", tmp_path)
     observed = {
         "phase": "ready",
-        "characters": {"fixture": {
-            "upper": "ordinary-shirt",
-            "detail": {"wardrobe": {
-                "14": {"id": "650-JACK_T60_WearLab.mod", "equipped": True},
-            }},
-        }},
+        "characters": {
+            "fixture": {
+                "upper": "ordinary-shirt",
+                "detail": {
+                    "wardrobe": {
+                        "14": {"id": "650-JACK_T60_WearLab.mod", "equipped": True},
+                    }
+                },
+            }
+        },
     }
     monkeypatch.setattr(adapter, "_status", lambda deadline: observed)
     assert adapter.get_state(type("DeadlineStub", (), {"remaining": lambda _: 1})()).armor_equipped
 
 
-@pytest.mark.xfail(strict=True, reason="Action expiry is computed before slow session lookup")
 def test_action_is_not_expired_after_slow_session_lookup(tmp_path, monkeypatch):
     import kenshi_test.bridge as bridge_module
 
@@ -46,11 +46,20 @@ def test_action_is_not_expired_after_slow_session_lookup(tmp_path, monkeypatch):
     def response(path, *args, **kwargs):
         if path.name != "response.json":
             return read_text(path, *args, **kwargs)
-        fields = dict(line.split("=", 1) for line in
-                      read_text(tmp_path / "request.ini", "utf-8").splitlines())
+        fields = dict(
+            line.split("=", 1) for line in read_text(tmp_path / "request.ini", "utf-8").splitlines()
+        )
         valid = int(fields["expires"]) >= int(clock["now"])
-        return json.dumps({"id": fields["id"], "protocol": 1, "simulated": False,
-                           "ok": valid, "error": "synthetic expired request"})
+        return json.dumps(
+            {
+                "id": fields["id"],
+                "protocol": 1,
+                "simulated": False,
+                "session": "synthetic-session",
+                "ok": valid,
+                "error": "synthetic expired request",
+            }
+        )
 
     monkeypatch.setattr(Path, "read_text", response)
 
