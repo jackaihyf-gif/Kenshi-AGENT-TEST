@@ -582,7 +582,8 @@ function M.new(config)
   if choice=='status'then
    local r={root=root,current=sm:getCurrentGame(),local_path=sm.localSavePath,user_path=sm.userSavePath,
     save_method=type(sm.save),save_game_method=type(sm.saveGame),load_method=type(sm.load),signal=sm.signal,
-    save_original_runtime=_G.JACK_T60_SAVE_STATUS and _G.JACK_T60_SAVE_STATUS()or nil}
+    save_original_runtime=_G.JACK_T60_SAVE_STATUS and _G.JACK_T60_SAVE_STATUS()or nil,
+    reset_guard_runtime=_G.JACK_T60_RESET_GUARD_STATUS and _G.JACK_T60_RESET_GUARD_STATUS()or nil}
    if actor then
     local stats=actor:getStats();local a=actor:getAppearance()
     r.actor={name=actor:getName(),logical=actor.myRace.data.stringID,visual=a.raceData.stringID,female=a.female,raw_strength=stats._strength,raw_dexterity=stats._dexterity,
