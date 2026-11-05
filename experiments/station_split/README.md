@@ -1,6 +1,6 @@
 # 工作台配方分离（本机内容构建配方）
 
-`build_candidate_local.py` 是生成已实测 Craft SHA256 `1f03ee6ccb69a6dae018785bdb53f400178d177b88534ad6eac3dedf95d39182` 的作者源码，除文件名与尾部空行外和本机 build.py 相同。它只生成候选和静态报告，不安装、不启动游戏。输入为此前 fe8e8e94… 的24记录 Craft 数据；已经装上1f03的机器会在输入哈希处拒绝，不能直接重跑覆盖。
+`build_candidate_local.py` 是生成已实测 Craft SHA256 `1f03ee6ccb69a6dae018785bdb53f400178d177b88534ad6eac3dedf95d39182` 的作者源码，发布后仅整理格式、导入、两个lambda函数写法及zip strict=False；归一化AST等价检查通过，候选和安装字节未改。它只生成候选和静态报告，不安装、不启动游戏。输入为此前 fe8e8e94… 的24记录 Craft 数据；已经装上1f03的机器会在输入哈希处拒绝，不能直接重跑覆盖。
 
 脚本中的本机路径分别代表 `game.root`、`audit.reader`、`game.workshop_root`。分析机只审代码，无需获取游戏数据；若在其他真实安装环境复现，先配置对应路径并使用备份基线，在独立输出目录运行 `python -X utf8 build_candidate_local.py`。Reader来自本机已审计工具，不在此上传；没有Reader或原始依赖时构建为阻塞，不能用Mock声称二进制已生成。
 
