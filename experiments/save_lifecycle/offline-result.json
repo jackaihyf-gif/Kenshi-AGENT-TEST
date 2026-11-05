@@ -18,9 +18,9 @@
   ],
   "assertions": "explicit -UNDEBUG, compile rejects NDEBUG, reset test sentinel executed",
   "sha256": {
-    "T60OriginalSave_reader.dll": "7fd481033148a0b28e408bdce45cb51424f8bb8cf432d92bbbce848a93adc346",
-    "test_save_reader.exe": "06593e19759cf6df5ac7e0d06fe4a50b1d4634c4064fa45f05c1f5a424bed1e7",
-    "T60ResetGuard_20261105.dll": "16ac5dcdd6d6026d56f2b542c6e24c414ab3da1def1c5cd9f919942b31781192",
-    "test_reset_guard.exe": "fdd63d59110f27deaf204b79235d1bf2dc3d0873141554f6c2aa381aef9ae46b"
+    "T60OriginalSave_reader.dll": "e336a29cc90efd8344d4015e7457bb0badea10b6751f9070e3146a1128df5d09",
+    "test_save_reader.exe": "0ddcf624b50c438a307fc4fb3bc24e7b3b8f7487a3cb09ff70dac876869338d6",
+    "T60ResetGuard_20261105.dll": "ddfdbdde4bb76f51f5ea53bbf6a0d788e6bd65783fa66f86d9d01dc84c55a2bf",
+    "test_reset_guard.exe": "07f0f8d72b26bc94b75f9ec4a079550cf7d8670bb6d49938fc32bd73a360b6dc"
   }
 }

@@ -123,7 +123,7 @@ API int T60_save_generation(void* appearance,unsigned long long* generation){
  ReleaseSRWLockShared(&saveLock);return *generation?0:-2;
 }
 API int T60_save_status(char* out,size_t capacity){
- if(!out||capacity<512)return -1;int active=0,retired=0,quarantine;unsigned long long readers;
- AcquireSRWLockShared(&saveLock);for(int i=0;i<128;i++){active+=saves[i].active;retired+=!saves[i].active&&saves[i].readers!=0;}quarantine=readerQuarantine;readers=quarantine?ULLONG_MAX:totalReaders;ReleaseSRWLockShared(&saveLock);
- return snprintf(out,capacity,"{\"installed\":%d,\"active\":%d,\"retired\":%d,\"readers\":%llu,\"quarantined\":%d,\"calls\":%lld,\"original_appearance_serializations\":%lld,\"ordinary_passthrough\":%lld,\"live_renderer_writes\":0}",saveInstalled,active,retired,readers,quarantine,(long long)saveCalls,(long long)saveShadows,(long long)savePasses);
+ if(!out||capacity<512)return -1;int active=0,retired=0,quarantine;unsigned long long readers,epoch,generation;
+ AcquireSRWLockShared(&saveLock);for(int i=0;i<128;i++){active+=saves[i].active;retired+=!saves[i].active&&saves[i].readers!=0;}quarantine=readerQuarantine;readers=quarantine?ULLONG_MAX:totalReaders;epoch=clearEpoch;generation=nextGeneration;ReleaseSRWLockShared(&saveLock);
+ return snprintf(out,capacity,"{\"installed\":%d,\"active\":%d,\"retired\":%d,\"readers\":%llu,\"quarantined\":%d,\"clear_epoch\":%llu,\"registrations\":%llu,\"calls\":%lld,\"original_appearance_serializations\":%lld,\"ordinary_passthrough\":%lld,\"live_renderer_writes\":0}",saveInstalled,active,retired,readers,quarantine,epoch,generation,(long long)saveCalls,(long long)saveShadows,(long long)savePasses);
 }
