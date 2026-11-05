@@ -1,0 +1,19 @@
+{
+  "purpose": "authored experimental source only; no engine binaries/assets/saves",
+  "game_exe_sha256": "504b362cde850d56afb1cea6f5b7b0ee014d9dd7b47e188599d91c804502cd3e",
+  "complete_dll_sha256": "9f3367b36407178c297e44159458f0868528f8c7a3c1bc8e5b8e250146701c19",
+  "release_dll_sha256": "c0cc3c2bf80bfcadc025caa8336d8c3b803855c6a147132ddd2fada622ae4ab2",
+  "release_game_test": "NOT EXECUTED",
+  "original_local_bytes_sha256": {
+    "private_snapshot_complete.c": "c95a5060962e15283e32d0c29c741d3a9da31226baec405f79974032849413bd",
+    "test_complete.c": "1124c72e9d498ab3b34b35dedbed5cffaf0c3d593503e7be733a11d6f339925d",
+    "private_release.c": "7f6ad0c3184081433d14a165312422f428e6249784c1b0b779fd5010edd941d8",
+    "test_release.c": "c14741094a48760d0ea4f33e70fb26fe69f7c1f6459e9a3cb0fee288f2c8f7e1"
+  },
+  "canonical_lf_sha256": {
+    "private_snapshot_complete.c": "980fa701e1d6650d68314e6f132e7164c49099cbd9659f5afaa8d80e274949a4",
+    "test_complete.c": "b3a49b64009366a59b96f9bf1791c058bddd2154d4d205b3184d5c2618edf934",
+    "private_release.c": "be8ffefce322d4faf4c96c2899d1b4c54b67efe023abcaff6d92cd0c6c217c43",
+    "test_release.c": "b947c4e78fb29d66f10c2317cb72b41126d5caab00566489ff9b4312daedbe49"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "native_mock": [
+    {
+      "name": "test_save_reader.exe",
+      "exit_code": 0,
+      "stdout": "save reader mock tests passed"
+    },
+    {
+      "name": "test_reset_guard.exe",
+      "exit_code": 0,
+      "stdout": "reset guard assembly and fail-latch tests passed; assertions executed"
+    },
+    {
+      "name": "generation_quarantine",
+      "exit_code": 0,
+      "assertion": "quarantine returns -3 and output zero"
+    }
+  ],
+  "assertions": "explicit -UNDEBUG, compile rejects NDEBUG, reset test sentinel executed",
+  "sha256": {
+    "T60OriginalSave_reader.dll": "e336a29cc90efd8344d4015e7457bb0badea10b6751f9070e3146a1128df5d09",
+    "test_save_reader.exe": "0ddcf624b50c438a307fc4fb3bc24e7b3b8f7487a3cb09ff70dac876869338d6",
+    "T60ResetGuard_20261105.dll": "ddfdbdde4bb76f51f5ea53bbf6a0d788e6bd65783fa66f86d9d01dc84c55a2bf",
+    "test_reset_guard.exe": "07f0f8d72b26bc94b75f9ec4a079550cf7d8670bb6d49938fc32bd73a360b6dc"
+  }
+}
