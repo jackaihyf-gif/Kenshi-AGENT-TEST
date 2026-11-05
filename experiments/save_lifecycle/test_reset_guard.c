@@ -18,6 +18,16 @@ static int fail_hook(void* target, void* detour, void** original) {
     (void)target; (void)detour;
     ++hook_calls; *original = clear; return 1;
 }
+static int partial_hook(void* target, void* detour, void** original) {
+    (void)target; (void)detour;
+    ++hook_calls;
+    *original = hook_calls == 1 ? (void*)clear : (void*)stock;
+    return hook_calls == 1 ? 0 : 7;
+}
+static int null_hook(void* target, void* detour, void** original) {
+    (void)target; (void)detour;
+    ++hook_calls; *original = NULL; return 0;
+}
 static DWORD WINAPI foreign(void* unused) {
     (void)unused;
     assert(reset_guard_probe(NULL) == 17);
@@ -47,6 +57,13 @@ int main(void) {
     __try { clear_factions(NULL); assert(0); }
     __except (EXCEPTION_EXECUTE_HANDLER) {}
     assert(reset_guard_depth == 0 && reset_guard_thread == 0 && clear_calls == 2);
+    attempted = installed = hook_calls = 0; /* test-only fresh installer */
+    assert(install_once(partial_hook, NULL, NULL, NULL) == -4);
+    assert(install_once(partial_hook, NULL, NULL, NULL) == -4 && hook_calls == 2);
+    assert(clear_original == clear && reset_guard_original == (void*)stock);
+    attempted = installed = hook_calls = 0;
+    assert(install_once(null_hook, NULL, NULL, NULL) == -4);
+    assert(install_once(null_hook, NULL, NULL, NULL) == -4 && hook_calls == 1);
     puts("reset guard assembly and fail-latch tests passed; assertions executed");
     return 0;
 }

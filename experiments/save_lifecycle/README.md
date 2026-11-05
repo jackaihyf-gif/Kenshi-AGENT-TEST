@@ -10,4 +10,4 @@ reset_guard只针对准确EXE SHA504b362c…：原始转储的pdata有界展开�
 
 本机构建：配置KENSHI_TEST_ZIG为Zig0.13.0 cc、KENSHI_LIFECYCLE_BUILD_OUT为独立可写目录，运行python -X utf8 build_local.py。显式-UNDEBUG且测试拒NDEBUG；native Mock覆盖借用/清除/异常/16并发/租约/隔离溢出及generation quarantine、真实汇编NULL分支/非NULL/不同线程/非reset与clear异常退栈。Mock不能代替实机。具体产物哈希见offline-result.json；DLL只留本机，不入Git。
 
-实机部署和多轮保存/读回结果尚未填写，先提交候选以绑定被测SHA。生产资源回收未完成，不把reader数0或护栏命中当free证明。
+实机被测源码9d95a9cb33ed138175fc42042fd969e2174e6d4b / 仪器7f5d1b9f8f7e18e37b7a6fafcabf40acfdfa7d92；单人新槽保存及3次读回无游戏/RPC错误，保存原外观75字段/1引用列表一致，读者归零。clear hook实际4次，但受保护midpoint checks=0，NULL及非NULL的真实引擎路径都未覆盖，只有汇编Mock覆盖，不能称原失败现场修复实测通过。追加末次Mock只补第二hook失败和success-null锁存测试，没有重建生产DLL。详见docs/handoffs/save-lifecycle-20261105.md。生产资源回收未完成，不把reader数0或护栏命中当free证明。

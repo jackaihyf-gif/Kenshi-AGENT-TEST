@@ -1,0 +1,7 @@
+{
+  "exit_code": 0,
+  "stdout": "reset guard assembly and fail-latch tests passed; assertions executed",
+  "covers": "first/second-hook partial failures and success-null trampoline latch, same-thread reset null branch, other-thread and non-reset passthrough, exception unwind",
+  "production_dll_rebuilt": false,
+  "test_exe_sha256": "40f5ac27de1cd9123895599f1ab0ee30f4ef95d54c0b7e6c5d119cc1580a4b75"
+}
