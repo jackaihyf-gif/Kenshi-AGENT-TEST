@@ -183,6 +183,21 @@ function M.new(config)
    state.work={bench=b,actor=c,owner=c:getHandle():toString(),expires=os.time()+12,autoDeliver=action=='work-deliver'};return snapshot(b)
   elseif action=='operate'then
    c:clearAllAIGoals();c:addGoal(TaskType.OPERATE_MACHINERY,b);return snapshot(b)
+  elseif action=='recipe-menu'then
+   local identity=assert(_G.JACK_T60_WORLD_EPOCH_STATUS)();assert(identity.guiThread and identity.stable and not identity.busy and not identity.loading,'Stable GUI lifecycle required')
+   local ui=inv:getInventoryGUI()or getForgottenGUI():showInventory(b:getHandle(),true,0,0);assert(ui,'Inventory UI unavailable');ui:show(true)
+   assert(raw(ui:getInventory())==raw(inv),'Craft UI belongs to another inventory')
+   local layout=assert(ui.layoutMgr,'Craft layout unavailable');local pointer=raw(layout)
+   local kernel=ffi.load('kernel32');local image=kernel.GetModuleHandleA(nil);assert(image~=nil)
+   -- Exact-build constructor at RVA157260 assigns this vtable at1572b1.
+   assert(ffi.cast('void*',ffi.cast('void***',pointer)[0])==ffi.cast('void*',ffi.cast('char*',image)+0x16942a8),'Unexpected inventory layout type')
+   local lib=kernel.GetModuleHandleA('KenshiLib.dll')
+   local getter=kernel.GetProcAddress(lib,'?getQueueButton@CraftingInventoryLayout@@QEBAPEAVButton@MyGUI@@XZ')
+   local opener=kernel.GetProcAddress(lib,'?newCraftingButton@CraftingBuilding@@UEAAXPEAVWidget@MyGUI@@@Z')
+   assert(getter~=nil and opener~=nil,'Native crafting UI exports unavailable')
+   local button=ffi.cast('void*(*)(void*)',getter)(pointer);assert(button~=nil,'Queue button unavailable')
+   ffi.cast('void(*)(void*,void*)',opener)(raw(b),button)
+   return {opened=true,bench=b.data.stringID,layout_type_verified=true,configured_crafts=recipes(b)}
   elseif action=='open'then
    local ui=inv:getInventoryGUI()or getForgottenGUI():showInventory(b:getHandle(),true,0,0);assert(ui,'Inventory UI unavailable');ui:show(true);return snapshot(b)
   end
