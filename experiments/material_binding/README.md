@@ -38,6 +38,18 @@ The candidate refuses binding if the original v091 DLL is already loaded in the
 same process, preventing a hot replacement of its retained pool/resource group.
 Do not overwrite loaded DLLs or inject into a player session.
 
+KenshiLua watches Lua files and may reload this loader even when the game remains
+open. The loader must therefore select the original DLL before `ffi.load` when
+that module is already present. This retains the active bridge and its night-state
+global; the cached diagnostic reports `restart_required` instead of calling a new
+ABI on the original library. A cold process selects the candidate. A real LuaJIT
+synthetic regression covers repeated watch reloads and cold selection.
+
+The first installation exposed this watch behavior: the new DLL was mapped but
+its native cold guard kept it unbound, disabled, with zero slots. The original
+bridge remained active. The corrected loader restores globals to that original
+bridge; it does not unload either module or claim the running process was updated.
+
 Read-only cached diagnostic interface:
 
 - native `T60_material_binding_status(char*, size_t)` requires a buffer >=256 bytes;

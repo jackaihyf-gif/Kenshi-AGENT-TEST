@@ -9,11 +9,16 @@ int T60_material_register(const char* absolute_path);
 int T60_material_apply(void* entity,const char* owner,int female,unsigned long long generation,const char* filename);
 int T60_material_restore(void* current_live_entity);
 int T60_material_binding_status(char* output,size_t capacity);
+void* GetModuleHandleA(const char* name);
 ]]
 local clock=require('t60_lighting_clock')
-local lib=ffi.load('D:/steam/steamapps/common/Kenshi/mods/JACK_T60_WearLab/plugin/T60MaterialBridge_v091_bindingfix_20261106.dll')
+local kernel=ffi.load('kernel32')
+local oldActive=kernel.GetModuleHandleA('T60MaterialBridge_v091.dll')~=nil
+local filename=oldActive and 'T60MaterialBridge_v091.dll' or 'T60MaterialBridge_v091_bindingfix_20261106.dll'
+local lib=ffi.load('D:/steam/steamapps/common/Kenshi/mods/JACK_T60_WearLab/plugin/'..filename)
 local bindingOutput=ffi.new('char[512]')
 _G.JACK_T60_MATERIAL_BINDING_STATUS=function()
+ if oldActive then return '{"restart_required":true,"old_bridge_active":true}' end
  local n=lib.T60_material_binding_status(bindingOutput,512)
  assert(n>=0 and n<512,'Material status buffer bound')
  return ffi.string(bindingOutput)
