@@ -1,0 +1,39 @@
+{
+  "live_readonly_verified": true,
+  "original_module_sha256": "39438e348e7a419c1400d904e6d103b29d70b00709ce642e41a68b95ff15a563",
+  "observed_normals": [
+    "human_male_n.dds",
+    "bone_male_n.dds"
+  ],
+  "expected_normal": "t60_eye_emission_n_v091.dds",
+  "same_mesh_diffuse_private_shader": true,
+  "live_writes": 0,
+  "injection": false,
+  "rpc_used": false,
+  "candidate_dll_sha256": "c9594044aa7f8aa29be085fd51cc2cf30ea0439ca4335f6f0d7ca57d9845d7e8",
+  "candidate_loader_sha256": "029ab3dde8d0e320f9fccd048662b6c61036e45a37b30ece8d95ac1abc930bd8",
+  "native_mock": {
+    "synthetic_native_mock": "pass",
+    "assertion_sentinel": "pass",
+    "ndebug_compile_rejected": true,
+    "game_loaded": false,
+    "stdout": "MATERIAL_BINDING_MOCK_PASS: sentinel, human/Shek drift, no-op, 1000 stable calls, no clone/compile/growth, day/night, body/thread/disabled gates, missing/duplicate unit, shader mismatch and failed readback"
+  },
+  "candidate_live_verified": false,
+  "installed": false,
+  "carry_running_issue": "reported, clips present, dynamic scene unverified",
+  "source_hashes": {
+    "material_bridge.c": "8ba00f0738e71770b503775da28fcba69494ff173046fc81f7ca6ed69f3ea9f8",
+    "binding_consistency.h": "2ad0afa6a0ffbcbe2fa13267f119729b93dd55a42d911e8649c124078efad528",
+    "t60_ogre_symbols.h": "bec8f8731e4dea887e75e39f5ac3b6294e276e96e7a945f0b89cdfaf708ce8ef",
+    "material_native.lua": "029ab3dde8d0e320f9fccd048662b6c61036e45a37b30ece8d95ac1abc930bd8"
+  },
+  "offline": {
+    "full_pytest": "130 passed, 9 optional Lua skipped",
+    "coverage_percent": 92.42,
+    "cli_smoke": "pass",
+    "ruff": "pass",
+    "extra_luajit": "12 passed",
+    "native_lf_source_mock": "pass"
+  }
+}
