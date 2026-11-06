@@ -256,3 +256,14 @@ PR1/5/6/9/10/11/12本轮准确源码HEAD全部check-runs通过（含push与PR）
 独立fix/ammo-reserve-20261105，源32e9614cd3680d2d33d278711c784b367c0afa6e / [Draft PR14](https://github.com/jackaihyf-gif/Kenshi-AGENT-TEST/pull/14)，全部14项push/PR检查success后已备份原子安装Energy25fb49234e1fa254e6c6f9e4dfebc6a31820f9bc99ce7c5f46bad3f97c515533。Craft仍e0c48262、120mods.cfg仍53dedcd2、所有DLL不变。初始46009651仅加弹药候选未安装。备份research/ammo_balance_20261105，release/Ammo_balance_20261105仅Energy单文件增量；旧e85d及清单保留，不再按旧哈希误报损坏。
 
 本机全仓Ruff、源码/轮子安装完整pytest135通过/9可选Lua跳过、92.42%覆盖（CLI包）、CLI smoke与实际LuaJIT12通过。14记录完整保留、字节往返/回读一致，当前120+4合并只有7字段变化。用户游戏没有被操作/暂停/关闭、无桥和存档写入，实际伤害、每包消耗及旧枪旧包未验证；不承诺给旧包补满、不把charges×num shots称为已测60/14发。正常重启后以新制弹药和同品质枪验收，旧包/旧枪分开记录，不为此先导入。完整[交接](ammo-balance-20261105.md)及[摘要](evidence/ammo-balance-20261105.json)。其他原版工作台/自然AI/换区和资源生命周期既有未验证项不变，不自动合并main。
+
+
+## 最新用户授权与修复候选：2026-11-06 材质法线漂移、扛人跑步待复现
+
+用户先确认读档后动力甲消失、穿脱无效；日志为附件刷新超时回退普通外观后blocked锁定，用户手动F11约1.65秒恢复，具体旧waitReason未记录，未根治。随后用户对照图显示石魔头盔/腿部圈纹，并明确允许只读当前进程。两次有界读取已核模块哈希/PDB与活动body/private material：同一T60模型/底色/私有day FP，但人类normalMap=human_male_n.dds、石魔=bone_male_n.dds，均应为t60_eye_emission_n_v091.dds。材质对象指针仍私有，旧快路径漏检内容变化。原始地址、角色/日志/截图只留本机，不上传。
+
+用户明确允许修复。独立fix/t60-material-binding-20261106 / Draft PR15，源7f7913d8e976967c2ac357bcfe5440c649734774，全部18项push/PR检查success后已准备冷启动DLL T60MaterialBridge_v091_bindingfix_20261106.dll（c9594044aa7f8aa29be085fd51cc2cf30ea0439ca4335f6f0d7ca57d9845d7e8）和loader（029ab3dde8d0e320f9fccd048662b6c61036e45a37b30ece8d95ac1abc930bd8）。旧39438e原桥不覆盖；当前玩家进程仍原版，user明确暂不重启继续玩，不自动退出/重启/反复催促。备份research/material_binding_20261106，release/Material_binding_fix_20261106仅两文件增量，不是完整包。Craft e0c48262、Energy25fb4923与其他DLL不改。
+
+修复仅在已有GUI材质tick复核actual私有主pass/normalMap，漂移才重绑并回读；无新轮询、clone/copy/compile/load，不加/清32槽，原线程/body/ABI/owner门禁保留。原生实际C Mock、1000稳定调用无额外写和分配、day/night/失败门禁、-UNDEBUG sentinel与-DNDEBUG拒编译均通过并已接Windows CI；全仓Ruff、sdist/wheel安装完整pytest130通过/9可选Lua跳过，92.42%覆盖，CLI smoke及LuaJIT12通过。候选已归一为Git同字节LF重建，旧e749候选不安装。新增缓存只读C/Lua状态接口可读checks/repairs/slots/limit/enabled，详见[交接](material-binding-20261106.md)和[摘要](evidence/material-binding-20261106.json)。**冷启动视觉、持续重写频率、FPS/读档仍未验证**，不能把旧版只读实证或Mock当修复验收。
+
+另新增“扛着其他人物跑步动作诡异”报告；目前无人扛，本机不施加玩家动作。82骨当前已有搬运动作，left与left-21派生轨道时间/集合/字节一致；不是缺片段或派生漏更新的已证原因。基础动作移植存在，但重甲扛跑完整自然验收缺失；需下次自然场景只读实际carry/lower片段、权重相位、左右侧和被扛者同步，不盲改骨架。backcarry脚本是收武器，不负责人物搬运。此次未改动画，资源free/NULL midpoint等旧未完成项仍未解决；所有PR保持Draft，不合并main，75历史脚本保留。
