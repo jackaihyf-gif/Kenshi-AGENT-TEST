@@ -1,0 +1,94 @@
+{
+  "enabled_mod_count": 120,
+  "input_count": 124,
+  "missing": [],
+  "craft_references": [
+    [
+      "110-JACK_WastelandCraft.mod",
+      "crossbow crafts",
+      [
+        "100-JACK_EnergyWeapons.mod",
+        "110-JACK_EnergyWeapons.mod"
+      ]
+    ],
+    [
+      "110-JACK_WastelandCraft.mod",
+      "item crafts",
+      [
+        "200-JACK_EnergyWeapons.mod",
+        "210-JACK_EnergyWeapons.mod",
+        "400-JACK_WastelandCraft.mod",
+        "410-JACK_WastelandCraft.mod",
+        "420-JACK_WastelandCraft.mod",
+        "430-JACK_WastelandCraft.mod",
+        "440-JACK_WastelandCraft.mod",
+        "450-JACK_WastelandCraft.mod",
+        "460-JACK_WastelandCraft.mod"
+      ]
+    ]
+  ],
+  "changes": [
+    [
+      "110-JACK_WastelandCraft.mod",
+      "production mult",
+      1.0,
+      2.0
+    ],
+    [
+      "400-JACK_WastelandCraft.mod",
+      "production time",
+      6,
+      12
+    ],
+    [
+      "410-JACK_WastelandCraft.mod",
+      "production time",
+      6,
+      12
+    ],
+    [
+      "420-JACK_WastelandCraft.mod",
+      "production time",
+      3,
+      6
+    ],
+    [
+      "430-JACK_WastelandCraft.mod",
+      "production time",
+      8,
+      16
+    ],
+    [
+      "440-JACK_WastelandCraft.mod",
+      "production time",
+      8,
+      16
+    ],
+    [
+      "450-JACK_WastelandCraft.mod",
+      "production time",
+      1,
+      2
+    ],
+    [
+      "460-JACK_WastelandCraft.mod",
+      "production time",
+      1,
+      2
+    ],
+    [
+      "100-JACK_EnergyWeapons.mod",
+      "craft time hrs",
+      12.0,
+      24.0
+    ],
+    [
+      "110-JACK_EnergyWeapons.mod",
+      "craft time hrs",
+      14.0,
+      28.0
+    ]
+  ],
+  "candidate_sha256": "fe8e8e9490c48b814c5a9740f0c25751059aa15d3dc43d145570eee7b6ca7b6c",
+  "static_only": "Multiplier linearity, gun time application, and actual throughput/ingredients require in-game measurement; no deployment."
+}

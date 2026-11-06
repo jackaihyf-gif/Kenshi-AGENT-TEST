@@ -1,0 +1,37 @@
+name: Native save lifecycle tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  save-reset-mocks:
+    name: Windows save-reader and reset-guard mocks
+    runs-on: windows-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned standalone compiler
+        run: python -m pip install ziglang==0.13.0
+      - name: Build and run assertion-enabled native tests without a game
+        shell: pwsh
+        run: |
+          $env:KENSHI_TEST_ZIG = python -c "import pathlib, ziglang; print(pathlib.Path(ziglang.__file__).parent / 'zig.exe')"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $env:KENSHI_LIFECYCLE_BUILD_OUT = Join-Path $env:RUNNER_TEMP 'save-lifecycle-native'
+          python experiments/save_lifecycle/build_local.py
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Upload synthetic summary only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: save-reset-native-summary
+          path: ${{ runner.temp }}/save-lifecycle-native/offline-result.json
+          if-no-files-found: ignore
