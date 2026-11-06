@@ -11,7 +11,7 @@
   "injection": false,
   "rpc_used": false,
   "candidate_dll_sha256": "c9594044aa7f8aa29be085fd51cc2cf30ea0439ca4335f6f0d7ca57d9845d7e8",
-  "candidate_loader_sha256": "029ab3dde8d0e320f9fccd048662b6c61036e45a37b30ece8d95ac1abc930bd8",
+  "candidate_loader_sha256": "6fca1243cd59ea73b30bf43040b7edfd803ebca42eb62ef7d4f25cfc62478c45",
   "native_mock": {
     "synthetic_native_mock": "pass",
     "assertion_sentinel": "pass",
@@ -21,24 +21,24 @@
   },
   "candidate_live_verified": false,
   "installed": true,
-  "carry_running_issue": "reported, clips present, dynamic scene unverified",
+  "carry_running_issue": "8 live readonly samples and offline phase reproduction; separate PR16; corrected asset not installed",
   "source_hashes": {
     "material_bridge.c": "8ba00f0738e71770b503775da28fcba69494ff173046fc81f7ca6ed69f3ea9f8",
     "binding_consistency.h": "2ad0afa6a0ffbcbe2fa13267f119729b93dd55a42d911e8649c124078efad528",
     "t60_ogre_symbols.h": "bec8f8731e4dea887e75e39f5ac3b6294e276e96e7a945f0b89cdfaf708ce8ef",
-    "material_native.lua": "029ab3dde8d0e320f9fccd048662b6c61036e45a37b30ece8d95ac1abc930bd8"
+    "material_native.lua": "6fca1243cd59ea73b30bf43040b7edfd803ebca42eb62ef7d4f25cfc62478c45"
   },
   "offline": {
-    "full_pytest": "130 passed, 9 optional Lua skipped",
+    "full_pytest": "130 passed, 10 optional Lua skipped",
     "coverage_percent": 92.42,
     "cli_smoke": "pass",
     "ruff": "pass",
-    "extra_luajit": "12 passed",
+    "extra_luajit": "13 passed",
     "native_lf_source_mock": "pass"
   },
   "installed_for_next_cold_start": true,
   "user_chose_defer_restart": true,
-  "installation": {
+  "initial_installation_history": {
     "source_commit": "7f7913d8e976967c2ac357bcfe5440c649734774",
     "pr": 15,
     "new_dll_sha256": "c9594044aa7f8aa29be085fd51cc2cf30ea0439ca4335f6f0d7ca57d9845d7e8",
@@ -46,11 +46,29 @@
     "original_dll_unchanged": true,
     "remote_checks_all_success": true,
     "remote_checks_count": 18,
-    "running_game_hot_updated": false,
     "game_calls": 0,
     "player_save_writes": 0,
     "requires_cold_restart": true,
     "candidate_live_verified": false,
-    "release_kind": "two-file cold-start delta, not full package"
+    "release_kind": "two-file cold-start delta, not full package",
+    "automatic_lua_watch_reloaded": true,
+    "new_dll_mapped_but_bound_disabled_and_slots_zero": true
+  },
+  "installation": {
+    "source_commit": "f78bf472da8fc260b057faf4ee56a42e6b3c0758",
+    "pr": 15,
+    "loader_sha256": "6fca1243cd59ea73b30bf43040b7edfd803ebca42eb62ef7d4f25cfc62478c45",
+    "native_dll_unchanged": "c9594044aa7f8aa29be085fd51cc2cf30ea0439ca4335f6f0d7ca57d9845d7e8",
+    "remote_checks_count": 18,
+    "remote_checks_all_success": true,
+    "watch_safe": true,
+    "original_bridge_remains_enabled": true,
+    "original_slots_after_reload": 5,
+    "new_dll_present_after_watch_safe": false,
+    "automatic_lua_watch_reloaded": true,
+    "game_calls": 0,
+    "player_save_writes": 0,
+    "candidate_live_verified": false,
+    "requires_cold_restart": true
   }
 }

@@ -1,6 +1,16 @@
+# 最新覆盖：Lua文件监测兼容与扛人相位后续
+
+材质源已更新至 `f78bf472da8fc260b057faf4ee56a42e6b3c0758` / Draft PR15，全部18项push/PR检查success。原生C及DLL c9594044不变；loader现 `6fca1243cd59ea73b30bf43040b7edfd803ebca42eb62ef7d4f25cfc62478c45`。本机全量130通过/10可选Lua跳过，92.42%覆盖、CLI smoke、实际LuaJIT13通过（新增3次watch/cold分支真实Lua加载器合成回归）。
+
+首次安装遗漏KenshiLua文件监测：22:03自动重载loader并映射新DLL；native冷启动保护使新桥始终bound0/enabled0/slots0，原桥enabled1/slots5仍拥有现场。此前“新DLL没有映射/脚本未重载”的表述不准确，以下同类历史以本段纠正。22:30已备份安装watch-safe loader：加载前检测原桥模块，当前会话路由原桥和其night-state全局，冷启动才选新桥；不调用游戏、不卸载/覆盖DLL。22:31只读536字节确认原桥bound1/enabled1/slots5/error空，新桥已不在模块清单，日志仅成功重载，无新增控制器错误。没有主动调用卸载或强制GC。备份research/material_binding_watch_safe_20261106，release/Material_binding_watch_safe_20261106仅loader增量，旧029回执保留历史。
+
+用户继续玩、暂不重启。修复normalMap的冷启动效果仍未验证，当前仍原桥，不把loader恢复路由当材质实机修复。新只读Lua状态在旧桥会话返回restart_required/old_bridge_active，不调用旧DLL不存在的新ABI。扛人左jog半周期适配另见[PR16交接](carry-phase-20261106.md)，尚未安装私有骨架；不能再按“当前无人扛/无动态证据”重复询问。
+
+--- 以下为首次候选记录；冲突以上述最新覆盖为准 ---
+
 # T60种族法线混入修复候选与扛人跑步报告（2026-11-06）
 
-用户确认修复材质问题，并新增报告：**扛着其他人物跑步时动作怪异**，不是单纯捡起瞬间或静态肩上落点。当前没有人在扛，本轮不操作玩家现场去构造动作。独立修复分支 `fix/t60-material-binding-20261106` 基于生产源PR11 `817830d98b7d6adc4ff66cd6e0304b092a92e2e5`，不覆盖其他分支，不合并main。
+用户确认修复材质问题，并新增报告：**扛着其他人物跑步时动作怪异**，不是单纯捡起瞬间或静态肩上落点。随后已由用户自然左扛跑步，取得8份只读动态采样并定位相位适配缺口，见[后续独立修复](carry-phase-20261106.md)。独立修复分支 `fix/t60-material-binding-20261106` 基于生产源PR11 `817830d98b7d6adc4ff66cd6e0304b092a92e2e5`，不覆盖其他分支，不合并main。
 
 ## 已确认的实际材质问题
 

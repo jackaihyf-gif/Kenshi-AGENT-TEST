@@ -1,0 +1,62 @@
+{
+  "source_sha": "9781167f8b491db30b7612dc62643ec36bfe93c8",
+  "pr": 16,
+  "scope": "authorized bounded read-only carry observation plus offline author-skeleton analysis",
+  "live_samples": 8,
+  "writes": 0,
+  "game_calls": 0,
+  "rpc": false,
+  "clips": [
+    {
+      "name": "carrying left arm only-13",
+      "weight": 1.0,
+      "length": 0.0416666679084301
+    },
+    {
+      "name": "walk carrying left",
+      "weight": 0.049132999032735825,
+      "length": 0.6231685876846313
+    },
+    {
+      "name": "jog carrying left-21",
+      "weight": 0.9508669376373291,
+      "length": 1.119057059288025
+    },
+    {
+      "name": "jog lower-11",
+      "weight": 0.9995567798614502,
+      "length": 1.119057059288025
+    }
+  ],
+  "upper_lower_phase_offset_cycles": 0.5,
+  "fcs_left_offset": 0.5,
+  "fcs_plain_jog_and_right_offset": 0,
+  "torso_tracks_match_plain_jog_before_patch": true,
+  "samples_per_offline_cycle": 120,
+  "spine2_peak_to_peak_degrees": {
+    "before": 54.1488,
+    "candidate": 21.2255
+  },
+  "head_peak_to_peak_degrees": {
+    "before": 40.3524,
+    "candidate": 11.4878
+  },
+  "candidate_sha256": "9cf7ab197fe155b38fdb4d0e20d49527784d4cfc0fa9b79c97ba11f1a38b0589",
+  "baseline_sha256": "37246540fc1c985f6b95041595688463acc82bca23d0b05e248e5e9ead711609",
+  "changed_tracks": 10,
+  "bind_and_all_other_tracks_byte_exact": true,
+  "full_pytest_passed": 138,
+  "optional_lua_skipped": 9,
+  "extra_luajit_passed": 12,
+  "cli_coverage_percent": 92.42,
+  "new_synthetic_tests_passed": 8,
+  "remote_checks": {
+    "count": 16,
+    "all_success": true,
+    "sha": "9781167f8b491db30b7612dc62643ec36bfe93c8"
+  },
+  "installed": false,
+  "in_game_corrected_motion": "未验证",
+  "blend_masks_and_small_walk_mix": "未完整还原",
+  "carried_person_sync": "未验证"
+}
