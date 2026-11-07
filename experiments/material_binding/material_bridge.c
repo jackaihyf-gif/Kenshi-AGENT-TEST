@@ -19,6 +19,7 @@
 #define PROGRAM "JACK_T60_YellowEyes_FP_v091"
 #define DAY_PROGRAM "JACK_T60_Day_FP_v091"
 #define NORMAL "t60_eye_emission_n_v091.dds"
+#define PRIVATE_NORMAL "JACK_T60_PrivateNormal_v091"
 #define LIMIT 32
 typedef struct { union { char small[16]; const char* data; } storage; uint64_t length,capacity; } Str32;
 typedef struct { void* rep; void* info; } Shared16;
@@ -110,7 +111,9 @@ done:if(hash)CryptDestroyHash(hash);if(provider)CryptReleaseContext(provider,0);
 }
 #define RESOLVE(name,type) do { og.name=(type)(uintptr_t)GetProcAddress(module,SYM_##name); if(!og.name)return fail("Missing export: " #name); } while(0)
 API int T60_material_bind(void) {
- if(GetModuleHandleA("T60MaterialBridge_v091.dll"))return fail("Cold restart required; original material bridge is still loaded");
+ if(GetModuleHandleA("T60MaterialBridge_v091.dll") ||
+    GetModuleHandleA("T60MaterialBridge_v091_bindingfix_20261106.dll"))
+  return fail("Cold restart required; previous material bridge is still loaded");
  if(state.bound)return owner_thread()?0:fail("Main-thread gate");
  HMODULE module=GetModuleHandleA("OgreMain_x64.dll");if(!module)return fail("Ogre DLL not loaded");
  if(!hash_module(module))return fail("Installed Ogre DLL hash differs from the verified ABI");
@@ -159,6 +162,17 @@ API int T60_material_register(const char* absolute_path) {
  return result;
 }
 
+static int isolate_normal_unit(void* unit,unsigned short index) {
+ /* Preserve register(s1), unit order/count and the normal asset. The private
+  * name prevents ordinary skin normalMap lookup from targeting this unit. */
+ if(index!=1 || !equal(og.unit_name(unit),"normalMap"))return fail("Normal sampler index/name differs");
+ Str32 normal=str(NORMAL),name=str(PRIVATE_NORMAL);
+ og.unit_set_texture(unit,&normal,2);og.unit_set_name(unit,&name);
+ if(!equal(og.unit_name(unit),PRIVATE_NORMAL) || !equal(og.unit_texture(unit),NORMAL))
+  return fail("Private normal isolation readback failed");
+ return 1;
+}
+
 static int configure(void* source,void* modified) {
  unsigned changed=0;
  if(og.tech_count(source)!=og.tech_count(modified))return fail("Technique count changed");
@@ -176,7 +190,7 @@ static int configure(void* source,void* modified) {
     void* su=og.unit_get(sp,ui);void* du=og.unit_get(dp,ui);char n[256],texture[1024];
     if(!copy_text(og.unit_name(su),n,sizeof(n)) || !equal(og.unit_name(du),n))return fail("Texture unit order changed");
     if(!copy_text(og.unit_texture(su),texture,sizeof(texture)) || !equal(og.unit_texture(du),texture))return fail("Cloned texture changed");
-    if(!strcmp(n,"normalMap")){Str32 normal=str(NORMAL);og.unit_set_texture(du,&normal,2);normal_found++;}
+    if(!strcmp(n,"normalMap")){if(isolate_normal_unit(du,ui)<0)return -1;normal_found++;}
    }
    if(normal_found!=1)return fail("Expected one normalMap texture unit");
    Str32 program=str(night_mode?PROGRAM:DAY_PROGRAM);og.pass_set_fp(dp,&program,0);changed++;

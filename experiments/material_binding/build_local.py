@@ -14,7 +14,7 @@ def main():
     args = parser.parse_args()
     args.out.mkdir(parents=True, exist_ok=False)
     root = Path(__file__).resolve().parent
-    output = args.out / "T60MaterialBridge_v091_bindingfix_20261106.dll"
+    output = args.out / "T60MaterialBridge_v091_isolatednormal_20261107.dll"
     command = [str(args.compiler), "cc", "-std=c11", "-fms-extensions", "-O1", "-g",
                "-UNDEBUG", "-shared", str(root / "material_bridge.c"), "-ladvapi32",
                "-o", str(output)]

@@ -14,7 +14,9 @@ void* GetModuleHandleA(const char* name);
 local clock=require('t60_lighting_clock')
 local kernel=ffi.load('kernel32')
 local oldActive=kernel.GetModuleHandleA('T60MaterialBridge_v091.dll')~=nil
-local filename=oldActive and 'T60MaterialBridge_v091.dll' or 'T60MaterialBridge_v091_bindingfix_20261106.dll'
+local priorActive=kernel.GetModuleHandleA('T60MaterialBridge_v091_bindingfix_20261106.dll')~=nil
+local filename=oldActive and 'T60MaterialBridge_v091.dll' or
+ (priorActive and 'T60MaterialBridge_v091_bindingfix_20261106.dll' or 'T60MaterialBridge_v091_isolatednormal_20261107.dll')
 local lib=ffi.load('D:/steam/steamapps/common/Kenshi/mods/JACK_T60_WearLab/plugin/'..filename)
 local bindingOutput=ffi.new('char[512]')
 _G.JACK_T60_MATERIAL_BINDING_STATUS=function()

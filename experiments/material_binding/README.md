@@ -1,5 +1,41 @@
 # T60 private material normal binding consistency
 
+## 2026-11-07 isolated-normal candidate, not deployed
+
+The v1 periodic repair produced a new user-visible flicker: normal play alternated
+between repaired and race-skin appearance, while pausing stabilized it. The live
+v1 bridge had five retained slots and 364 cumulative repairs. A short paused
+capture kept the dedicated texture throughout; it did not capture alternating
+phases. The engine/mod write competition remains the working explanation.
+
+Local exact-build analysis found `normalMap` lookups through the public
+`Pass::getTextureUnitState(name)` API, with a downstream null-unit guard in a
+shared update helper. Raw executable snippets are not distributed. This supports
+testing semantic isolation but does not prove every live update path is covered.
+
+This candidate gives only the cloned normal unit a private name, preserving its
+index 1, unit count/order, texture, and HLSL explicit `register(s1)`. It uses the
+already ABI-exercised public `TextureUnitState::setName` method. Original material
+and ordinary races are untouched. Stable ticks check the private unit without
+writing. Unexpected private-name/texture/index drift disables the candidate;
+it is not repaired periodically. No extra unit, shader change, poller, clone,
+compilation, capacity increase or counter reset is introduced.
+
+Cold-only DLL: `T60MaterialBridge_v091_isolatednormal_20261107.dll`. Native binding
+rejects both previously deployed bridges. The paired loader retains either
+already-loaded original or v1 bridge on file-watch reload, selecting isolation
+only in a cold process. No live installation is allowed.
+
+Actual-C synthetic tests include initial unit name/texture readback, 1000 simulated
+name-based human/Shek updates without additional writes/clone/compile/growth,
+stable day/night, both prior-bridge guards and unexpected drift failing closed.
+These tests are not live game acceptance. A bounded independent cold session must
+verify real updates, private bindings, stable appearance and no unexpected drift
+before replacing a player's active version. The carry skeleton remains rolled
+back to its original hash; this candidate does not alter skeleton/cache gates.
+
+--- The remainder documents the v1 investigation and historical periodic repair. ---
+
 An authorized read-only capture of two live bodies found the same T60 mesh, diffuse
 map and private day shader, but `normalMap` had become `human_male_n.dds` and
 `bone_male_n.dds`. Each current material still matched its owner's retained private

@@ -1,6 +1,6 @@
 /* The engine may edit a private material in place. Pointer identity is not
  * proof that its normal texture still belongs to the suit. GUI thread only. */
-static unsigned long long binding_checks,binding_repairs;
+static unsigned long long binding_checks,binding_repairs,binding_unexpected_drifts;
 
 static int repair_private_normal(void* material) {
  unsigned short techniques=og.tech_count(material);
@@ -20,22 +20,24 @@ static int repair_private_normal(void* material) {
    if(!units||units>64)return fail("Private texture unit bound");
    for(unsigned short ui=0;ui<units;ui++){
     void* unit=og.unit_get(pass,ui);if(!unit)return fail("Private texture unit missing");
-    if(equal(og.unit_name(unit),"normalMap")){normal_unit=unit;normals++;}
+    if(equal(og.unit_name(unit),"normalMap"))return fail("Engine-addressable normalMap reappeared");
+    if(equal(og.unit_name(unit),PRIVATE_NORMAL)){
+     if(ui!=1)return fail("Private normal sampler index differs");
+     normal_unit=unit;normals++;
+    }
    }
   }
  }
- if(main_passes!=1||normals!=1)return fail("Expected one private main pass and normalMap");
+ if(main_passes!=1||normals!=1)return fail("Expected one private main pass and private normal unit");
  binding_checks++;
  if(equal(og.unit_texture(normal_unit),NORMAL))return 0;
- Str32 normal=str(NORMAL);og.unit_set_texture(normal_unit,&normal,2);
- if(!equal(og.unit_texture(normal_unit),NORMAL))return fail("Private normal binding readback failed");
- binding_repairs++;
- return 1;
+ binding_unexpected_drifts++;
+ return fail("Isolated normal drifted; refuse periodic rewrite competition");
 }
 
 API int T60_material_binding_status(char* output,size_t capacity) {
  if(!output||capacity<256)return -1;
  return snprintf(output,capacity,
-  "{\"checks\":%llu,\"repairs\":%llu,\"slots\":%d,\"limit\":32,\"enabled\":%d}",
-  binding_checks,binding_repairs,state.slots,state.enabled);
+  "{\"checks\":%llu,\"repairs\":%llu,\"unexpected_drifts\":%llu,\"slots\":%d,\"limit\":32,\"enabled\":%d}",
+  binding_checks,binding_repairs,binding_unexpected_drifts,state.slots,state.enabled);
 }
