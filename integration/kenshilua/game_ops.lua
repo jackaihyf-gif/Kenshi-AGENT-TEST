@@ -545,12 +545,21 @@ function M.new(config)
     material_slots=function()
      -- Inspect an already loaded, exact-path production module; never LoadLibrary.
      ffi.cdef[[unsigned long GetModuleFileNameA(void*,char*,unsigned long);]]
-     local path=(plugins..'/T60MaterialBridge_v091.dll'):gsub('/','\\')
-     local module=kernel.GetModuleHandleA(path);assert(module~=nil,'Material module not already loaded')
+     local names={'T60MaterialBridge_v091.dll','T60MaterialBridge_v091_bindingfix_20261106.dll','T60MaterialBridge_v091_isolatednormal_20261107.dll'}
+     local found={}
+     for _,name in ipairs(names)do
+      local path=(plugins..'/'..name):gsub('/','\\')
+      local module=kernel.GetModuleHandleA(path)
+      if module~=nil then found[#found+1]={path=path,module=module}end
+     end
+     assert(#found==1,'Require exactly one known material bridge; missing or ambiguous')
+     local path,module=found[1].path,found[1].module
      local filename=ffi.new('char[32768]');local n=tonumber(kernel.GetModuleFileNameA(module,filename,32768))
      assert(n>0 and n<32768 and ffi.string(filename):lower()==path:lower(),'Material module path mismatch')
      local address=kernel.GetProcAddress(module,'T60_material_slots');assert(address~=nil,'Material counter export unavailable')
-     return tonumber(ffi.cast('int (*)(void)',address)())
+     local slots=tonumber(ffi.cast('int (*)(void)',address)())
+     assert(slots and slots>=0 and slots<=32 and slots%1==0,'Invalid material slot counter')
+     return slots
     end})
   end
   local count=0;local actor
