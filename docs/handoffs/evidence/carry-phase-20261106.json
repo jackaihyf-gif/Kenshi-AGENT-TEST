@@ -55,7 +55,7 @@
     "all_success": true,
     "sha": "9781167f8b491db30b7612dc62643ec36bfe93c8"
   },
-  "installed": true,
+  "installed": false,
   "in_game_corrected_motion": "未验证",
   "blend_masks_and_small_walk_mix": "未完整还原",
   "carried_person_sync": "未验证",
@@ -83,5 +83,34 @@
     "in_game_corrected_motion": "unverified",
     "scope": "one T60-private skeleton asset; no DLL/script/FCS/capacity changes"
   },
-  "automatic_live_retest": "blocked: no bounded pickup/carry locomotion interface in instrument PR12 1334fc453f3886e6299b66d909cdb10f9c08f82d"
+  "automatic_live_retest": "blocked: no bounded pickup/carry locomotion interface in instrument PR12 1334fc453f3886e6299b66d909cdb10f9c08f82d",
+  "withdrawn": true,
+  "withdrawal_reason": "asset-only deployment omitted native cache gate exact hash dependency; startup -31 disabled wear registration",
+  "current_skeleton_sha256": "37246540fc1c985f6b95041595688463acc82bca23d0b05e248e5e9ead711609",
+  "cache_gate_sha256": "ecccbfebb61a689a8cd870d68e0fe913513ea04a9c2926c59b37e46a37702e9a",
+  "restoration_evidence": {
+    "native_menu_state": 2,
+    "allowed": 1,
+    "animations": 200,
+    "warmed": 200,
+    "native_errors": 0,
+    "wear_controller_ready": true,
+    "world_loaded": false,
+    "save_writes": 0,
+    "user_visual_confirmation": "armor display restored after normal restart and load",
+    "harness_first_attempt": "40s too short; startup ~51s; early close did not exit; same session later observed ready and normally closed",
+    "new_game_sessions": 1
+  },
+  "preflight_fix_source_sha": "f49101f63dece60cff244c348c3b0455c281d3e0",
+  "preflight_remote_checks": {
+    "count": 16,
+    "all_success": true
+  },
+  "preflight_offline": {
+    "full_pytest_passed": 143,
+    "optional_lua_skipped": 9,
+    "cli_coverage_percent": 92.42,
+    "extra_luajit_passed": 12,
+    "initial_harness_failure": "Unicode nested report path exceeded Windows path length under overly long basetemp; retained failure, full rerun with short basetemp passed"
+  }
 }
