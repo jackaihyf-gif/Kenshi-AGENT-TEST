@@ -1,0 +1,94 @@
+{
+  "utc": "2026-11-07T03:28:51.271101+00:00",
+  "material_source_sha": "7b2c22a5a9a5dabfc10f761d563a34f3d603f737",
+  "instrument_sha": "b3e3964bfdabd2d3796a377f8b6ab8d08a8ff36d",
+  "pr": 17,
+  "remote_checks_count": 18,
+  "all_success": true,
+  "dll_sha256": "d9f2b374765f5a312b596d33f4d2600dffd1f03c49b264a816c8d3a74d379f74",
+  "loader_sha256": "711479c7bb6bc2dec1dff409ab12f6ea6aca3b5f3721a5fa29a3bb5b66df42cf",
+  "installed": true,
+  "material_subtest_verified": true,
+  "stages": [
+    {
+      "stage": "paused",
+      "samples": 12,
+      "checks_start": 24,
+      "checks_end": 31,
+      "material_slots": 1,
+      "unexpected_drifts": 0
+    },
+    {
+      "stage": "running",
+      "samples": 40,
+      "checks_start": 55,
+      "checks_end": 70,
+      "material_slots": 1,
+      "unexpected_drifts": 0
+    },
+    {
+      "stage": "rebuilt",
+      "samples": 12,
+      "checks_start": 94,
+      "checks_end": 100,
+      "material_slots": 1,
+      "unexpected_drifts": 0
+    },
+    {
+      "stage": "rebuilt-running",
+      "samples": 40,
+      "checks_start": 121,
+      "checks_end": 136,
+      "material_slots": 1,
+      "unexpected_drifts": 0
+    }
+  ],
+  "samples": 104,
+  "native_checks_delta": 112,
+  "repair_counter_live": "unavailable (optimized-out constant), not fabricated as zero",
+  "no_periodic_write_path": "reviewed source and actual-C synthetic test",
+  "unexpected_drifts": 0,
+  "rpc_calls": 61,
+  "rpc_errors": 0,
+  "whole_session_passed": false,
+  "whole_session_stop_reason": "combat=true; dead/unconscious/injured false",
+  "unwear_restore_executed": false,
+  "multirace_long_term_verified": false,
+  "game_closed": true,
+  "bridge_disabled": true,
+  "settings_restored": true,
+  "source_fixture_unchanged": true,
+  "player_save_access": false,
+  "skeleton_cache_pair_unchanged": true,
+  "user_multi_actor_feedback": "stable, no further material switching after normal restart/load",
+  "user_visual_confirmation": true,
+  "native_mock": "explicit assertion/sentinel; NDEBUG compilation rejected; 1000 simulated name-based skin updates without periodic writes/clone/compile/growth",
+  "source_offline": {
+    "pytest_passed": 130,
+    "optional_lua_skipped": 10,
+    "cli_coverage_percent": 92.42,
+    "extra_luajit_passed": 13
+  },
+  "instrument_offline": {
+    "pytest_passed": 117,
+    "optional_lua_skipped": 11,
+    "cli_coverage_percent": 92.42,
+    "extra_luajit_passed": 14
+  },
+  "initial_test_stops": [
+    "diagnostic expected executable filename case-sensitively; stopped and reverted",
+    "diagnostic expected mutable binding_repairs global but compiler optimized its constant away; stopped and reverted"
+  ],
+  "memory_summary": {
+    "samples": 96,
+    "minimum_system_available_MiB": 3398.2,
+    "ordinary_working_MiB": 4245.1,
+    "ordinary_private_MiB": 9477.2,
+    "last_working_MiB": 4815.7,
+    "last_private_MiB": 10790.0,
+    "fps": "unverified",
+    "leak_or_convergence": "unverified; memory change alone not classified"
+  },
+  "production_free_verified": false,
+  "whole_mod_acceptance": false
+}
