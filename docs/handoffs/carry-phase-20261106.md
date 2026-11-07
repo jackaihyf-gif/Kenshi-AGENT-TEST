@@ -1,3 +1,15 @@
+# 2026-11-07 最新覆盖：已安全安装，实际动作仍待验收
+
+10:13香港时间确认无Kenshi进程、无其他执行者、无RPC锁且桥停用后，重新核远端PR16仍为 `9781167f8b491db30b7612dc62643ec36bfe93c8`、全部16项push/PR检查success。原资产37246540与暂存9cf7ab19及历史原骨架备份逐一匹配；新建额外备份后，在替换前再次确认无Kenshi进程，仅原子替换模组私有骨架一个文件，安装后SHA256 `9cf7ab197fe155b38fdb4d0e20d49527784d4cfc0fa9b79c97ba11f1a38b0589` 回读一致。下方“仅暂存/未安装/玩家游戏仍运行”是前日历史，当前已安装。
+
+本机备份与回执为research/carry_phase_install_20261107；原release/Carry_phase_fix_20261106/staging.json保留初始暂存历史，不覆写旧回执。本轮无源码/全局FCS/DLL/Lua/预算改动、无游戏启动/角色操控/RPC/存档写入。PR1/15/16、生命周期PR11/12远端明确SHA未变化，全部Draft，不合并main。
+
+实机修复后的左扛jog视觉、手臂支撑/被扛者同步、普通jog/右扛/静止/捡起回归仍为**未验证**。当前受限仪器PR12 `1334fc453f3886e6299b66d909cdb10f9c08f82d` 的integration/kenshilua与src/kenshi_test源码未接入人物pickup/carry动作与运行组合（carry检索只命中getTotalCarryWeight）；因此自动动态验收**接口阻塞**，没有借任意游戏调用、改玩家状态或临时绕过门禁来复现。下次用户自然冷启动后可先人工观察左扛慢跑；有明确新受限夹具SHA再用独立测试槽验收。既有离线运动学与Mock通过不替代这一步。
+
+材质c959/loader6fca仍为前日已部署候选，正常冷启动效果/反复覆盖频率/FPS继续未验证；生产free/附件超时blocked/原NULL崩溃根因不因此解决。
+
+--- 以下为2026-11-06分析与暂存历史 ---
+
 # 动力甲左扛慢跑躯干相位修复 — 2026-11-06
 
 当前目标：修复用户“濑户扛人跑步时上半身幅度非常大”。源 `9781167f8b491db30b7612dc62643ec36bfe93c8` / `fix/t60-carry-phase-20261106` / [Draft PR16](https://github.com/jackaihyf-gif/Kenshi-AGENT-TEST/pull/16)，基于生产源PR11 `817830d98b7d6adc4ff66cd6e0304b092a92e2e5`，不合并main。原始人物地址/状态和完整日志只留测试机，不上传。

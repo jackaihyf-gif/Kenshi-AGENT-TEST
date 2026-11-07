@@ -55,8 +55,33 @@
     "all_success": true,
     "sha": "9781167f8b491db30b7612dc62643ec36bfe93c8"
   },
-  "installed": false,
+  "installed": true,
   "in_game_corrected_motion": "未验证",
   "blend_masks_and_small_walk_mix": "未完整还原",
-  "carried_person_sync": "未验证"
+  "carried_person_sync": "未验证",
+  "prior_staged_only_history": {
+    "installed": false,
+    "recorded_date": "2026-11-06"
+  },
+  "installation_20261107": {
+    "utc": "2026-11-07T02:13:50.774084+00:00",
+    "source_sha": "9781167f8b491db30b7612dc62643ec36bfe93c8",
+    "pr": 16,
+    "remote_checks_count": 16,
+    "all_success": true,
+    "previous_sha256": "37246540fc1c985f6b95041595688463acc82bca23d0b05e248e5e9ead711609",
+    "installed_sha256": "9cf7ab197fe155b38fdb4d0e20d49527784d4cfc0fa9b79c97ba11f1a38b0589",
+    "installed": true,
+    "game_running_before_install": false,
+    "game_running_before_replace": false,
+    "original_backup_verified": true,
+    "rpc_lock_absent": true,
+    "bridge_disabled": true,
+    "game_started": false,
+    "game_calls": 0,
+    "save_writes": 0,
+    "in_game_corrected_motion": "unverified",
+    "scope": "one T60-private skeleton asset; no DLL/script/FCS/capacity changes"
+  },
+  "automatic_live_retest": "blocked: no bounded pickup/carry locomotion interface in instrument PR12 1334fc453f3886e6299b66d909cdb10f9c08f82d"
 }
