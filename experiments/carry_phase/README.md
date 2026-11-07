@@ -1,5 +1,29 @@
 # T60 left-carry torso phase correction
 
+## Installation regression: candidate withdrawn on 2026-11-07
+
+The first installation was incomplete. The existing `T60CacheWarm_gated.dll`
+contains an exact SHA256 gate for the original skeleton. Replacing only the asset
+with the carry candidate caused startup `-31`, then latched `-30`, disabling the
+wear controller before it registered. F11 cannot resume an unregistered controller.
+The original skeleton has been restored; the carry candidate is not deployable
+with that gate. This was a packaging/integration omission, not proof that its
+individual tracks were malformed. No runtime gate is disabled or weakened.
+
+Before installing any skeleton update, run this read-only check against the
+**candidate** asset and the actual installed cache-gate DLL:
+
+```powershell
+python experiments/carry_phase/preflight_install.py --candidate-skeleton <candidate> --cache-gate <installed-gate.dll>
+```
+
+It accepts only reviewed exact DLL/asset pairs and rejects unknown gates. The
+current carry candidate must fail with the current gate, even though its offline
+animation tests pass. A paired native gate needs its own source review, full
+quality checks and cold-start integration evidence before the pair can be added.
+Do not simply whitelist a new digest, suppress the Lua error or install only the
+skeleton. Artifact generation below is offline preparation, not deployment approval.
+
 The user's live left-carry jog enabled `jog carrying left-21` at about .95 weight
 and `jog lower-11` at about 1.0. Eight read-only samples retained a half-cycle
 offset. The current FCS left-carry record has `synch offset=.5`; ordinary jog and

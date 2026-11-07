@@ -158,6 +158,8 @@ def main():
     report = {"baseline_sha256": baseline, "candidate_sha256": hashlib.sha256(result).hexdigest(),
               "edited_tracks": edited, "torso_bones": sorted(TORSO), "phase_shift": 0.5,
               "scope": "T60 private asset only; no FCS/global animation changes",
+              "installable_with_current_cache_gate": False,
+              "requires_reviewed_paired_cache_gate": True,
               "installed": False, "game_verified": False}
     with args.output.open("xb") as stream:
         stream.write(result)
