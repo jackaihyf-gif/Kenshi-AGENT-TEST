@@ -9,6 +9,26 @@ permissions:
   contents: read
 
 jobs:
+  native-mocks:
+    name: Windows native ownership mocks
+    runs-on: windows-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned standalone compiler
+        run: python -m pip install ziglang==0.13.0
+      - name: Run assertion sentinel and native mocks without a game
+        run: python -c "import pathlib, subprocess, sys, ziglang; subprocess.check_call([sys.executable, 'experiments/private_snapshot/build_offline.py', '--compiler', str(pathlib.Path(ziglang.__file__).parent / 'zig.exe'), '--out', 'reports/native-ci'])"
+      - name: Upload synthetic native evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: native-ownership-mocks
+          path: reports/native-ci/results.json
+          if-no-files-found: ignore
   offline:
     name: ${{ matrix.os }} / Python ${{ matrix.python }}
     runs-on: ${{ matrix.os }}
