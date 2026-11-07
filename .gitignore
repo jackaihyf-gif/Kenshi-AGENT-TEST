@@ -28,3 +28,12 @@ local-saves/
 *.sav
 *.exe
 *.dll
+*.platoon
+*.gamedata
+*.pdb
+*.lib
+*.dmp
+_screens/
+
+# Local pytest temporary projects and synthetic RPC files; preserve on disk.
+/pytest-of-*/

@@ -1,0 +1,107 @@
+{
+  "bridge_source_sha": "8a3d993750f13604a66d23550fc7594ee290b64f",
+  "active_authored_mod_sha256": "1307594e9132d2919caef549c7d739f174c15c3531131e9118ceef48c17b1d74",
+  "new_footsteps_cancelled": true,
+  "custom_banks_or_hooks_installed": false,
+  "native_audio_enum_field_only": true,
+  "runs": [
+    {
+      "name": "native-gun-audio-20261103",
+      "exit": {
+        "temporarily_logged_audio": true,
+        "changed_fields_only": [
+          "gauss shoot sound 0 to 1"
+        ],
+        "exit_code": 1,
+        "settings_restored": true,
+        "reconfig_restored": true,
+        "data_change_rolled_back": true
+      },
+      "rpc": 3,
+      "rpc_errors": 1,
+      "memory": {
+        "samples": 29,
+        "peak_working_MiB": 2640.97265625,
+        "peak_private_MiB": 4651.54296875,
+        "min_available_GiB": 3.583110809326172
+      },
+      "cleanup": {
+        "game_closed": true,
+        "bridge_disabled": true,
+        "baseline_18_unchanged": true,
+        "fixed_fixture_unchanged": true
+      },
+      "raw_sha256": {
+        "rpc-raw.json": "a2c85ac8e0a6267e4d39f3270f0a9077ba691b9b4765b700a201e113591f6e93",
+        "continuous-memory.json": "415863386043c33f59a13d3899e25083742a179c164beb0aef3d71263d07da55",
+        "cleanup.json": "1339646c1280202e8b994b001867a0ea79458a534c92ab817c8b81bf6b5e8df5",
+        "config-result.json": "e72a1cc02b5e98069bf366920484cc78c3f92a8f220c6c3be801f32809298309"
+      },
+      "stop": {
+        "kind": "AdapterError",
+        "error": "...-Single-Observer-20261103/local-game/bridge/game_ops.lua:819: No editor preview character"
+      }
+    },
+    {
+      "name": "native-gun-audio2-20261103",
+      "exit": {
+        "temporarily_logged_audio": true,
+        "changed_fields_only": [
+          "gauss shoot sound 0 to 1"
+        ],
+        "exit_code": 0,
+        "settings_restored": true,
+        "reconfig_restored": true,
+        "data_change_kept": true
+      },
+      "rpc": 93,
+      "rpc_errors": 0,
+      "memory": {
+        "samples": 81,
+        "peak_working_MiB": 4562.78125,
+        "peak_private_MiB": 8080.21484375,
+        "min_available_GiB": 1.8985748291015625
+      },
+      "cleanup": {
+        "game_closed": true,
+        "bridge_disabled": true,
+        "baseline_18_unchanged": true,
+        "fixed_fixture_unchanged": true
+      },
+      "raw_sha256": {
+        "rpc-raw.json": "c1492f750e4d28da94e079925db059d929e62c1739f76112d3bbfbac83f2c864",
+        "continuous-memory.json": "d16d7ac07185e5a514d6f525dd4afd941e0f5685a09f1c352c853e06dd39ff1f",
+        "cleanup.json": "ff7a5e2a4fb87a0f3c083edc7ae18ae30d767e83d03989116b6f7bd59baaed63",
+        "config-result.json": "bb21b79a7551ae8cd4563629348a05b26702de8327eabfc0a7d2fb14e7602eac"
+      },
+      "result": {
+        "bridge_sha": "8a3d993750f13604a66d23550fc7594ee290b64f",
+        "actual_shots_by_magazine_decrease": 3,
+        "capacity": 7,
+        "no_ammo_or_firing_writes": true,
+        "sound_enum": 1,
+        "native_sound": "HARPOON_GUN",
+        "custom_bank_installed": false,
+        "new_audio_hooks": false,
+        "extra_footsteps": false,
+        "manual_listening_verified": false,
+        "new_saves": 0
+      },
+      "selected_original_audio_log_lines": [
+        "72.423 RE_Kenshi: Switch: Weapons Bow",
+        "73.868 RE_Kenshi: Event: Footsteps",
+        "74.187 RE_Kenshi: Switch: Surface_Material BFoot_Wood",
+        "75.907 RE_Kenshi: Event: Reload",
+        "77.291 RE_Kenshi: Event: Attack"
+      ],
+      "audio_logs_are_not_per_actor_or_per_shot_proof": true
+    }
+  ],
+  "manual_listening": "unverified",
+  "engine_harpoon_timbre_vs_bow_difference": "unverified; audio log contains generic Weapons Bow and Attack",
+  "resource_caps": [
+    16,
+    32,
+    128
+  ]
+}

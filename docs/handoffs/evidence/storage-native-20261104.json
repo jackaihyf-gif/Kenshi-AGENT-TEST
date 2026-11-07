@@ -1,0 +1,42 @@
+{
+  "before_sha256": "9d4bc5566a8ea7915dc56393095da10043b75f5efd5d6a0e97bedcba16a88c02",
+  "candidate_sha256": "75525fd1027535c0306913742aacfc0c88f7e2fa60b41dda615fc56a82602def",
+  "bytes_before": 17697,
+  "bytes_after": 18436,
+  "record_count_before": 21,
+  "record_count_after": 24,
+  "storage_patch_records": 3,
+  "new_whitelist_references": 9,
+  "mapping": {
+    "97246-rebirth.mod": [
+      "200-JACK_EnergyWeapons.mod",
+      "210-JACK_EnergyWeapons.mod"
+    ],
+    "97243-rebirth.mod": [
+      "400-JACK_WastelandCraft.mod",
+      "410-JACK_WastelandCraft.mod",
+      "420-JACK_WastelandCraft.mod",
+      "430-JACK_WastelandCraft.mod",
+      "440-JACK_WastelandCraft.mod"
+    ],
+    "56129-rebirth.mod": [
+      "450-JACK_WastelandCraft.mod",
+      "460-JACK_WastelandCraft.mod"
+    ]
+  },
+  "all_original_records_unchanged": true,
+  "existing_whitelists_preserved": true,
+  "existing_fields_preserved": true,
+  "new_assets_scripts_pollers": 0,
+  "resource_caps_unchanged": true,
+  "guns_use_existing_crossbow_locker_type_107": true,
+  "finished_t60_armour_storage_unchanged": true,
+  "native_storage_function": 2,
+  "real_game_inventory_and_ai_hauling": "not verified",
+  "effective": "next game restart",
+  "installed": true,
+  "game_verified": false,
+  "scope": "static FCS reference integration; runtime next restart",
+  "no_user_game_control": true,
+  "new_generator_ruff": "passed"
+}

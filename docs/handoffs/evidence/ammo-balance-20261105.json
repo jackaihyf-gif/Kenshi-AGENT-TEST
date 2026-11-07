@@ -1,0 +1,78 @@
+{
+  "source_sha256": "e85dbe46581ff0d7f424d745d862a0394ec969914e1701675a09f05b279e3bb2",
+  "candidate_sha256": "25fb49234e1fa254e6c6f9e4dfebc6a31820f9bc99ce7c5f46bad3f97c515533",
+  "craft_sha256": "e0c48262fb4489088862d5b02a6c3d25f6b5ce910aa50ffdc25ece2e0e1c5034",
+  "records_before": 14,
+  "records_after": 14,
+  "enabled_mods": 120,
+  "loaded_files": 124,
+  "changes": {
+    "200-JACK_EnergyWeapons.mod": {
+      "charges": [
+        1.0,
+        2.0
+      ]
+    },
+    "210-JACK_EnergyWeapons.mod": {
+      "charges": [
+        1.0,
+        2.0
+      ]
+    }
+  },
+  "laser_damage_changes": {
+    "pierce damage": [
+      30.0,
+      25.5
+    ],
+    "pierce damage min 0": [
+      75.0,
+      63.75
+    ],
+    "pierce damage max 0": [
+      105.0,
+      89.25
+    ],
+    "pierce damage min 1": [
+      110.0,
+      93.5
+    ],
+    "pierce damage max 1": [
+      150.0,
+      127.5
+    ]
+  },
+  "all_other_fields_and_refs_unchanged": true,
+  "byte_roundtrip_and_readback": true,
+  "full_load_order_exact_seven_field_changes": true,
+  "gauss_damage_magazines_speed_stack_recipes_unchanged": true,
+  "old_save_existing_items_and_runtime_charge_use": "unverified",
+  "gameplay": "unverified; player session not controlled",
+  "offline": {
+    "ruff": "pass",
+    "sdist_wheel_installed_tests": "135 passed, 9 optional Lua skipped",
+    "coverage_percent": 92.42,
+    "cli_smoke": "pass",
+    "extra_luajit": "12 passed, 0 skipped"
+  },
+  "installation": {
+    "source_commit": "32e9614cd3680d2d33d278711c784b367c0afa6e",
+    "pr": 14,
+    "installed_at_utc": "2026-11-05T14:16:33.863901+00:00",
+    "before_sha256": "e85dbe46581ff0d7f424d745d862a0394ec969914e1701675a09f05b279e3bb2",
+    "installed_sha256": "25fb49234e1fa254e6c6f9e4dfebc6a31820f9bc99ce7c5f46bad3f97c515533",
+    "craft_unchanged": true,
+    "mods_cfg_unchanged": true,
+    "remote_checks_all_success": true,
+    "remote_checks_count": 14,
+    "game_controlled": false,
+    "save_written": false,
+    "gameplay": "unverified",
+    "release_kind": "one-file delta; not a complete package"
+  },
+  "remote_checks": {
+    "sha": "32e9614cd3680d2d33d278711c784b367c0afa6e",
+    "count": 14,
+    "all_success": true
+  }
+}
