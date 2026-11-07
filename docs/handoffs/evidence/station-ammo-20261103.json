@@ -1,0 +1,158 @@
+{
+  "source_provenance": {
+    "base_commit": "8a3d993750f13604a66d23550fc7594ee290b64f",
+    "tested_source": "base plus then-uncommitted craft fixture patch",
+    "tested_craft_controller_sha256": "1c7ac7fdd454ad5536022365ba3b947b9dcf7dde95f2033970f431bd221fbe8c",
+    "matching_committed_source": "d89b4e28f7b7c6b3e3088837d9615247e5af0fc4",
+    "commit_created_after_run": true,
+    "reason": "initial commit lacked repository author identity; no further source change between runtime and successful commit",
+    "all_other_tracked_source_unchanged": true
+  },
+  "content_sha256": {
+    "JACK_EnergyWeapons/JACK_EnergyWeapons.mod": "e85dbe46581ff0d7f424d745d862a0394ec969914e1701675a09f05b279e3bb2",
+    "JACK_WastelandCraft/JACK_WastelandCraft.mod": "9d4bc5566a8ea7915dc56393095da10043b75f5efd5d6a0e97bedcba16a88c02",
+    "JACK_WastelandCraft/materials/jack_assembly_station.material": "d49d409140fb95ba5d0fdc10abdf3f5eaf3267e66229320e31d7afdbb2bc0a7a",
+    "JACK_WastelandCraft/meshes/jack_t60_assembly_station.mesh": "b929379241e0c6994ee08e9b39d1c2747031bd7a6b0028c90bbb88cc5fc34111",
+    "JACK_WastelandCraft/physics/jack_t60_assembly_station.xml": "cdc193352c5776f79ad2d2914e5e738020b204ee7df57830440fc2f82b19c78b",
+    "JACK_WastelandCraft/textures/station_d.dds": "0e80eda6358be11b19807190a567925ffb323d9169a4b7ed75afba3148ac7a04",
+    "JACK_WastelandCraft/textures/station_m.dds": "42db54619fa840c52b808af839169fe3a0f52c03f8ae1f6a8c85ae2159d6cab4",
+    "JACK_WastelandCraft/textures/station_n.dds": "79dd5b209d868a68acb727659dbb7eab28465eb31dc71716e8a2c3447af5cec5"
+  },
+  "ammo_stackable": 100,
+  "ammo_normal_inventory_merge": "not verified",
+  "station_visual": "game screenshots inspected; grounded model and material visible at intended scale",
+  "fixture_root_cause": {
+    "actor_world_y": 561.88757324219,
+    "bad_station_world_y": 1123.5344238281,
+    "fixed_station_world_y": 561.64678955078,
+    "cause": "exterior factory adds terrain height to supplied Y; old fixture supplied actor world Y",
+    "floor_minus1_hypothesis": "did not solve; reverted to original 0"
+  },
+  "native_crafting": {
+    "completion_events": 1,
+    "item": "650-JACK_T60_WearLab.mod",
+    "accelerated_work_calls": 0,
+    "queue_before": true,
+    "queue_after": false,
+    "ingredient_counts": {
+      "450-JACK_WastelandCraft.mod": [
+        50,
+        42
+      ],
+      "460-JACK_WastelandCraft.mod": [
+        50,
+        42
+      ]
+    },
+    "power_and_materials": "fixed fixture injection, not natural acquisition"
+  },
+  "resources": {
+    "cold": {
+      "appearance_allocations": 0,
+      "visual_pool_entries": 0,
+      "material_slots": 0
+    },
+    "worn": {
+      "appearance_allocations": 1,
+      "visual_pool_entries": 1,
+      "material_slots": 1
+    },
+    "after_station": {
+      "appearance_allocations": 1,
+      "visual_pool_entries": 1,
+      "material_slots": 1
+    }
+  },
+  "sessions": [
+    {
+      "session": "station-stack-smoke-20261103",
+      "rpc_count": 72,
+      "rpc_errors": 0,
+      "memory_samples": 83,
+      "peak_working_mib": 4686.02,
+      "peak_private_mib": 8190.86,
+      "first_private_mib": 2821.77,
+      "last_private_mib": 8190.86,
+      "minimum_available_gib": 1.9058,
+      "game_closed": true,
+      "bridge_disabled": true,
+      "baseline18_unchanged": true,
+      "fixture_unchanged": true,
+      "settings_restored": true
+    },
+    {
+      "session": "station-visual-20261103",
+      "rpc_count": 70,
+      "rpc_errors": 0,
+      "memory_samples": 86,
+      "peak_working_mib": 4941.65,
+      "peak_private_mib": 8491.31,
+      "first_private_mib": 4114.07,
+      "last_private_mib": 8491.31,
+      "minimum_available_gib": 1.7753,
+      "game_closed": true,
+      "bridge_disabled": true,
+      "baseline18_unchanged": true,
+      "fixture_unchanged": true,
+      "settings_restored": true
+    },
+    {
+      "session": "station-floor-minus1-20261103",
+      "rpc_count": 66,
+      "rpc_errors": 0,
+      "memory_samples": 82,
+      "peak_working_mib": 4713.26,
+      "peak_private_mib": 8197.97,
+      "first_private_mib": 2819.05,
+      "last_private_mib": 8197.97,
+      "minimum_available_gib": 1.9356,
+      "game_closed": true,
+      "bridge_disabled": true,
+      "baseline18_unchanged": true,
+      "fixture_unchanged": true,
+      "settings_restored": true
+    },
+    {
+      "session": "station-render-observer-20261103",
+      "rpc_count": 58,
+      "rpc_errors": 0,
+      "memory_samples": 82,
+      "peak_working_mib": 4471.31,
+      "peak_private_mib": 7830.99,
+      "first_private_mib": 4114.59,
+      "last_private_mib": 7756.69,
+      "minimum_available_gib": 2.1593,
+      "game_closed": true,
+      "bridge_disabled": true,
+      "baseline18_unchanged": true,
+      "fixture_unchanged": true,
+      "settings_restored": true
+    },
+    {
+      "session": "station-grounded-20261103",
+      "rpc_count": 85,
+      "rpc_errors": 0,
+      "memory_samples": 97,
+      "peak_working_mib": 4538.21,
+      "peak_private_mib": 8019.2,
+      "first_private_mib": 4114.51,
+      "last_private_mib": 8019.2,
+      "minimum_available_gib": 2.0798,
+      "game_closed": true,
+      "bridge_disabled": true,
+      "baseline18_unchanged": true,
+      "fixture_unchanged": true,
+      "settings_restored": true
+    }
+  ],
+  "unverified": [
+    "natural research / construction / power-grid / AI hauling loop",
+    "complete navmesh/collision walk-through and workpoint alignment",
+    "old user save research UI and import",
+    "100-pack ordinary UI merge",
+    "clean install",
+    "full resolution and long-duration FPS",
+    "production appearance reclamation"
+  ],
+  "game_verified": false
+}

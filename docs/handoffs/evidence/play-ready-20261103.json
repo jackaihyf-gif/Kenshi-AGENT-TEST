@@ -1,0 +1,62 @@
+{
+  "tested_sha": "d2809fd8df7ca4c1d0093bd78c1efd9a01d56b8b",
+  "evidence_kind": "real_game_save_preparation",
+  "result": {
+    "prepared": true,
+    "tested_sha": "d2809fd8df7ca4c1d0093bd78c1efd9a01d56b8b",
+    "slot": "T60_LIFE_096_PLAY_20261103_203500",
+    "copied_files": 52,
+    "copy_verified": true,
+    "loaded_from_menu": false,
+    "bones": 82,
+    "primary": "100-JACK_EnergyWeapons.mod",
+    "secondary": "100-JACK_ChainswordLab.mod",
+    "new_independent_slot": true,
+    "injected_loadout": true,
+    "survival_research_build_ai_transport": "not verified",
+    "real_zone_unload": "blocked/missing interface",
+    "knockdown": "blocked/missing fixture",
+    "previous_selfaid": "existing real FIRST_AID_ORDER evidence; not rerun"
+  },
+  "cleanup": {
+    "game_closed": true,
+    "bridge_disabled": true,
+    "baseline_18_unchanged": true,
+    "fixed_fixture_unchanged": true
+  },
+  "settings_restored": true,
+  "rpc_calls": 52,
+  "rpc_errors": 0,
+  "memory": {
+    "samples": 78,
+    "min_available_GiB": 1.5919380187988281,
+    "peak_working_MiB": 4569.8984375,
+    "peak_private_MiB": 7908.9765625
+  },
+  "counters": {
+    "appearance_allocations": null,
+    "material_slots": null,
+    "retained_objects": null,
+    "reason": "single-actor counters not exposed"
+  },
+  "raw_sha256": {
+    "result.json": "a270600f2a14d03c7e6940233aa8638415b0ffca7cde51094d98e4e3a3452a7e",
+    "rpc-raw.json": "0976b9256cb088835d086380025d1a24d25c85c8c2d3e6aebacffeece2c77703",
+    "cleanup.json": "bc6ba59b1095f53efdeaa90a1b1401b49882de833c655eb6d1ded4a3b1899acb",
+    "continuous-memory.json": "90d6088fe13da15c8d7fb8134148dc8771233788221df393b0ce99a2e41f4408",
+    "saved-hashes.json": "385578ffd8959616088fbaf3367737b01a32cb454bfd2e73783c5e471a5e2d78"
+  },
+  "prior_first_aid": {
+    "real_ai": true,
+    "clip": "medic-8",
+    "time_values": [
+      0.198,
+      1.024,
+      1.849,
+      2.666
+    ],
+    "restored": true,
+    "scope": "prior single armored minor left-arm cut, not knockdown or natural injury",
+    "raw_sha256": "aec305781e5317d378be01bbffc51c748ec0abc5f8fb7e1d2e92acbdc7efcbe3"
+  }
+}

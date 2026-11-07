@@ -1,0 +1,284 @@
+{
+  "schema_version": 1,
+  "tested_commit": "d2809fd8df7ca4c1d0093bd78c1efd9a01d56b8b",
+  "pull_request": 3,
+  "result": "stopped at pre-cycle resource guard after five-actor cold load; no later real-game stages executed",
+  "production_baseline": {
+    "git_commit": "not a Git checkout; identified by 18 file hashes",
+    "wear_controller_sha256": "4f9566ad083512bbd8be6b4c0f282dcb324858f519d023826197174e0e67e826",
+    "runtime_sha256": {
+      "plugin/player_epoch_probe.dll": "4c7559a71e495579f0cd16dc25ebc294686d6e153bf65e6be5ef4e9964523af4",
+      "scripts/back_carry_controller.lua": "19b46ddcd974d9132beabaa2d5b3ecd4bc7e58b154fc41c6232104ebebb62622",
+      "scripts/character_identity.lua": "c7dde780e36eeb6564b6e68c6d3ab7b52ca84f6d6158ff694264274cc7ed01fd",
+      "scripts/character_identity_core.lua": "d252ab33a3232e3b21812f809ad691042567f143799d2438115881cfefa49c1b",
+      "scripts/equipment_visibility.lua": "6099a5740ecd8b39b8b0cb61b51572b7443a3685b757f701e752409fd49ff76e",
+      "scripts/material_controller.lua": "435d23759dfcb2196e46662dec022a1036163b16f7e01c4632c2d31db6fc8622",
+      "scripts/t60_world_epoch_adapter.lua": "b63cf6d808831519d96d550f1b484f7c4e94219e01c321cacd480f1066dd3657",
+      "scripts/wear_controller.lua": "4f9566ad083512bbd8be6b4c0f282dcb324858f519d023826197174e0e67e826",
+      "scripts/init/a00_character_identity.lua": "bec982849f8b5690d989e198c96ca7e6cc8b2004da37d21a0f290af1527aacfb",
+      "scripts/init/t60_back_carry_v08.lua": "1baef615c5350fe083d48f24de24773ebcd0406b6cecb8e4a611b3e7ee84bdc5",
+      "scripts/init/t60_lamp_v092.lua": "a131c7f4081cecc9e142f95cb99ed797e58093be2cdd637ce99194c5a662ff2a",
+      "scripts/init/t60_material_v08.lua": "ade27bb13e8254d3e4176df36beb660c983d33382a30e2cfb1a0d9f75bfec0be",
+      "scripts/init/t60_power_v092.lua": "495029c5d7081e21c4f8ca05e5a2b90ddfef4d88574ec2350eef8982a5f16385",
+      "scripts/init/t60_wear.lua": "817487b51c5da00067080ba5e0d02fb0777bcceadb3239a4f10079c320f2809f",
+      "plugin/T60AttachmentRebind_ready_reason_20261102.dll": "1079e1b6970cc9aae4211b2c71733ea04df2da25c697b1fe160160f47491a6bc",
+      "scripts/attachment_cache.lua": "4514c7d8da972decfbbe481c3fa1be240d2e0c14c294d0481fc3bb2c4e1da07d",
+      "plugin/T60EquipmentVisibility_indexed.dll": "4b3ed988f6ba8f24e78b047c8f31cb8a2c70e7744169301fee09a37240842735",
+      "scripts/original_appearance_save.lua": "85372046a8f0b129a8679c3835c5a472dc090697b92fe59aae6c8b89235bb606"
+    },
+    "appearance_limit": 16,
+    "material_limit": 32,
+    "lamp_pool_limit": 128,
+    "limits_changed": false
+  },
+  "environment": {
+    "platform": "Windows-10-10.0.19045-SP0",
+    "python": "3.12.10",
+    "physical_ram_bytes": 17053007872,
+    "re_exe_sha256": "504b362cde850d56afb1cea6f5b7b0ee014d9dd7b47e188599d91c804502cd3e",
+    "python_installed_source_bytes_match_commit": true
+  },
+  "offline": {
+    "python": {
+      "passed": 115,
+      "skipped": 9,
+      "xfail": 0,
+      "exit_code": 0,
+      "skipped_reason": "LuaJIT unset; not new real-game coverage"
+    },
+    "coverage_percent": 92.42,
+    "ruff_exit_code": 0,
+    "mock_cli_smoke_exit_code": 0,
+    "native_mock_processes": 10,
+    "native_all_passed": true,
+    "assertions": "explicit -UNDEBUG plus side-effect sentinel",
+    "native_source_sha256": {
+      "build_offline.py": "68d3f6921eb086ea65e58d2144bc8a46352fac053c33d0d844e8cc9a1ff0bfa0",
+      "private_ownership.h": "c940f2b7ca34f6bb48d85c68ef0e5646643c090797f8a262987a11740c2c8298",
+      "private_release.c": "58db7d6d9dc74ea6ce96082eca786e7cc4021085a35acd3c5b9bd31c793a1dbd",
+      "private_snapshot_complete.c": "e528505c89a997cc2aa9ac7d3a2a4ce702307ad35641900bf891931bbb033506",
+      "test_complete.c": "b3a49b64009366a59b96f9bf1791c058bddd2154d4d205b3184d5c2618edf934",
+      "test_id_ownership.c": "03d81ef58b1f90a49d0479d99648aa1c3725abbdf65eb08222fccf3fe6d29a3b",
+      "test_release.c": "ccdec07a9e3ad57e1b1a70db7af38dc999ff3b2aff2cc652778cbb596bf70bfd",
+      "test_release_guards.c": "d0918702354900b1fbe5e0e935a7b672baf2b137a98d01bef32eb0ae59b04a5a"
+    },
+    "github_workflow": {
+      "url": "https://github.com/jackaihyf-gif/Kenshi-AGENT-TEST/actions/runs/41590048124",
+      "status": "completed",
+      "conclusion": "success",
+      "evidence_kind": "offline only"
+    }
+  },
+  "native_candidates": {
+    "built_from_unmodified_commit": true,
+    "compiler": "Zig 0.13.0",
+    "flags": [
+      "-std=c11",
+      "-fms-extensions",
+      "-O1",
+      "-UNDEBUG",
+      "-shared",
+      "-ladvapi32"
+    ],
+    "dlls": {
+      "private_snapshot_complete": {
+        "sha256": "82e3e3f963974a9e16a43ba688264760be319ec8b8c9bfc2d7b617c3c7c12b43",
+        "exports": [
+          "T60_complete_prepare",
+          "T60_complete_roundtrip",
+          "T60_complete_stats",
+          "T60_snapshot_attempts",
+          "T60_snapshot_capture",
+          "T60_snapshot_confirm_save",
+          "T60_snapshot_prepare",
+          "T60_snapshot_ready",
+          "T60_snapshot_status",
+          "T60_snapshot_status_size",
+          "T60_snapshot_write_files"
+        ],
+        "machine": "AMD64"
+      },
+      "private_release": {
+        "sha256": "d2840d9d29cd4f6cbedd17a0008b5388bbb3677c23f9c6ed983fd1763727181b",
+        "exports": [
+          "T60_private_release_ready",
+          "T60_private_release_stats",
+          "T60_private_release_trial"
+        ],
+        "machine": "AMD64"
+      }
+    },
+    "new_path_binding_prepared": true,
+    "bindings_sha256": {
+      "probe_complete.lua": "8a6475c07d5deae5eee83274ac0134494e23fd9156c14a812fe9e6b4e4f929b1",
+      "probe_release.lua": "bcfcd05ebfc2f9e08f6a446a4d0e661887fd6798f91875f1177e3dd943d60a79",
+      "game_ops_bound.lua": "2cef46c41f2bca8ed12f7da1d82202eaa675bebbbdf08d8663da591300ef2964"
+    },
+    "binding_changes": [
+      "fixed new DLL/probe paths only",
+      "complete fixed historical file export not executed",
+      "release stats cap9 includes stopped; report native signed return"
+    ],
+    "probe_globals": "not initialized in game",
+    "candidate_loaded_into_game": false,
+    "real_delete_executed": false,
+    "full_production_borrow_protocol": "not implemented"
+  },
+  "real_stages": [
+    {
+      "stage": "cold load STAGE2_COLD2",
+      "result": "observed stable five actors; not visual acceptance",
+      "actors": 5,
+      "epoch": 1,
+      "appearance_allocations": 5,
+      "appearance_limit": 16,
+      "pool_entries": 5,
+      "material_slots": 5,
+      "lamp_pool_occupancy": "not exposed by current RPC",
+      "all_control_states_armored_rebound_unblocked": true,
+      "actor_summary": [
+        {
+          "profile": "original-test-actor",
+          "bones": 82,
+          "female": false,
+          "logical_race": "17-gamedata.quack",
+          "visual_race": "670-JACK_T60_WearLab.mod",
+          "raw_strength": 50.756847381592,
+          "strength": 76.135269165039
+        },
+        {
+          "profile": "shek_male",
+          "bones": 82,
+          "female": false,
+          "logical_race": "5276-chareditor.mod",
+          "visual_race": "670-JACK_T60_WearLab.mod",
+          "raw_strength": 50,
+          "strength": 75
+        },
+        {
+          "profile": "shek_female",
+          "bones": 82,
+          "female": false,
+          "logical_race": "5276-chareditor.mod",
+          "visual_race": "670-JACK_T60_WearLab.mod",
+          "raw_strength": 50,
+          "strength": 75
+        },
+        {
+          "profile": "human_male",
+          "bones": 82,
+          "female": false,
+          "logical_race": "17-gamedata.quack",
+          "visual_race": "670-JACK_T60_WearLab.mod",
+          "raw_strength": 50,
+          "strength": 75
+        },
+        {
+          "profile": "human_female",
+          "bones": 82,
+          "female": false,
+          "logical_race": "17-gamedata.quack",
+          "visual_race": "670-JACK_T60_WearLab.mod",
+          "raw_strength": 50,
+          "strength": 75
+        }
+      ]
+    },
+    {
+      "stage": "before first repetition",
+      "result": "STOP",
+      "trigger": "host available physical memory below 2 GiB; process commit is not the threshold that failed",
+      "memory": {
+        "label": "round-group-0-before",
+        "working_bytes": 4604633088,
+        "private_bytes": 10089426944,
+        "peak_working_bytes": 4690190336,
+        "host_available_bytes": 1241935872,
+        "host_commit_available_bytes": 17317695488
+      },
+      "threshold_bytes": 2147483648,
+      "completed_wear_cycles": 0,
+      "completed_reload_cycles": 0
+    }
+  ],
+  "post_cleanup_host_memory": {
+    "host_available_bytes": 6135967744,
+    "host_commit_available_bytes": 27999694848,
+    "total_physical_bytes": 17053007872,
+    "active_owned_game_count": 0
+  },
+  "cleanup": {
+    "game_closed": true,
+    "bridge_disabled": true,
+    "runtime_hashes_unchanged": 18,
+    "fixture_files_unchanged": true,
+    "rpc_lock_clear": true,
+    "private_delete_executed": false,
+    "saved_game": false
+  },
+  "unexecuted": [
+    {
+      "path": "production multiple wear/load loops",
+      "reason": "global resource stop before first cycle"
+    },
+    {
+      "path": "single unique new-slot save/load",
+      "reason": "supported existing restricted interface, but not executed after resource stop"
+    },
+    {
+      "path": "single camera +12000 and return",
+      "reason": "supported fixed-handle probe, but not executed; cannot prove actor zone unload"
+    },
+    {
+      "path": "PR3 private complete-copy then release 8 pairs + budget refusal",
+      "reason": "new fixed bindings prepared, but never deployed or loaded after resource stop"
+    }
+  ],
+  "not_integrated": [
+    {
+      "path": "five-actor new-slot save and reload that same slot",
+      "reason": "all fixed MIGRATION1-6 slots occupied; reload hardcoded MIGRATION1; no overwrite or arbitrary-path bypass"
+    },
+    {
+      "path": "actual bounded actor zone exit/unload/return",
+      "reason": "existing stage2_region only teleports camera and leaves actor in place"
+    },
+    {
+      "path": "private release combined with production wear/save/load",
+      "reason": "complete reader/epoch/save borrow protocol absent"
+    },
+    {
+      "path": "lamp pool occupancy during all phases",
+      "reason": "active light count is not total 128-slot occupancy; no current bounded RPC"
+    }
+  ],
+  "evidence": {
+    "root_alias": "PR3_WORKTREE/reports/expanded-pr3-20261103",
+    "raw_files_not_uploaded": {
+      "session-five/preflight.json": "d6aca6b6c1be970f33cd5860babc861403cfa379fb46846a51f736a072fdbe66",
+      "session-five/startup-raw.json": "59a6e7610483497e94287e586ee099c5650e98c26140e48c63cceb1f6babed4a",
+      "session-five/rpc-raw.json": "a9a8f55f7069ec00369588fc8e519ab1850f8c41414a96a2fd821f743a642de3",
+      "session-five/round-group-0-before-raw.json": "4cdca35bf0c0b6ad938301fc89b1495daa30d80b5e15e29f8d503a2b61726bb5",
+      "session-five/memory.json": "427ceebf18e3a220a588dd982216a1f2e6c932f57a0988a8b49490a80baaebc8",
+      "session-five/post-cleanup-host-memory.json": "f32f1064099b5fa0a2f69b30b99e9ac5b95d20a0dacb922c51200fab5872ef71",
+      "session-five/cleanup.json": "ecbb6c3cbcbea7e911f9c9891d03c1d2a083472abeaf96c34ac7972ade0222b4",
+      "native-mocks/results.json": "00807edbc47e3a6e8dd00cded1194ad98071020c27a8efeb2327324359621ec3",
+      "native-game/build.json": "8ea0318a188e4efd1d6fbc7f59605ed54274eccf06af4607a77fe40cda058686",
+      "native-game/bindings.json": "c1944d368bd0f3655d02bf291b28be83ad57da9b121d09863121480cbb4bb72c",
+      "expanded_driver.py": "eb9a159a085efd7ff6a75a68b0a563ab93f328dab0ddc99cc196954beae59760",
+      "session-five/STOP-cycles-144304.json": "eb23f0e75a77db1661a5c1ae1e6314b683dbb6c18b30e27059955d834e91e3a4",
+      "setup-notes.json": "332c4d5aabaed593be98afabe6d320e6faf72dd502c6618dfcdfe4bf44ec3856"
+    },
+    "outstanding_game_action_errors": 0,
+    "real_actions": [
+      "load:STAGE2_COLD2",
+      "stage2-pause",
+      "migration:bind",
+      "migration:status",
+      "migration:status"
+    ],
+    "trend_limit": "one game process memory point; no wear/load memory slope or leak attribution possible",
+    "visual": "unverified",
+    "secrets_saves_assets_binaries_uploaded": false
+  }
+}
