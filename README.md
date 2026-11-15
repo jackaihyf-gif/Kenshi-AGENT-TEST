@@ -1,5 +1,7 @@
 # Kenshi Test CLI
 
+当前本机模组测试版的[存读档、外观分配额度与恢复办法](docs/mod-limitations.md)单独记录；测试工具的Mock通过不代表这些限制已解除。
+
 第一阶段：在**没有 Kenshi** 的 Windows 电脑上开发和验证 Mod 自动化测试基础设施。
 使用 Python 3.11+；运行时没有第三方依赖。无需游戏、Steam、Blender、API Key 或管理员权限。
 
