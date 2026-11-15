@@ -1,0 +1,325 @@
+{
+  "craft_sha256": "1f03ee6ccb69a6dae018785bdb53f400178d177b88534ad6eac3dedf95d39182",
+  "production_fixture_commit": "1cb3c1b271b8ba13d76259dfe718ba502a8e8a52",
+  "production_source_provenance": "published builder normalized-AST equivalent to exact tested build.py; format/import/lambda/zip-strict=False only; installed candidate unchanged",
+  "configured_partitions": {
+    "energy": [
+      "100-JACK_EnergyWeapons.mod",
+      "110-JACK_EnergyWeapons.mod",
+      "400-JACK_WastelandCraft.mod",
+      "410-JACK_WastelandCraft.mod",
+      "420-JACK_WastelandCraft.mod",
+      "430-JACK_WastelandCraft.mod",
+      "440-JACK_WastelandCraft.mod"
+    ],
+    "armour": [
+      "450-JACK_WastelandCraft.mod",
+      "460-JACK_WastelandCraft.mod",
+      "650-JACK_T60_WearLab.mod"
+    ],
+    "ammo": [
+      "200-JACK_EnergyWeapons.mod",
+      "210-JACK_EnergyWeapons.mod"
+    ]
+  },
+  "cases": [
+    {
+      "bench": "ammo",
+      "product": "fusion",
+      "progress_delta_3_operate_seconds": 0.00109999990672808,
+      "operator_skills": {
+        "armour": 50,
+        "crossbow": 50
+      },
+      "native_controlled_completion": true,
+      "first_progress": 0.00036666667438112,
+      "last_progress": 0.0014666665811092,
+      "output_sid": "200-JACK_EnergyWeapons.mod",
+      "output_count": 1,
+      "input_counts_after": {
+        "42160-gamedata.base": 49,
+        "42164-gamedata.base": 49
+      }
+    },
+    {
+      "bench": "ammo",
+      "product": "emammo",
+      "progress_delta_3_operate_seconds": 0.00109999990672808,
+      "operator_skills": {
+        "armour": 50,
+        "crossbow": 50
+      },
+      "native_controlled_completion": true,
+      "first_progress": 0.00036666667438112,
+      "last_progress": 0.0014666665811092,
+      "output_sid": "210-JACK_EnergyWeapons.mod",
+      "output_count": 1,
+      "input_counts_after": {
+        "42160-gamedata.base": 49,
+        "579-gamedata.base": 48
+      }
+    },
+    {
+      "bench": "energy",
+      "product": "coil",
+      "progress_delta_3_operate_seconds": 0.00018333325715503,
+      "operator_skills": {
+        "armour": 50,
+        "crossbow": 50
+      },
+      "first_progress": 6.111112452345e-05,
+      "last_progress": 0.00024444438167848,
+      "completion": "not tested; partial queue cancelled using fixed bridge-owned queue interface"
+    },
+    {
+      "bench": "energy",
+      "product": "laser",
+      "progress_delta_3_operate_seconds": 9.1666628577515e-05,
+      "operator_skills": {
+        "armour": 50,
+        "crossbow": 50
+      },
+      "first_progress": 3.0555562261725e-05,
+      "last_progress": 0.00012222219083924,
+      "completion": "not tested; partial queue cancelled using fixed bridge-owned queue interface"
+    },
+    {
+      "bench": "armour",
+      "product": "servo",
+      "progress_delta_3_operate_seconds": 0.00054999995336402,
+      "operator_skills": {
+        "armour": 50,
+        "crossbow": 50
+      },
+      "native_controlled_completion": true,
+      "first_progress": 0.00018333333719056,
+      "last_progress": 0.00073333329055458,
+      "output_sid": "450-JACK_WastelandCraft.mod",
+      "output_count": 1,
+      "input_counts_after": {
+        "583-gamedata.base": 49,
+        "42164-gamedata.base": 48
+      }
+    },
+    {
+      "bench": "armour",
+      "product": "frame",
+      "progress_delta_3_operate_seconds": 0.00054999995336402,
+      "operator_skills": {
+        "armour": 50,
+        "crossbow": 50
+      },
+      "native_controlled_completion": true,
+      "first_progress": 0.00018333333719056,
+      "last_progress": 0.00073333329055458,
+      "output_sid": "460-JACK_WastelandCraft.mod",
+      "output_count": 1,
+      "input_counts_after": {
+        "579-gamedata.base": 48,
+        "2288-gamedata.base": 47
+      }
+    },
+    {
+      "bench": "armour",
+      "product": "armour",
+      "progress_delta_3_operate_seconds": 2.82051105386924e-05,
+      "operator_skills": {
+        "armour": 50,
+        "crossbow": 50
+      },
+      "native_controlled_completion": true,
+      "first_progress": 9.4017095761956e-06,
+      "last_progress": 3.7606820114888e-05,
+      "output_sid": "650-JACK_T60_WearLab.mod",
+      "output_count": 1,
+      "input_counts_after": {
+        "450-JACK_WastelandCraft.mod": 42,
+        "460-JACK_WastelandCraft.mod": 42
+      }
+    }
+  ],
+  "native_work_calls": 18,
+  "actor_nine_fields_preserved": true,
+  "player_save_writes": 0,
+  "sessions": [
+    {
+      "evidence_directory_key": "station_split_evidence/native-split2",
+      "fixture_commit": "1cb3c1b271b8ba13d76259dfe718ba502a8e8a52",
+      "memory_unit": "bytes",
+      "continuous_samples": 91,
+      "game_memory_samples": 74,
+      "prelaunch_host_available": 6394859520,
+      "first_game_memory": {
+        "working_bytes": 2487627776,
+        "private_bytes": 4316573696,
+        "physical_available": 3544686592
+      },
+      "stable_cold_memory": {
+        "working_bytes": 4481097728,
+        "private_bytes": 8008413184,
+        "physical_available": 1703919616
+      },
+      "last_game_memory": {
+        "working_bytes": 4710555648,
+        "private_bytes": 8174366720,
+        "physical_available": 1509052416
+      },
+      "peak_working_bytes": 4710563840,
+      "peak_private_bytes": 8174465024,
+      "minimum_host_available": 1462525952,
+      "cleanup": {
+        "game_closed": true,
+        "bridge_disabled": true,
+        "baseline_18_unchanged": true,
+        "fixed_fixture_unchanged": true
+      },
+      "settings_restored": true,
+      "error": null
+    },
+    {
+      "evidence_directory_key": "station_split_evidence/native-menus",
+      "fixture_commit": "fdc8f07e2321221b9774f69e5ff8eddbc513c890",
+      "memory_unit": "bytes",
+      "continuous_samples": 81,
+      "game_memory_samples": 66,
+      "prelaunch_host_available": 6565740544,
+      "first_game_memory": {
+        "working_bytes": 1831182336,
+        "private_bytes": 2963521536,
+        "physical_available": 4485996544
+      },
+      "stable_cold_memory": {
+        "working_bytes": 4490133504,
+        "private_bytes": 7837741056,
+        "physical_available": 1716109312
+      },
+      "last_game_memory": {
+        "working_bytes": 4517855232,
+        "private_bytes": 7887187968,
+        "physical_available": 1679945728
+      },
+      "peak_working_bytes": 4517855232,
+      "peak_private_bytes": 7991652352,
+      "minimum_host_available": 1655447552,
+      "cleanup": {
+        "game_closed": true,
+        "bridge_disabled": true,
+        "baseline_18_unchanged": true,
+        "fixed_fixture_unchanged": true
+      },
+      "settings_restored": true,
+      "error": null
+    },
+    {
+      "evidence_directory_key": "station_split_evidence/native-menus-researched",
+      "fixture_commit": "ca6ebdaeea1fc86f5d49c11b5d18d477d0c4cc8c",
+      "memory_unit": "bytes",
+      "continuous_samples": 87,
+      "game_memory_samples": 72,
+      "prelaunch_host_available": 6505623552,
+      "first_game_memory": {
+        "working_bytes": 1828679680,
+        "private_bytes": 2961735680,
+        "physical_available": 4377919488
+      },
+      "stable_cold_memory": {
+        "working_bytes": 4644102144,
+        "private_bytes": 8020475904,
+        "physical_available": 1503678464
+      },
+      "last_game_memory": {
+        "working_bytes": 4669460480,
+        "private_bytes": 8069623808,
+        "physical_available": 1469358080
+      },
+      "peak_working_bytes": 4683837440,
+      "peak_private_bytes": 8194793472,
+      "minimum_host_available": 1465753600,
+      "cleanup": {
+        "game_closed": true,
+        "bridge_disabled": true,
+        "baseline_18_unchanged": true,
+        "fixed_fixture_unchanged": true
+      },
+      "settings_restored": true,
+      "error": null
+    }
+  ],
+  "visual": {
+    "method": "agent inspection of engine-captured screenshots; not user visual acceptance",
+    "fixture_commit": "ca6ebdaeea1fc86f5d49c11b5d18d477d0c4cc8c",
+    "visible_recipes": {
+      "armour": [
+        "伺服动力组件",
+        "装甲结构件",
+        "T-60 动力装甲"
+      ],
+      "ammo": [
+        "核融合电池",
+        "2mm 电磁弹"
+      ],
+      "energy": [
+        "能量发射组件",
+        "激光枪机总成",
+        "电磁线圈组件",
+        "电磁加速器",
+        "高斯枪机总成",
+        "激光步枪",
+        "高斯步枪"
+      ]
+    },
+    "partition_counts": {
+      "armour": 3,
+      "ammo": 2,
+      "energy": 7
+    },
+    "research_setup": "fixed native completion of 310/320/330 in disposable session; no save writes; not natural research",
+    "result": "all expected recipe names visible, no recipes from other station groups",
+    "screenshots_sha256": {
+      "armour": "a09841904fb3b134a3529238dbe04a4cf3ee83df7c8c9d66d7c1fcc92778c620",
+      "ammo": "960d83104916ce4210908dfe3c296371727f294901f0a62f4e6f695f9871ca1c",
+      "energy": "f847078bcccad815980e449ede843b2e483c558632efa4b6ed071771f797053a"
+    }
+  },
+  "counters": {
+    "appearance_allocations": "未验证",
+    "known_retained_objects": "未验证",
+    "material_slots": "未验证",
+    "reason": "not collected by these craft/menu scenarios; legacy memory sampler records null, never zero"
+  },
+  "offline_regression": {
+    "passed": 26,
+    "skipped": 0,
+    "scope": "bridge boundaries, direct LuaJIT Mock, telemetry installer, single telemetry; not station native ABI coverage"
+  },
+  "not_verified": [
+    "natural research/construction/power/AI hauling",
+    "old built station queues/input migration",
+    "actual player old save research unlock",
+    "full gun production",
+    "long term FPS and resource lifecycle",
+    "true region unload/return"
+  ],
+  "discarded_or_stopped_attempts": [
+    {
+      "phase": "candidate preparation",
+      "result": "wrong Chinese encoding caught before install; rejected candidate retained locally"
+    },
+    {
+      "phase": "prelaunch",
+      "result": "local inspect.py shadowed Python stdlib; renamed .disabled; no game started"
+    },
+    {
+      "phase": "native-split",
+      "result": "host parser iterated Lua JSON object keys 1..5 instead of SID values; assertion stopped, cleaned up and rolled back; no native game/RPC error"
+    },
+    {
+      "phase": "native-menus",
+      "result": "correct bench names but empty native recipe lists because disposable slot had not researched technologies; no game/RPC error"
+    }
+  ],
+  "analysis_machine_prs_not_applied": {
+    "7": "4c6bb22a25f724fdb31dae9622fef3c0f3dcbc86",
+    "8": "c79192003acb622bc5b4c06ae56b9a5ffcc28462"
+  }
+}

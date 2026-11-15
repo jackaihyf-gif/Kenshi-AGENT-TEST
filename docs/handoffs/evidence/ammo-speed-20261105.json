@@ -1,0 +1,35 @@
+{
+  "method": "controlled native operate-step A/B, not natural AI throughput",
+  "before_sha256": "75525fd1027535c0306913742aacfc0c88f7e2fa60b41dda615fc56a82602def",
+  "after_sha256": "fe8e8e9490c48b814c5a9740f0c25751059aa15d3dc43d145570eee7b6ca7b6c",
+  "rows": [
+    {
+      "product": "fusion",
+      "before_delta": 0.00054999995336402,
+      "after_delta": 0.00109999990672808,
+      "ratio": 2.0000000000000724
+    },
+    {
+      "product": "emammo",
+      "before_delta": 0.00054999995336402,
+      "after_delta": 0.00109999990672808,
+      "ratio": 2.0000000000000724
+    },
+    {
+      "product": "coil",
+      "before_delta": 0.00018333325715503,
+      "after_delta": 0.00018333325715503,
+      "ratio": 1.0
+    },
+    {
+      "product": "laser",
+      "before_delta": 9.1666628577515e-05,
+      "after_delta": 9.1666628577515e-05,
+      "ratio": 1.0
+    }
+  ],
+  "actor_fields_preserved": true,
+  "damage_magazine_ammo_weight_unchanged": true,
+  "player_save_writes": 0,
+  "real_natural_hauling": "unverified"
+}

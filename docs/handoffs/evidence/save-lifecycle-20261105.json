@@ -1,0 +1,328 @@
+{
+  "tested_commits": {
+    "kenshi-save-lifecycle": "9d95a9cb33ed138175fc42042fd969e2174e6d4b",
+    "kenshi-save-lifecycle-fixture": "7f5d1b9f8f7e18e37b7a6fafcabf40acfdfa7d92"
+  },
+  "installed": [
+    {
+      "relative": "plugin/T60OriginalSave_v096.dll",
+      "before_sha256": "50548585996690987f8e7442e63e36396a45fe7abbc106cd04c16029d84c3a60",
+      "installed_sha256": "e336a29cc90efd8344d4015e7457bb0badea10b6751f9070e3146a1128df5d09"
+    },
+    {
+      "relative": "plugin/T60ResetGuard_20261105.dll",
+      "before_sha256": null,
+      "installed_sha256": "ddfdbdde4bb76f51f5ea53bbf6a0d788e6bd65783fa66f86d9d01dc84c55a2bf"
+    },
+    {
+      "relative": "scripts/init/t60_reset_guard_20261105.lua",
+      "before_sha256": null,
+      "installed_sha256": "e4855fecd65c29317095fe79f87e5ea5342d4967f91ed7c1b6600390da8007c7"
+    }
+  ],
+  "owned_reload_boundaries": 3,
+  "new_independent_test_slot": "T60_LIFE_096_READER_20261105_155147",
+  "player_save_writes": 0,
+  "nine_character_fields_preserved": true,
+  "saved_appearance": {
+    "method": "existing SaveReader, unique fixed actor type25, validated adjacent type66 by record id in same platoon; appearance fields and references only",
+    "source_test_slot": "T60_LIFE_096_ORDINARY_D",
+    "new_test_slot": "T60_LIFE_096_READER_20261105_155147",
+    "appearance_field_count": 75,
+    "reference_lists": 1,
+    "differences": {
+      "fields": [],
+      "refs": []
+    },
+    "all_appearance_equal": true,
+    "source_files_read_only": true
+  },
+  "stages": [
+    {
+      "label": "ordinary-before-new-save",
+      "appearance_allocations": 0,
+      "known_lua_visual_pool_entries": 0,
+      "material_slots": 0,
+      "save": {
+        "installed": 1,
+        "active": 0,
+        "retired": 0,
+        "readers": 0,
+        "quarantined": 0,
+        "clear_epoch": 1,
+        "registrations": 0,
+        "calls": 0,
+        "original_appearance_serializations": 0,
+        "ordinary_passthrough": 0,
+        "live_renderer_writes": 0
+      },
+      "reset_guard": {
+        "installed": 1,
+        "checks": 0,
+        "null_skips": 0,
+        "faction_clears": 1,
+        "foreign_clears": 0,
+        "active_depth": 0
+      },
+      "memory_bytes": {
+        "working_bytes": 4695744512,
+        "private_bytes": 8112988160,
+        "physical_available": 1383280640
+      }
+    },
+    {
+      "label": "armoured-before-save",
+      "appearance_allocations": 1,
+      "known_lua_visual_pool_entries": 1,
+      "material_slots": 1,
+      "save": {
+        "installed": 1,
+        "active": 1,
+        "retired": 0,
+        "readers": 0,
+        "quarantined": 0,
+        "clear_epoch": 1,
+        "registrations": 1,
+        "calls": 0,
+        "original_appearance_serializations": 0,
+        "ordinary_passthrough": 0,
+        "live_renderer_writes": 0
+      },
+      "reset_guard": {
+        "installed": 1,
+        "checks": 0,
+        "null_skips": 0,
+        "faction_clears": 1,
+        "foreign_clears": 0,
+        "active_depth": 0
+      },
+      "memory_bytes": {
+        "working_bytes": 4704006144,
+        "private_bytes": 8162930688,
+        "physical_available": 1379377152
+      }
+    },
+    {
+      "label": "armoured-after-save",
+      "appearance_allocations": 1,
+      "known_lua_visual_pool_entries": 1,
+      "material_slots": 1,
+      "save": {
+        "installed": 1,
+        "active": 1,
+        "retired": 0,
+        "readers": 0,
+        "quarantined": 0,
+        "clear_epoch": 1,
+        "registrations": 1,
+        "calls": 262,
+        "original_appearance_serializations": 1,
+        "ordinary_passthrough": 261,
+        "live_renderer_writes": 0
+      },
+      "reset_guard": {
+        "installed": 1,
+        "checks": 0,
+        "null_skips": 0,
+        "faction_clears": 1,
+        "foreign_clears": 0,
+        "active_depth": 0
+      },
+      "memory_bytes": {
+        "working_bytes": 4770521088,
+        "private_bytes": 8229285888,
+        "physical_available": 1312464896
+      }
+    },
+    {
+      "label": "after-armoured-readback",
+      "appearance_allocations": 2,
+      "known_lua_visual_pool_entries": 1,
+      "material_slots": 2,
+      "save": {
+        "installed": 1,
+        "active": 1,
+        "retired": 0,
+        "readers": 0,
+        "quarantined": 0,
+        "clear_epoch": 2,
+        "registrations": 2,
+        "calls": 262,
+        "original_appearance_serializations": 1,
+        "ordinary_passthrough": 261,
+        "live_renderer_writes": 0
+      },
+      "reset_guard": {
+        "installed": 1,
+        "checks": 0,
+        "null_skips": 0,
+        "faction_clears": 2,
+        "foreign_clears": 0,
+        "active_depth": 0
+      },
+      "memory_bytes": {
+        "working_bytes": 4853686272,
+        "private_bytes": 8325869568,
+        "physical_available": 1256001536
+      }
+    },
+    {
+      "label": "after-ordinary-return",
+      "appearance_allocations": 2,
+      "known_lua_visual_pool_entries": 0,
+      "material_slots": 2,
+      "save": {
+        "installed": 1,
+        "active": 0,
+        "retired": 0,
+        "readers": 0,
+        "quarantined": 0,
+        "clear_epoch": 3,
+        "registrations": 2,
+        "calls": 262,
+        "original_appearance_serializations": 1,
+        "ordinary_passthrough": 261,
+        "live_renderer_writes": 0
+      },
+      "reset_guard": {
+        "installed": 1,
+        "checks": 0,
+        "null_skips": 0,
+        "faction_clears": 3,
+        "foreign_clears": 0,
+        "active_depth": 0
+      },
+      "memory_bytes": {
+        "working_bytes": 4991750144,
+        "private_bytes": 8419295232,
+        "physical_available": 1114718208
+      }
+    },
+    {
+      "label": "third-visual-before-reset",
+      "appearance_allocations": 3,
+      "known_lua_visual_pool_entries": 1,
+      "material_slots": 3,
+      "save": {
+        "installed": 1,
+        "active": 1,
+        "retired": 0,
+        "readers": 0,
+        "quarantined": 0,
+        "clear_epoch": 3,
+        "registrations": 3,
+        "calls": 262,
+        "original_appearance_serializations": 1,
+        "ordinary_passthrough": 261,
+        "live_renderer_writes": 0
+      },
+      "reset_guard": {
+        "installed": 1,
+        "checks": 0,
+        "null_skips": 0,
+        "faction_clears": 3,
+        "foreign_clears": 0,
+        "active_depth": 0
+      },
+      "memory_bytes": {
+        "working_bytes": 4997013504,
+        "private_bytes": 8430329856,
+        "physical_available": 1150390272
+      }
+    },
+    {
+      "label": "third-reset-ordinary",
+      "appearance_allocations": 3,
+      "known_lua_visual_pool_entries": 0,
+      "material_slots": 3,
+      "save": {
+        "installed": 1,
+        "active": 0,
+        "retired": 0,
+        "readers": 0,
+        "quarantined": 0,
+        "clear_epoch": 4,
+        "registrations": 3,
+        "calls": 262,
+        "original_appearance_serializations": 1,
+        "ordinary_passthrough": 261,
+        "live_renderer_writes": 0
+      },
+      "reset_guard": {
+        "installed": 1,
+        "checks": 0,
+        "null_skips": 0,
+        "faction_clears": 4,
+        "foreign_clears": 0,
+        "active_depth": 0
+      },
+      "memory_bytes": {
+        "working_bytes": 5088325632,
+        "private_bytes": 8498323456,
+        "physical_available": 1108312064
+      }
+    },
+    {
+      "label": "final-idle-20s",
+      "appearance_allocations": 3,
+      "known_lua_visual_pool_entries": 0,
+      "material_slots": 3,
+      "save": {
+        "installed": 1,
+        "active": 0,
+        "retired": 0,
+        "readers": 0,
+        "quarantined": 0,
+        "clear_epoch": 4,
+        "registrations": 3,
+        "calls": 262,
+        "original_appearance_serializations": 1,
+        "ordinary_passthrough": 261,
+        "live_renderer_writes": 0
+      },
+      "reset_guard": {
+        "installed": 1,
+        "checks": 0,
+        "null_skips": 0,
+        "faction_clears": 4,
+        "foreign_clears": 0,
+        "active_depth": 0
+      },
+      "memory_bytes": {
+        "working_bytes": 5090742272,
+        "private_bytes": 8500502528,
+        "physical_available": 1122209792
+      }
+    }
+  ],
+  "continuous_memory_samples": 238,
+  "game_memory_samples": 220,
+  "memory_peak_bytes": {
+    "working_bytes": 5118140416,
+    "private_bytes": 8500502528
+  },
+  "minimum_host_available_bytes": 1037430784,
+  "cleanup": {
+    "owned_game_closed": true,
+    "bridge_disabled": true,
+    "settings_byte_exact_restored": true,
+    "fixed_test_sources_unchanged": true,
+    "new_installed_runtime_20_hashes_unchanged": true
+  },
+  "cleanup_provenance": "legacy cleanup field baseline_18_unchanged refers to overridden dictionary of 20 files: prior 18 with save DLL replaced and 2 new guard files; not a claim that old save DLL stayed byte-identical",
+  "reset_guard_native_coverage": {
+    "faction_clear_hook_calls": 4,
+    "midpoint_checks": 0,
+    "null_skips": 0,
+    "conclusion": "clear hook exercised four times; protected midpoint NOT entered in this session, neither null nor nonnull engine branch is live-verified"
+  },
+  "production_reclamation_verified": false,
+  "native_total_retained_objects": "未验证; Lua pool count is not native liveness",
+  "long_duration_stability": "未验证; this was one bounded session, not an hours-long soak",
+  "game_or_rpc_error": null,
+  "offline_python_regression": {
+    "passed": 26,
+    "skipped": 0,
+    "scope": "LuaJIT Mock and bridge/telemetry boundaries"
+  }
+}

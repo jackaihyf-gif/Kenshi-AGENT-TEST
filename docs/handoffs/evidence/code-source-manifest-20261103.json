@@ -1,0 +1,31 @@
+{
+  "normalization": "UTF-8 bytes with CRLF normalized to LF",
+  "base_commit": "55573b7e1f0c05b6aa538c514f24c2701b5c1727",
+  "sha256": {
+    "src/kenshi_test/adapters/kenshi.py": "91e2a71669ab07d53337b81dfc8e79d79e356ad0d074b773833bbe677c7dab08",
+    "src/kenshi_test/bridge.py": "1d55b08b44ed5c018f365b0c78fe93353fa9fe9f10284e1c8f6063b51309ebef",
+    "src/kenshi_test/launcher.py": "31eb17ff80d1ddcf0ff62febd94108d6dde5e50353906b9d35dbfe96264a87da",
+    "src/kenshi_test/motion_audit.py": "d16b3eb54e2b6533ffce80f137512a55c92661f224ce5d67855976dc3eb1db7b",
+    "src/kenshi_test/cli.py": "db17d8bf283432d80e5800b76034f383cc8da945fa2adb6479976dcfd945d552",
+    "src/kenshi_test/config.py": "e78ebd70e54c6b81e98bd0b1cd4ae28af05da2fa8cf9e0c2dec862fa350a8d29",
+    "src/kenshi_test/runner.py": "15b625997cb92afca4633863415ac5020896c38852fd1488f34d99a07e4ea58e",
+    "src/kenshi_test/suites.py": "38f9f2c44f4df879941ab55412bd780bd5dfea6cacb3c8758e22cb151fd0a5a9",
+    "scripts/install_lua_bridge.py": "df66d563ff485cb2d5766b0b0145967a6f14bb64054b4aac79dfc9c353155363",
+    "tests/test_direct_bridge.py": "0431b613a87290a84d43b67b48507277c48a7a60431ecab3e57f10e7c4096524",
+    "tests/test_launcher.py": "4baad9f66ac9e452a55df85fd0eec0c1d47f6820bf3721c5a6065cbcc93c1521",
+    "tests/test_motion_audit.py": "5b412c52d0b026af611dd46d3a2dae8c75e9c5fa34fb7a7243fdcc197fa201bb",
+    "tests/test_weapon_tools.py": "0b40692619b4288981d0ac44957851fbd37562a79fc0724ebb2d1c38cd6144b3",
+    "tests/test_handoff_known_gaps.py": "f133cbe085c4eb490699c31bcce917a0ef3085bc77ca0e30c236bd5b7b50850a",
+    "integration/kenshilua/agent_bridge.lua": "6c093283703394959bbe64e2bfcf150d6ba9c0d128a9e2bcb9ec857cdc611126",
+    "integration/kenshilua/craft_test_controller.lua": "4053d688f05ae398f304cd182f70dc7880cb9694427d3b2acb8ef590c946cb58",
+    "integration/kenshilua/game_ops.lua": "6615e3718efecbed9d8e22eb688550b94c77be19607259889210dbe6d04dc11b",
+    "integration/kenshilua/power_test_controller.lua": "04ec4be190cf1402438c264814f3c5680547dfc5870fbc7ecc15c3c3a9d3da96",
+    "integration/kenshilua/service_test_controller.lua": "717da06bbc7bf8e415b47be4a5b66930cd58225838d23053bb925c0976b27faf",
+    "integration/kenshilua/weapon_test_controller.lua": "b42212fb2b5bdd4001d9549253f5246b70b2e4d2fbc778514ba234757c7932e2",
+    "experiments/private_snapshot/build_offline.py": "6ea4a8a653f041bdb84ca004184a0b70c592128c2dab8814ec286284f6f92ef8",
+    "experiments/private_snapshot/private_release.c": "be8ffefce322d4faf4c96c2899d1b4c54b67efe023abcaff6d92cd0c6c217c43",
+    "experiments/private_snapshot/private_snapshot_complete.c": "980fa701e1d6650d68314e6f132e7164c49099cbd9659f5afaa8d80e274949a4",
+    "experiments/private_snapshot/test_complete.c": "b3a49b64009366a59b96f9bf1791c058bddd2154d4d205b3184d5c2618edf934",
+    "experiments/private_snapshot/test_release.c": "b947c4e78fb29d66f10c2317cb72b41126d5caab00566489ff9b4312daedbe49"
+  }
+}

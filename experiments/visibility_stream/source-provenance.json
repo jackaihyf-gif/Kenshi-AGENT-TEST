@@ -1,0 +1,28 @@
+{
+  "source_base_commit": "808f852c8b99dc6834000549071dee3323a4b08d",
+  "live_and_build_dll_sha256": "4b3ed988f6ba8f24e78b047c8f31cb8a2c70e7744169301fee09a37240842735",
+  "source_sha256": {
+    "t60_visibility_indexed.c": "f3d3cd9bb4accf9ac3d255c89bcdedce4f6ba680d688df903ba2d3b7549968c2",
+    "equipment_visibility.lua": "6099a5740ecd8b39b8b0cb61b51572b7443a3685b757f701e752409fd49ff76e",
+    "character_identity.lua": "c7dde780e36eeb6564b6e68c6d3ab7b52ca84f6d6158ff694264274cc7ed01fd",
+    "character_identity_core.lua": "d252ab33a3232e3b21812f809ad691042567f143799d2438115881cfefa49c1b",
+    "t60_world_epoch_adapter.lua": "b63cf6d808831519d96d550f1b484f7c4e94219e01c321cacd480f1066dd3657",
+    "wear_init.lua": "817487b51c5da00067080ba5e0d02fb0777bcceadb3239a4f10079c320f2809f"
+  },
+  "user_report": "Other worn equipment visible during zone load; hidden again after loading",
+  "real_zone_test_by_agent": "unverified",
+  "evidence_kind": [
+    "user_visual_report",
+    "static_source_review",
+    "native_synthetic_test"
+  ],
+  "game_controlled": false,
+  "save_modified": false,
+  "production_changed": false,
+  "limits": {
+    "appearance": 16,
+    "material": 32,
+    "lamp": 128
+  },
+  "fix_verified": false
+}

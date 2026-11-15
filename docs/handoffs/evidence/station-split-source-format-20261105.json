@@ -1,0 +1,10 @@
+{
+  "result": "equivalent normalized AST",
+  "normalization": [
+    "grouped/sorted imports",
+    "own/energy lambda to return-only functions",
+    "zip explicit strict=False preserves truncation"
+  ],
+  "candidate_or_installed_bytes_changed": false,
+  "ruff_changed_file": "passed"
+}

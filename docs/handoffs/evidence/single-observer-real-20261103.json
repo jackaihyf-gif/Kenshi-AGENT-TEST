@@ -1,0 +1,115 @@
+{
+  "evidence_kind": "real_game_single_actor",
+  "tested_sha": "8a3d993750f13604a66d23550fc7594ee290b64f",
+  "result": {
+    "tested_sha": "8a3d993750f13604a66d23550fc7594ee290b64f",
+    "play_slot": "T60_LIFE_096_PLAY_20261103_203500",
+    "rpc_loaded": true,
+    "menu_loaded": false,
+    "compared_character_fields": [
+      "name",
+      "logical",
+      "visual",
+      "female",
+      "raw_strength",
+      "raw_dexterity",
+      "hair",
+      "shaved",
+      "body"
+    ],
+    "character_fields_equal": true,
+    "ammo_counts": {
+      "210-JACK_EnergyWeapons.mod": 50,
+      "200-JACK_EnergyWeapons.mod": 50
+    },
+    "primary": "100-JACK_EnergyWeapons.mod",
+    "secondary": "100-JACK_ChainswordLab.mod",
+    "unwear_restored_original": true,
+    "save_files_unchanged": true,
+    "counts": {
+      "cold": {
+        "appearance_allocations": 0,
+        "scope": "single_actor_paused_cached_metadata",
+        "material_slots": 0,
+        "requested_test_slot": "T60_LIFE_096_ORDINARY_D",
+        "save_manager_current_game": "autosave0",
+        "load_signal_idle": true,
+        "epoch": 1,
+        "appearance_limit": 16,
+        "visual_pool_entries": 0,
+        "material_limit": 32,
+        "native_total_retained_objects_verified": false,
+        "production_reclamation_verified": false,
+        "owner": "T60_1_1"
+      },
+      "armored": {
+        "load_signal_idle": true,
+        "appearance_allocations": 1,
+        "appearance_limit": 16,
+        "visual_pool_entries": 1,
+        "material_limit": 32,
+        "native_total_retained_objects_verified": false,
+        "production_reclamation_verified": false,
+        "epoch": 2,
+        "material_slots": 1,
+        "scope": "single_actor_paused_cached_metadata",
+        "owner": "T60_2_2",
+        "requested_test_slot": "T60_LIFE_096_PLAY_20261103_203500",
+        "save_manager_current_game": "autosave0"
+      },
+      "unworn": {
+        "material_limit": 32,
+        "native_total_retained_objects_verified": false,
+        "production_reclamation_verified": false,
+        "material_slots": 1,
+        "visual_pool_entries": 1,
+        "scope": "single_actor_paused_cached_metadata",
+        "epoch": 2,
+        "requested_test_slot": "T60_LIFE_096_PLAY_20261103_203500",
+        "save_manager_current_game": "autosave0",
+        "load_signal_idle": true,
+        "appearance_allocations": 1,
+        "appearance_limit": 16,
+        "owner": "T60_2_2"
+      }
+    },
+    "retained_native_total": "unverified",
+    "zone_unload": "not executed",
+    "knockdown": "not executed"
+  },
+  "cleanup": {
+    "game_closed": true,
+    "bridge_disabled": true,
+    "baseline_18_unchanged": true,
+    "fixed_fixture_unchanged": true
+  },
+  "settings_restored": true,
+  "rpc_calls": 117,
+  "rpc_errors": 0,
+  "memory": {
+    "samples": 143,
+    "min_available_GiB": 1.6919212341308594,
+    "peak_working_MiB": 4675.48046875,
+    "peak_private_MiB": 8080.484375
+  },
+  "main_inventory_after_readback": {
+    "height": 10,
+    "limited_slot": 7,
+    "width": 8,
+    "equipped": false
+  },
+  "raw_sha256": {
+    "result.json": "e1b22224b79fe27e5b2626fc138638ffe4af287bb7a162a77062f6a8190d6bf1",
+    "rpc-raw.json": "6ed525733a50e92d8279b6c2710e9a7a4861be7d8b871a2f895eaf50df999636",
+    "continuous-memory.json": "b6c4406ec8d802aa71e263cd2c01d74fab973221f8370c4454a9d398a070275d",
+    "input-save-hashes.json": "385578ffd8959616088fbaf3367737b01a32cb454bfd2e73783c5e471a5e2d78",
+    "cleanup.json": "d9cfe2075c699aded1a8fb1b743571461b3a0abf74739ec3d249e5c50c6f0a95"
+  },
+  "limitations": [
+    "not menu automation",
+    "not full recursive inventory equality",
+    "not repeated reload lifecycle",
+    "not general native retained total or reclamation",
+    "not zone unload or knockdown"
+  ]
+}

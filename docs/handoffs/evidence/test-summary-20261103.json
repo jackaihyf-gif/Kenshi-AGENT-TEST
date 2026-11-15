@@ -1,0 +1,141 @@
+{
+  "date_local": "2026-11-03",
+  "timezone": "Asia/Hong_Kong",
+  "classification_notice": "Mock/static/real observation/visual judgement are distinct. No full game_verified claim.",
+  "branch": "test-machine/real-bridge-handoff-20261103",
+  "offline_tested_commit": "f046af384a7447b9872afc087571ddba650c435d",
+  "live_test_source": "55573b7 plus local WIP; not a pure committed-tree game test",
+  "environment": {
+    "os": [
+      "10",
+      "10.0.19045",
+      "SP0",
+      "Multiprocessor Free"
+    ],
+    "python": "3.12.10",
+    "package": "0.1.0",
+    "pytest": "9.1.1",
+    "coverage": "7.17.0",
+    "ruff": "0.17.2",
+    "zig": "0.13.0",
+    "kenshi": "1.0.65",
+    "re_child_exe_sha256": "504b362cde850d56afb1cea6f5b7b0ee014d9dd7b47e188599d91c804502cd3e",
+    "plugin_version_numbers": "unverified"
+  },
+  "offline": {
+    "clean_archive_pytest": {
+      "passed": 95,
+      "skipped": 8,
+      "xfailed": 2,
+      "exit_code": 0,
+      "commit": "f046af384a7447b9872afc087571ddba650c435d"
+    },
+    "known_gap_tests": {
+      "expected_failures": 2,
+      "issues": [
+        "belt-slot false negative",
+        "expiry before slow session lookup"
+      ]
+    },
+    "coverage": {
+      "percent": 78.27,
+      "required": 85,
+      "exit_code": 1,
+      "scope": "same source content, working tree run"
+    },
+    "ruff_selected_python": {
+      "E501": 27,
+      "exit_code": 1
+    },
+    "ruff_full_initial_worktree": {
+      "issues": 2486,
+      "includes_unshared_oneoff_scripts": true
+    },
+    "lua_syntax": {
+      "files": 6,
+      "passed": 6,
+      "execution": "compile only"
+    },
+    "native_mocks": {
+      "assertion_sentinel_passed": true,
+      "complete_mock_passed": true,
+      "private_release_mock_passed": true,
+      "game_verified": false
+    },
+    "cli_smoke": {
+      "exit_code": 0,
+      "game_launched": false,
+      "game_verified": false
+    }
+  },
+  "real_observations": {
+    "accepted_mod_scope": [
+      "five-person cold load",
+      "six squad transfers",
+      "one same-process existing test save reload",
+      "five unequip/equip roundtrips",
+      "MIGRATION6 original stats/appearance/race comparison"
+    ],
+    "inventory_serialization": "unverified",
+    "appearance_allocations": [
+      5,
+      10
+    ],
+    "material_slots": [
+      5,
+      10
+    ],
+    "private_complete_pairs": [
+      {
+        "profile": "human-male",
+        "capture": 0,
+        "roundtrip": 0,
+        "native_state": 4,
+        "source_fields_unchanged": true,
+        "retained_objects": 2,
+        "freed_objects": 0,
+        "quarantines": 0
+      },
+      {
+        "profile": "human-female",
+        "capture": 0,
+        "roundtrip": 0,
+        "native_state": 4,
+        "source_fields_unchanged": true,
+        "retained_objects": 4,
+        "freed_objects": 0,
+        "quarantines": 0
+      }
+    ],
+    "module1_exported_field_count": 76,
+    "module1_exported_records_semantically_equal": true,
+    "real_private_delete_trial": "NOT EXECUTED",
+    "production_resource_reclamation": "NOT SOLVED",
+    "new_visual_judgement": "unverified"
+  },
+  "cleanup": {
+    "no_active_game": true,
+    "bridge_disabled": true,
+    "18_accepted_runtime_hashes_verified": true,
+    "private_release_trial_executed": false,
+    "main_saves_modified": false
+  },
+  "retained_original_limits": {
+    "appearance_cumulative": 16,
+    "material_slots": 32,
+    "lamp_pool": 128
+  },
+  "local_raw_evidence_sha256": {
+    "private_snapshot_20261103/copy_comparison1.json": "e9ccca9f364ad2574d3c47a365e357c444a15d3c16c506f9035cb02e561e166b",
+    "private_snapshot_complete_20261103/complete_run1.json": "f0a9cb39a8d49a7246def07edd019ec8987c591bbfa55007d1d39a7f38c8745a",
+    "private_snapshot_complete_20261103/handoff_cleanup_20261103.json": "926f742246667c7564acd5d4ac9a907055ba8bc9aa431faeb26d07a15639b248",
+    "appearance_retirement_20261103/lua_alias_guard/final_validation.json": "ade4869da509baaad10ddcbf6ded76dae3707cdabe6bff2b6290237716d9e8c2"
+  },
+  "omitted": [
+    "auth tokens and bridge configuration",
+    "game binaries and SDK/model assets",
+    "private saves and character field dumps",
+    "raw reports and screenshots",
+    "compiled native artifacts"
+  ]
+}

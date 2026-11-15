@@ -1,0 +1,164 @@
+[
+  {
+    "path": "scripts/install_lua_bridge.py",
+    "line": 30,
+    "code": "E501",
+    "message": "Line too long (110 > 100)"
+  },
+  {
+    "path": "scripts/install_lua_bridge.py",
+    "line": 46,
+    "code": "E501",
+    "message": "Line too long (117 > 100)"
+  },
+  {
+    "path": "scripts/install_lua_bridge.py",
+    "line": 74,
+    "code": "E501",
+    "message": "Line too long (201 > 100)"
+  },
+  {
+    "path": "scripts/install_lua_bridge.py",
+    "line": 88,
+    "code": "E501",
+    "message": "Line too long (134 > 100)"
+  },
+  {
+    "path": "scripts/install_lua_bridge.py",
+    "line": 95,
+    "code": "E501",
+    "message": "Line too long (108 > 100)"
+  },
+  {
+    "path": "scripts/install_lua_bridge.py",
+    "line": 102,
+    "code": "E501",
+    "message": "Line too long (109 > 100)"
+  },
+  {
+    "path": "scripts/install_lua_bridge.py",
+    "line": 107,
+    "code": "E501",
+    "message": "Line too long (103 > 100)"
+  },
+  {
+    "path": "scripts/install_lua_bridge.py",
+    "line": 111,
+    "code": "E501",
+    "message": "Line too long (104 > 100)"
+  },
+  {
+    "path": "scripts/install_lua_bridge.py",
+    "line": 113,
+    "code": "E501",
+    "message": "Line too long (122 > 100)"
+  },
+  {
+    "path": "scripts/install_lua_bridge.py",
+    "line": 115,
+    "code": "E501",
+    "message": "Line too long (104 > 100)"
+  },
+  {
+    "path": "scripts/install_lua_bridge.py",
+    "line": 136,
+    "code": "E501",
+    "message": "Line too long (243 > 100)"
+  },
+  {
+    "path": "scripts/install_lua_bridge.py",
+    "line": 158,
+    "code": "E501",
+    "message": "Line too long (198 > 100)"
+  },
+  {
+    "path": "src/kenshi_test/bridge.py",
+    "line": 14,
+    "code": "E501",
+    "message": "Line too long (114 > 100)"
+  },
+  {
+    "path": "src/kenshi_test/bridge.py",
+    "line": 15,
+    "code": "E501",
+    "message": "Line too long (250 > 100)"
+  },
+  {
+    "path": "src/kenshi_test/cli.py",
+    "line": 194,
+    "code": "E501",
+    "message": "Line too long (138 > 100)"
+  },
+  {
+    "path": "src/kenshi_test/cli.py",
+    "line": 195,
+    "code": "E501",
+    "message": "Line too long (118 > 100)"
+  },
+  {
+    "path": "tests/test_weapon_tools.py",
+    "line": 7,
+    "code": "E501",
+    "message": "Line too long (103 > 100)"
+  },
+  {
+    "path": "tests/test_weapon_tools.py",
+    "line": 37,
+    "code": "E501",
+    "message": "Line too long (124 > 100)"
+  },
+  {
+    "path": "tests/test_weapon_tools.py",
+    "line": 47,
+    "code": "E501",
+    "message": "Line too long (119 > 100)"
+  },
+  {
+    "path": "tests/test_weapon_tools.py",
+    "line": 48,
+    "code": "E501",
+    "message": "Line too long (114 > 100)"
+  },
+  {
+    "path": "tests/test_weapon_tools.py",
+    "line": 54,
+    "code": "E501",
+    "message": "Line too long (186 > 100)"
+  },
+  {
+    "path": "tests/test_weapon_tools.py",
+    "line": 55,
+    "code": "E501",
+    "message": "Line too long (128 > 100)"
+  },
+  {
+    "path": "tests/test_weapon_tools.py",
+    "line": 57,
+    "code": "E501",
+    "message": "Line too long (162 > 100)"
+  },
+  {
+    "path": "tests/test_weapon_tools.py",
+    "line": 65,
+    "code": "E501",
+    "message": "Line too long (111 > 100)"
+  },
+  {
+    "path": "tests/test_weapon_tools.py",
+    "line": 67,
+    "code": "E501",
+    "message": "Line too long (104 > 100)"
+  },
+  {
+    "path": "tests/test_weapon_tools.py",
+    "line": 70,
+    "code": "E501",
+    "message": "Line too long (123 > 100)"
+  },
+  {
+    "path": "tests/test_weapon_tools.py",
+    "line": 76,
+    "code": "E501",
+    "message": "Line too long (138 > 100)"
+  }
+]

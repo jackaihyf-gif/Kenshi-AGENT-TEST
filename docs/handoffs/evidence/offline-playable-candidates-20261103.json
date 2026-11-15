@@ -1,0 +1,35 @@
+{
+  "evidence_kind": "offline_asset_candidate_only",
+  "local_bundle": {
+    "content_files": 103,
+    "content_bytes": 231633779,
+    "copied_hashes_verified": 103,
+    "active_installation_modified": false,
+    "clean_install_verified": false,
+    "dependencies_complete_verified": false,
+    "original_t60_manifest_matches": 57,
+    "readme_difference_recorded": true
+  },
+  "station": {
+    "original_triangles": 7598,
+    "reimport_triangles": 7592,
+    "bbox_max_error": 0,
+    "reference_t60_height": 21.6685,
+    "station_height": 26.0023,
+    "clearance_verified": false,
+    "physics_workpoint_ai_verified": false,
+    "engine_material_verified": false,
+    "raw_dds_bytes": 50332032,
+    "compressed_dds_bytes": 10486144,
+    "mip_dds_bytes": 13981464,
+    "mip_levels": 12,
+    "mip_base_preserved": true,
+    "gpu_memory_or_fps_improvement_measured": false
+  },
+  "local_audit_sha256": {
+    "export_measurement.json": "7beeab7065f745a6f869a9e75602c3fba00a7272085ad7c4f03e8597c12915f5",
+    "reimport_validation.json": "8f0692c8951bc183babe7d32568e4311b1a4a121dec2d15199c2471fc489517c",
+    "candidate_hashes.json": "0ca3ddfa2764665e57ec85ac7519d5de4b9241975050ef600ff3827ce8f44a72",
+    "optimized/compression_audit.json": "4b932c7e591586cfa39691b5d5074453f607dd0e0364d5bb41689aca119e66ca"
+  }
+}

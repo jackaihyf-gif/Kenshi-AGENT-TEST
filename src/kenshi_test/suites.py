@@ -9,6 +9,23 @@ from .errors import AdapterError, TestFailure
 from .models import RunReport, Screenshot
 
 
+def observe_steps(adapter: GameAdapter, deadline: Deadline, poll_interval: float,
+                  directory: Path, report: RunReport) -> list[tuple[str, Callable[[], dict]]]:
+    def attach() -> dict:
+        adapter.launch(deadline)
+        return {"simulated": adapter.simulated, "mode": "attach_existing_session"}
+
+    def ready() -> dict:
+        while True:
+            state = adapter.get_state(deadline)
+            if state.running and state.phase == "ready":
+                return {"state": asdict(state),
+                        "observation": getattr(adapter, "observation", None)}
+            deadline.sleep(poll_interval)
+
+    return [("attach", attach), ("observe_loaded_characters", ready)]
+
+
 def armor_steps(
     adapter: GameAdapter, deadline: Deadline, poll_interval: float,
     directory: Path, report: RunReport,

@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "recorded_utc": "2026-11-03T05:58:49.730982+00:00",
+  "pull_request": 2,
+  "tested_commit": "7712d57d755a5f5cc3377e2781e4bad35d8c5376",
+  "original_test_branch_head": "d8d8721867aaffa2f447d4cfe3c00e086a023b15",
+  "execution": "detached worktree, independent installed wheel and venv; original worktree preserved",
+  "environment": {
+    "os": "Windows-10-10.0.19045-SP0",
+    "python": "3.12.10",
+    "versions": {
+      "pytest": "9.2.0",
+      "pytest-cov": "7.1.0",
+      "coverage": "7.17.0",
+      "ruff": "0.17.3",
+      "kenshi-test-cli": "0.1.0"
+    },
+    "re_exe_sha256": "504b362cde850d56afb1cea6f5b7b0ee014d9dd7b47e188599d91c804502cd3e",
+    "luajit_sha256": "af439f9161ee832380da193cdfbbc305e432390598d070e91c3432b8b701607f",
+    "plugin_versions": "unverified"
+  },
+  "review": {
+    "blocking_findings": [],
+    "scope": "11 changed files; belt schema, shared deadline, reserved fields, response session, tests and packaging",
+    "cli_ast_unchanged": true,
+    "native_release_or_pool_changes": false
+  },
+  "offline": {
+    "pytest": {
+      "passed": 115,
+      "skipped": 9,
+      "xfail": 0,
+      "exit_code": 0,
+      "reason_skipped": "KENSHI_TEST_LUA51 initially unset"
+    },
+    "coverage_percent": 92.42,
+    "coverage_required_percent": 85,
+    "ruff_exit_code": 0,
+    "cli_smoke_exit_code": 0,
+    "luajit_subset": {
+      "passed": 12,
+      "skipped": 0,
+      "exit_code": 0,
+      "overlap_with_first_run": 3,
+      "note": "actual LuaJIT with fake game API, not real game; known caught 0xe24c4a02 diagnostics remain"
+    },
+    "initial_shared_dependency_environment": {
+      "coverage_percent": 79.05,
+      "exit_code": 1,
+      "cause": "subprocess coverage bootstrap was not loaded by nested shared dependency path",
+      "resolution": "installed all dependencies inside independent venv; reran unchanged source and threshold"
+    }
+  },
+  "github_ci": {
+    "url": "https://github.com/jackaihyf-gif/Kenshi-AGENT-TEST/actions/runs/41585639758",
+    "six_jobs": "success",
+    "matrix": [
+      "ubuntu-latest",
+      "windows-latest",
+      "Python 3.11",
+      "Python 3.12",
+      "Python 3.13"
+    ]
+  },
+  "real_game": {
+    "cold_start": "pass: native launcher confirm and recognized mod warning, fresh real RPC",
+    "fixture": "existing independent STAGE2_COLD2, 5 actors, paused, autosave disabled",
+    "cases": [
+      {
+        "name": "all-equipped",
+        "equipped_belts": 5,
+        "adapter_armor_equipped": true,
+        "phase": "ready",
+        "result": "pass"
+      },
+      {
+        "name": "all-unequipped",
+        "equipped_belts": 0,
+        "adapter_armor_equipped": false,
+        "phase": "ready",
+        "result": "pass"
+      },
+      {
+        "name": "ordinary-upper-changed",
+        "equipped_belts": 0,
+        "adapter_armor_equipped": false,
+        "phase": "ready",
+        "result": "pass"
+      },
+      {
+        "name": "ordinary-shirt-changed",
+        "equipped_belts": 0,
+        "adapter_armor_equipped": false,
+        "phase": "ready",
+        "result": "pass"
+      },
+      {
+        "name": "one-equipped",
+        "equipped_belts": 1,
+        "adapter_armor_equipped": true,
+        "phase": "ready",
+        "result": "pass"
+      },
+      {
+        "name": "all-reequipped",
+        "equipped_belts": 5,
+        "adapter_armor_equipped": true,
+        "phase": "ready",
+        "result": "pass"
+      }
+    ],
+    "rpc": {
+      "driver_requests": 74,
+      "actions": 17,
+      "errors": 0,
+      "all_same_session": true,
+      "note": "counts exclude startup and observe internal status calls"
+    },
+    "observe": {
+      "exit_code": 0,
+      "game_verified": false,
+      "evidence_kind": "unverified_game_attempt"
+    },
+    "appearance_allocations": [
+      5,
+      5
+    ],
+    "material_slots": [
+      5,
+      5
+    ],
+    "visual_acceptance": "unverified",
+    "slow_status_real_game_stall": "not executed; offline regression only",
+    "native_delete": "not executed",
+    "resource_reclamation": "unresolved"
+  },
+  "cleanup": {
+    "game_closed": true,
+    "bridge_disabled": true,
+    "runtime_hashes_unchanged": 18,
+    "fixture_files_unchanged": true,
+    "rpc_lock_clear": true,
+    "private_delete_executed": false,
+    "saved_game": false
+  },
+  "evidence": {
+    "local_root_alias": "PR2_WORKTREE/reports/pr2-7712d57",
+    "raw_files_not_shared": {
+      "preflight.json": "5eaf9f74e8da6c527bb8a2ecab356379eaf2fddcd8caa92b286285002f09b9bc",
+      "startup-raw.json": "758fe59e87605352870aa154bb67aadf94a40b18394d36ab6accff57dcdfe386",
+      "rpc-raw.json": "5c30adf1cf4ca5992b2d99a964c2996fcd4369289244c4717cee9cccf8170450",
+      "cold-migration-raw.json": "a2cf19fe0abe70163011074b6fcec7c19eaad951debb0f81a3eac640676e1f62",
+      "after-migration-raw.json": "8be4bc78dfa1b1f5095f411c79df45aa10b7f68e7cf8c42a5b0c9d204f57bf03",
+      "cleanup.json": "ecbb6c3cbcbea7e911f9c9891d03c1d2a083472abeaf96c34ac7972ade0222b4",
+      "isolated-pytest-coverage.log": "e5312fdbd283eacc152bd72b011043cb71ea216bb28d870ec44d0e831c5ba746",
+      "isolated-coverage.xml": "61d1a23c007fdfc2d3a6dba62447b3a08f016272ac617347b1725000443ee857",
+      "luajit-pytest.log": "d29297e4df2348298420ffe293d3bb378711d3c88dedc901742377149a079dda",
+      "real_retest.py": "0cd90cfe9271230f3062b5ab062c03d3a8306f861519d61763903406547958a1"
+    },
+    "raw_reports_game_data_credentials_binaries_uploaded": false
+  }
+}

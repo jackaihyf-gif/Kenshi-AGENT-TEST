@@ -1,0 +1,17 @@
+{
+  "synthetic_only": true,
+  "assertions_enabled": true,
+  "ttl_gap_reproduced": true,
+  "new_entity_gap_reproduced": true,
+  "stable_scan_recovery": true,
+  "weapon_categories_preserved": true,
+  "live_fix_verified": false,
+  "source_sha256": "f3d3cd9bb4accf9ac3d255c89bcdedce4f6ba680d688df903ba2d3b7549968c2",
+  "test_sha256": "425a87f738b733545263b1a71fba97fe0785217554fd1157d51dc089fb602687",
+  "core_sha256": "1e17c397ec9d5effe36da45d1b30405299a7d7dc772cdf4d8621dbe1179b69d1",
+  "build_flags": [
+    "-std=c11",
+    "-O1",
+    "-UNDEBUG"
+  ]
+}

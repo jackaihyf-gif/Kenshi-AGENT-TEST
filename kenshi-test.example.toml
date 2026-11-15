@@ -14,7 +14,8 @@ load_delay = 0.0
 
 [game]
 # executable = '${KENSHI_EXE}'
-# Configuring a path does NOT enable the unimplemented real adapter.
+# bridge_dir = '${KENSHI_TEST_BRIDGE_DIR}'
+# These opt in to attach/status only; start/live have separate capability boundaries.
 
 [assets]
 paths = []

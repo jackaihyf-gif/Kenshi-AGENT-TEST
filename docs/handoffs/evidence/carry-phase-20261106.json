@@ -1,0 +1,116 @@
+{
+  "source_sha": "9781167f8b491db30b7612dc62643ec36bfe93c8",
+  "pr": 16,
+  "scope": "authorized bounded read-only carry observation plus offline author-skeleton analysis",
+  "live_samples": 8,
+  "writes": 0,
+  "game_calls": 0,
+  "rpc": false,
+  "clips": [
+    {
+      "name": "carrying left arm only-13",
+      "weight": 1.0,
+      "length": 0.0416666679084301
+    },
+    {
+      "name": "walk carrying left",
+      "weight": 0.049132999032735825,
+      "length": 0.6231685876846313
+    },
+    {
+      "name": "jog carrying left-21",
+      "weight": 0.9508669376373291,
+      "length": 1.119057059288025
+    },
+    {
+      "name": "jog lower-11",
+      "weight": 0.9995567798614502,
+      "length": 1.119057059288025
+    }
+  ],
+  "upper_lower_phase_offset_cycles": 0.5,
+  "fcs_left_offset": 0.5,
+  "fcs_plain_jog_and_right_offset": 0,
+  "torso_tracks_match_plain_jog_before_patch": true,
+  "samples_per_offline_cycle": 120,
+  "spine2_peak_to_peak_degrees": {
+    "before": 54.1488,
+    "candidate": 21.2255
+  },
+  "head_peak_to_peak_degrees": {
+    "before": 40.3524,
+    "candidate": 11.4878
+  },
+  "candidate_sha256": "9cf7ab197fe155b38fdb4d0e20d49527784d4cfc0fa9b79c97ba11f1a38b0589",
+  "baseline_sha256": "37246540fc1c985f6b95041595688463acc82bca23d0b05e248e5e9ead711609",
+  "changed_tracks": 10,
+  "bind_and_all_other_tracks_byte_exact": true,
+  "full_pytest_passed": 138,
+  "optional_lua_skipped": 9,
+  "extra_luajit_passed": 12,
+  "cli_coverage_percent": 92.42,
+  "new_synthetic_tests_passed": 8,
+  "remote_checks": {
+    "count": 16,
+    "all_success": true,
+    "sha": "9781167f8b491db30b7612dc62643ec36bfe93c8"
+  },
+  "installed": false,
+  "in_game_corrected_motion": "未验证",
+  "blend_masks_and_small_walk_mix": "未完整还原",
+  "carried_person_sync": "未验证",
+  "prior_staged_only_history": {
+    "installed": false,
+    "recorded_date": "2026-11-06"
+  },
+  "installation_20261107": {
+    "utc": "2026-11-07T02:13:50.774084+00:00",
+    "source_sha": "9781167f8b491db30b7612dc62643ec36bfe93c8",
+    "pr": 16,
+    "remote_checks_count": 16,
+    "all_success": true,
+    "previous_sha256": "37246540fc1c985f6b95041595688463acc82bca23d0b05e248e5e9ead711609",
+    "installed_sha256": "9cf7ab197fe155b38fdb4d0e20d49527784d4cfc0fa9b79c97ba11f1a38b0589",
+    "installed": true,
+    "game_running_before_install": false,
+    "game_running_before_replace": false,
+    "original_backup_verified": true,
+    "rpc_lock_absent": true,
+    "bridge_disabled": true,
+    "game_started": false,
+    "game_calls": 0,
+    "save_writes": 0,
+    "in_game_corrected_motion": "unverified",
+    "scope": "one T60-private skeleton asset; no DLL/script/FCS/capacity changes"
+  },
+  "automatic_live_retest": "blocked: no bounded pickup/carry locomotion interface in instrument PR12 1334fc453f3886e6299b66d909cdb10f9c08f82d",
+  "withdrawn": true,
+  "withdrawal_reason": "asset-only deployment omitted native cache gate exact hash dependency; startup -31 disabled wear registration",
+  "current_skeleton_sha256": "37246540fc1c985f6b95041595688463acc82bca23d0b05e248e5e9ead711609",
+  "cache_gate_sha256": "ecccbfebb61a689a8cd870d68e0fe913513ea04a9c2926c59b37e46a37702e9a",
+  "restoration_evidence": {
+    "native_menu_state": 2,
+    "allowed": 1,
+    "animations": 200,
+    "warmed": 200,
+    "native_errors": 0,
+    "wear_controller_ready": true,
+    "world_loaded": false,
+    "save_writes": 0,
+    "user_visual_confirmation": "armor display restored after normal restart and load",
+    "harness_first_attempt": "40s too short; startup ~51s; early close did not exit; same session later observed ready and normally closed",
+    "new_game_sessions": 1
+  },
+  "preflight_fix_source_sha": "f49101f63dece60cff244c348c3b0455c281d3e0",
+  "preflight_remote_checks": {
+    "count": 16,
+    "all_success": true
+  },
+  "preflight_offline": {
+    "full_pytest_passed": 143,
+    "optional_lua_skipped": 9,
+    "cli_coverage_percent": 92.42,
+    "extra_luajit_passed": 12,
+    "initial_harness_failure": "Unicode nested report path exceeded Windows path length under overly long basetemp; retained failure, full rerun with short basetemp passed"
+  }
+}

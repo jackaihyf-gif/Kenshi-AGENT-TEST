@@ -1,0 +1,35 @@
+{
+  "source_sha256": "fe8e8e9490c48b814c5a9740f0c25751059aa15d3dc43d145570eee7b6ca7b6c",
+  "candidate_sha256": "1f03ee6ccb69a6dae018785bdb53f400178d177b88534ad6eac3dedf95d39182",
+  "energy_sha256": "e85dbe46581ff0d7f424d745d862a0394ec969914e1701675a09f05b279e3bb2",
+  "records_before": 24,
+  "records_after": 26,
+  "enabled_mods": 120,
+  "loaded_files": 124,
+  "new_unresolved_references": 0,
+  "mixed_load_order_examples_not_vanilla_proof": [
+    {
+      "id": "2931-gamedata.base",
+      "name": "clothing bench",
+      "refs": {
+        "armour crafts": [
+          "543-gamedata.base",
+          "550-gamedata.base",
+          "551-gamedata.base"
+        ],
+        "item crafts": [
+          "54030-Newwworld.mod"
+        ]
+      }
+    }
+  ],
+  "storage_records_unchanged": true,
+  "roundtrip_byte_exact": true,
+  "candidate_readback_exact": true,
+  "new_building_uses_existing_part": "96181-Newwworld.mod",
+  "candidate_only": true,
+  "old_research_save_effect": "unverified",
+  "gameplay": "unverified",
+  "new_chinese_utf8_verified": true,
+  "mixed_example_attribution": "2931 armour crafts is vanilla; item crafts added by 2333.mod; runtime support unverified"
+}

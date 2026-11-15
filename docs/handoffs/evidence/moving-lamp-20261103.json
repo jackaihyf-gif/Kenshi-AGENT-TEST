@@ -1,0 +1,367 @@
+{
+  "tested_commit": "d2809fd8df7ca4c1d0093bd78c1efd9a01d56b8b",
+  "game_verified": false,
+  "overall_result": "driver exit1; contaminated noncombat fixture, no full moving-headlamp acceptance",
+  "stop": {
+    "error": "('character drift', 'raw_strength')",
+    "kind": "AssertionError"
+  },
+  "scoped_observations": {
+    "outbound_units": 8.550909732360443,
+    "return_error_units": 0.6211031547167479,
+    "lamp_samples": 15,
+    "all_active_count1": true,
+    "all_native_faults0": true,
+    "created_transition_counts": [
+      1
+    ],
+    "removed_transition_counts": [
+      0
+    ],
+    "actual_raw_strength_ratio_range": [
+      1.4999999248446632,
+      1.4999999624218388
+    ],
+    "raw_strength": [
+      50.756847381592,
+      50.757499694824
+    ],
+    "raw_dexterity": [
+      50.239974975586,
+      50.244583129883
+    ],
+    "immutable_fields_changed": {}
+  },
+  "combat_ammunition_observations": [
+    {
+      "power_sample": 0,
+      "combat": false,
+      "attacking": 0,
+      "weapon": "",
+      "ammo_totals": {
+        "210-JACK_EnergyWeapons.mod": 30,
+        "200-JACK_EnergyWeapons.mod": 1
+      }
+    },
+    {
+      "power_sample": 1,
+      "combat": false,
+      "attacking": 0,
+      "weapon": "",
+      "ammo_totals": {
+        "210-JACK_EnergyWeapons.mod": 30,
+        "200-JACK_EnergyWeapons.mod": 1
+      }
+    },
+    {
+      "power_sample": 2,
+      "combat": false,
+      "attacking": 0,
+      "weapon": "",
+      "ammo_totals": {
+        "210-JACK_EnergyWeapons.mod": 30,
+        "200-JACK_EnergyWeapons.mod": 1
+      }
+    },
+    {
+      "power_sample": 3,
+      "combat": false,
+      "attacking": 0,
+      "weapon": "",
+      "ammo_totals": {
+        "210-JACK_EnergyWeapons.mod": 30,
+        "200-JACK_EnergyWeapons.mod": 1
+      }
+    },
+    {
+      "power_sample": 4,
+      "combat": false,
+      "attacking": 0,
+      "weapon": "",
+      "ammo_totals": {
+        "210-JACK_EnergyWeapons.mod": 30,
+        "200-JACK_EnergyWeapons.mod": 1
+      }
+    },
+    {
+      "power_sample": 5,
+      "combat": false,
+      "attacking": 0,
+      "weapon": "",
+      "ammo_totals": {
+        "210-JACK_EnergyWeapons.mod": 30,
+        "200-JACK_EnergyWeapons.mod": 1
+      }
+    },
+    {
+      "power_sample": 6,
+      "combat": false,
+      "attacking": 0,
+      "weapon": "",
+      "ammo_totals": {
+        "210-JACK_EnergyWeapons.mod": 30,
+        "200-JACK_EnergyWeapons.mod": 1
+      }
+    },
+    {
+      "power_sample": 7,
+      "combat": false,
+      "attacking": 0,
+      "weapon": "",
+      "ammo_totals": {
+        "210-JACK_EnergyWeapons.mod": 30,
+        "200-JACK_EnergyWeapons.mod": 1
+      }
+    },
+    {
+      "power_sample": 8,
+      "combat": false,
+      "attacking": 0,
+      "weapon": "",
+      "ammo_totals": {
+        "210-JACK_EnergyWeapons.mod": 30,
+        "200-JACK_EnergyWeapons.mod": 1
+      }
+    },
+    {
+      "power_sample": 9,
+      "combat": false,
+      "attacking": 0,
+      "weapon": "",
+      "ammo_totals": {
+        "210-JACK_EnergyWeapons.mod": 30,
+        "200-JACK_EnergyWeapons.mod": 1
+      }
+    },
+    {
+      "power_sample": 10,
+      "combat": false,
+      "attacking": 0,
+      "weapon": "",
+      "ammo_totals": {
+        "210-JACK_EnergyWeapons.mod": 30,
+        "200-JACK_EnergyWeapons.mod": 1
+      }
+    },
+    {
+      "power_sample": 11,
+      "combat": true,
+      "attacking": 0,
+      "weapon": "100-JACK_EnergyWeapons.mod",
+      "ammo_totals": {
+        "210-JACK_EnergyWeapons.mod": 30,
+        "200-JACK_EnergyWeapons.mod": 1
+      }
+    },
+    {
+      "power_sample": 12,
+      "combat": false,
+      "attacking": 0,
+      "weapon": "",
+      "ammo_totals": {
+        "210-JACK_EnergyWeapons.mod": 30
+      }
+    },
+    {
+      "power_sample": 13,
+      "combat": false,
+      "attacking": 0,
+      "weapon": "",
+      "ammo_totals": {
+        "210-JACK_EnergyWeapons.mod": 30
+      }
+    },
+    {
+      "power_sample": 14,
+      "combat": false,
+      "attacking": 0,
+      "weapon": "",
+      "ammo_totals": {
+        "210-JACK_EnergyWeapons.mod": 30
+      }
+    },
+    {
+      "power_sample": 15,
+      "combat": false,
+      "attacking": 0,
+      "weapon": "",
+      "ammo_totals": {
+        "210-JACK_EnergyWeapons.mod": 30
+      }
+    }
+  ],
+  "cause_boundary": {
+    "strength_change": "also reproduced while moving without armor; not specific to equipped T60",
+    "dexterity_change": "only seen in armored contaminated run; combat and one ammo consumption observed, exact XP source unverified",
+    "UI_change": "power skillMultRanged remained4 and skillBonusPerception remained30; UI/weapon/light context not independently isolated",
+    "power_status_observer_effect": "calls production sync/normalizeInventory; may recalibrate gear, not strictly read-only",
+    "position_tracking": "lamp node world position not exposed; nearby campfire confounds visual illumination"
+  },
+  "controls": {
+    "standing": {
+      "tested_sha": "d2809fd8df7ca4c1d0093bd78c1efd9a01d56b8b",
+      "armor_equipped": false,
+      "power_probe_called": false,
+      "standing_seconds": 4,
+      "distance": 0.0,
+      "before": {
+        "raw_strength": 50.756847381592,
+        "raw_dexterity": 50.239974975586
+      },
+      "after": {
+        "raw_strength": 50.756847381592,
+        "raw_dexterity": 50.239974975586
+      },
+      "delta": {
+        "raw_strength": 0.0,
+        "raw_dexterity": 0.0
+      },
+      "non_training_fields_equal": true
+    },
+    "walk": {
+      "tested_sha": "d2809fd8df7ca4c1d0093bd78c1efd9a01d56b8b",
+      "armor_equipped": false,
+      "power_probe_called": false,
+      "walking_seconds": 6,
+      "distance": 7.181595890094143,
+      "before": {
+        "raw_strength": 50.756847381592,
+        "raw_dexterity": 50.239974975586
+      },
+      "after": {
+        "raw_strength": 50.758129119873,
+        "raw_dexterity": 50.239974975586
+      },
+      "delta": {
+        "raw_strength": 0.0012817382809942046,
+        "raw_dexterity": 0.0
+      },
+      "non_training_fields_equal": true
+    }
+  },
+  "memory": {
+    "lamp": {
+      "samples": 109,
+      "seconds": 108.78,
+      "minimum_available_GiB": 1.9853,
+      "maximum_working_MiB": 4720.25,
+      "maximum_private_MiB": 8247.7,
+      "csv": "lamp-lamp-memory-20261103.csv"
+    },
+    "standing": {
+      "samples": 66,
+      "seconds": 65.49,
+      "minimum_available_GiB": 1.9914,
+      "maximum_working_MiB": 4598.06,
+      "maximum_private_MiB": 7943.11,
+      "csv": "lamp-standing-memory-20261103.csv"
+    },
+    "walk": {
+      "samples": 65,
+      "seconds": 64.48,
+      "minimum_available_GiB": 2.0744,
+      "maximum_working_MiB": 4572.2,
+      "maximum_private_MiB": 8001.58,
+      "csv": "lamp-walk-memory-20261103.csv"
+    }
+  },
+  "offline_guard": {
+    "pytest_passed": 15,
+    "ruff_passed": true,
+    "recorded_data_replay": {
+      "rejected": [
+        {
+          "sample": 11,
+          "reason": "Unplanned combat invalidates motion-only observation"
+        },
+        {
+          "sample": 12,
+          "reason": "Ammunition changed during motion-only observation"
+        },
+        {
+          "sample": 13,
+          "reason": "Ammunition changed during motion-only observation"
+        },
+        {
+          "sample": 14,
+          "reason": "Ammunition changed during motion-only observation"
+        },
+        {
+          "sample": 15,
+          "reason": "Ammunition changed during motion-only observation"
+        }
+      ],
+      "real_retest": false
+    },
+    "new_game_retest": false
+  },
+  "screenshots": {
+    "moving-lamp-before-20261103.jpg": "d96a6fb8935527a3c4ad69c0661eb2d89bd852b33d02a5b4993b8996e808a452",
+    "moving-lamp-forward-20261103.jpg": "a7fbe4e0ec2c81402fe5950be215dd6d3a2493b5141f8061385ac91c5cecf952"
+  },
+  "cleanup": {
+    "lamp": {
+      "game_closed": true,
+      "bridge_disabled": true,
+      "baseline_18_unchanged": true,
+      "fixed_fixture_unchanged": true,
+      "host": {
+        "physical_available": 7031496704,
+        "commit_available": 27791515648,
+        "physical_total": 17053007872
+      },
+      "rpc_errors": 0
+    },
+    "standing": {
+      "game_closed": true,
+      "bridge_disabled": true,
+      "baseline_18_unchanged": true,
+      "fixed_fixture_unchanged": true,
+      "host": {
+        "physical_available": 6928822272,
+        "commit_available": 27697528832,
+        "physical_total": 17053007872
+      },
+      "rpc_errors": 0
+    },
+    "walk": {
+      "game_closed": true,
+      "bridge_disabled": true,
+      "baseline_18_unchanged": true,
+      "fixed_fixture_unchanged": true,
+      "host": {
+        "physical_available": 7019761664,
+        "commit_available": 27753771008,
+        "physical_total": 17053007872
+      },
+      "rpc_errors": 0
+    }
+  },
+  "raw_sha256": {
+    "moving-lamp-20261103/rpc-raw.json": "59d22ef8955e87bd6912316a4499badeae2b749031fd48b4f9af01a8a87753ee",
+    "moving-lamp-20261103/continuous-memory.json": "83517b5beeb40836fcfb4c741faee36bc26e2cac4362c0fd4811f55c0645b6e6",
+    "moving-lamp-20261103/STOP.json": "1df3929bd3a320076b6953451dcf54774c65f5b269bbfa016e092d790b36d806",
+    "moving-lamp-20261103/run_lamp.py": "403050f7079f68519a184623b24ded43281bbd8f3ddaadb2b44a706653f6bbf8",
+    "moving-lamp-20261103/cleanup.json": "bb8d505b2d60ac2e59ee2300df3f70083687491b2672c38d42ebc5a6d8db6fb3",
+    "moving-lamp-20261103/strict-guard-replay.json": "7d0dfb07fd6292d18de2753c96963ff171b34e63e1a4693c9f13bfa39ed9312b",
+    "standing-control-20261103/rpc-raw.json": "4019f534bc454a53e1d0e1a5347fcfea6b740e31b18eba08e4f44a211d0c6a4d",
+    "standing-control-20261103/continuous-memory.json": "6e7d39ff0ebae8d148093ee4d7fd27df84f1f24fef7ab4c0fe0e5ba78bc3431a",
+    "standing-control-20261103/result.json": "4e41cec0c946a4d3325ded181cbedea7c646b7b14fed103b8b21428a1415adb2",
+    "standing-control-20261103/run_control.py": "ceeda5246d6d86827366c372c5837f3e7de43cf24479da2618efb9c064d68743",
+    "standing-control-20261103/cleanup.json": "177259f817497da928a45d27147270e7f53c4ef1acf49a98367495f6708c5b7b",
+    "unarmored-walk-control-20261103/rpc-raw.json": "7ac5a228370f721349bf1ff362eda5bfc46b8a8203901d5706183f7a2b99bfa3",
+    "unarmored-walk-control-20261103/continuous-memory.json": "200fda98ffa3c68e1f8e061902d29b7b05ee1e54140c4cec71fd7065ebd5105d",
+    "unarmored-walk-control-20261103/result.json": "a285eab2b731695ea42a0ae844665fd8e02103148862cfe5ed4406c83f5e998e",
+    "unarmored-walk-control-20261103/run_control.py": "30fab31d216055692d85f5b23c48841d48fcb7154085b69fd1b8d9b851903c68",
+    "unarmored-walk-control-20261103/cleanup.json": "5f64cea01da5da0dcbd4a7f07f8e450eb182f460a6851b3f3a43870f1b537563"
+  },
+  "not_verified": [
+    "clean noncombat armored movement trial",
+    "exact native lamp world position and pool retained count",
+    "dexterity XP source",
+    "UI refresh causes",
+    "true zone unload/return",
+    "full visual acceptance"
+  ],
+  "metadata_correction": "standing control result had a canned interpretation claiming change; actual numeric deltas are both zero and are authoritative"
+}

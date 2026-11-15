@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-15",
+  "kind": "actual LuaJIT with synthetic engine objects",
+  "game_verified": false,
+  "production_controller_sha256": "4f9566ad083512bbd8be6b4c0f282dcb324858f519d023826197174e0e67e826",
+  "checks": {
+    "same_instance_10_rounds_factory_calls": 1,
+    "16_invalidated_generations_factory_calls": 16,
+    "17th_rejected_original_preserved": true,
+    "F11_load_reset_do_not_refund": true
+  },
+  "runtime_changes": false,
+  "production_free_fixed": false,
+  "original_reset_crash_root_cause_fixed": false,
+  "decision": "document current test-build limitations; no unsafe runtime candidate"
+}

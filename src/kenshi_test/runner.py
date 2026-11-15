@@ -7,7 +7,7 @@ from .config import Config
 from .errors import ConfigError, KenshiTestError, OperationTimeout, TestFailure
 from .models import CheckResult, RunReport, Screenshot, utc_now
 from .reports import ReportGenerator, new_run_id
-from .suites import armor_steps
+from .suites import armor_steps, observe_steps
 
 
 def failure_result(name: str, exc: Exception, duration: float = 0.0) -> CheckResult:
@@ -34,7 +34,7 @@ class TestRunner:
         self.reports = ReportGenerator(config.reports_dir)
 
     def run(self, adapter: GameAdapter, suite: str = "armor") -> tuple[RunReport, Path]:
-        if suite != "armor":
+        if suite not in ("armor", "observe"):
             raise ConfigError(f"Unknown suite: {suite}")
         report = RunReport(
             run_id=new_run_id(), suite=suite, adapter=adapter.name,
@@ -44,13 +44,18 @@ class TestRunner:
                 "Real Kenshi launch, input, state observation and screenshots are not implemented.",
                 "The armor suite checks a synthetic inventory/equipment workflow only.",
                 "No clipping, skin weights, animation or in-game rendering was verified.",
+            ] if adapter.simulated else [
+                "KenshiLua bridge attaches to an existing game; no game process is owned.",
+                "Observed state does not establish visual correctness or animation quality.",
+                "Real screenshot capture and synthetic I/E armor workflow are not implemented.",
             ],
         )
         directory = self.reports.create_run_directory(report.run_id)
         deadline = Deadline(self.config.timeout)
         blocked = False
         try:
-            for name, action in armor_steps(
+            steps = observe_steps if suite == "observe" else armor_steps
+            for name, action in steps(
                 adapter, deadline, self.config.poll_interval, directory, report
             ):
                 if blocked:

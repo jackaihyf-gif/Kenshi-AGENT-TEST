@@ -1,0 +1,142 @@
+{
+  "exe_sha256": "504b362cde850d56afb1cea6f5b7b0ee014d9dd7b47e188599d91c804502cd3e",
+  "fault_rva": "0x28b83a",
+  "exception": "0xc0000005 read 0x3d8",
+  "bounded_stack": {
+    "method": "version-1 pdata bounded integer unwind, every caller return checked against disassembled call; not complete OS debugger stack",
+    "frames": [
+      {
+        "depth": 0,
+        "rva": "0x28b83a",
+        "function_begin": "0x28b830",
+        "function_end": "0x28b983",
+        "stack_delta_from_exception": 0
+      },
+      {
+        "depth": 1,
+        "rva": "0x28d424",
+        "function_begin": "0x28d400",
+        "function_end": "0x28d528",
+        "stack_delta_from_exception": 8,
+        "preceding_call": "0x4dde2"
+      },
+      {
+        "depth": 2,
+        "rva": "0x7990ea",
+        "function_begin": "0x798f50",
+        "function_end": "0x799b8d",
+        "stack_delta_from_exception": 72,
+        "preceding_call": "0x384f1"
+      },
+      {
+        "depth": 3,
+        "rva": "0x4fe513",
+        "function_begin": "0x4fe4b0",
+        "function_end": "0x4fe5bb",
+        "stack_delta_from_exception": 472,
+        "preceding_call": "0x4c0dc"
+      },
+      {
+        "depth": 4,
+        "rva": "0x502f54",
+        "function_begin": "0x502f40",
+        "function_end": "0x502f70",
+        "stack_delta_from_exception": 536,
+        "preceding_call": "0x1d165"
+      },
+      {
+        "depth": 5,
+        "rva": "0x7ebb45",
+        "function_begin": "0x7eba40",
+        "function_end": "0x7ebd27",
+        "stack_delta_from_exception": 584,
+        "preceding_call": "qword ptr [rax]"
+      },
+      {
+        "depth": 6,
+        "rva": "0x7f17d4",
+        "function_begin": "0x7f17c0",
+        "function_end": "0x7f17f0",
+        "stack_delta_from_exception": 648,
+        "preceding_call": "0x39b58"
+      },
+      {
+        "depth": 7,
+        "rva": "0x8008ca",
+        "function_begin": "0x800884",
+        "function_end": "0x80093b",
+        "stack_delta_from_exception": 696,
+        "preceding_call": "qword ptr [rax]"
+      },
+      {
+        "depth": 8,
+        "rva": "0x8013ed",
+        "function_begin": "0x8013c0",
+        "function_end": "0x8014b6",
+        "stack_delta_from_exception": 744,
+        "preceding_call": "0x418d"
+      },
+      {
+        "depth": 9,
+        "rva": "0x36cbcb",
+        "function_begin": "0x36ca40",
+        "function_end": "0x36d007",
+        "stack_delta_from_exception": 808,
+        "preceding_call": "0x18db3"
+      },
+      {
+        "depth": 10,
+        "rva": "0x373e8e",
+        "function_begin": "0x373dc0",
+        "function_end": "0x374fb6",
+        "stack_delta_from_exception": 1176,
+        "preceding_call": "0x41c31"
+      },
+      {
+        "depth": 11,
+        "rva": "0x47c022",
+        "function_begin": "0x47baa0",
+        "function_end": "0x47c313",
+        "stack_delta_from_exception": 2328,
+        "preceding_call": "0x128dc"
+      },
+      {
+        "depth": 12,
+        "rva": "0x7880b6",
+        "function_begin": "0x787e70",
+        "function_end": "0x7884fb",
+        "stack_delta_from_exception": 4024,
+        "preceding_call": "0x17607"
+      },
+      {
+        "depth": 13,
+        "rva": "0x82acb0",
+        "function_begin": "0x82aaf0",
+        "function_end": "0x82b51f",
+        "stack_delta_from_exception": 4168,
+        "preceding_call": "0x2671a"
+      }
+    ],
+    "stop": "Left validated game image; stop rather than guess"
+  },
+  "named_functions": {
+    "0x798f50": "GameWorld::destroy(RootObject*,bool,const char*)",
+    "0x4fe4b0": "ActivePlatoon::~ActivePlatoon",
+    "0x7eba40": "Platoon::~Platoon",
+    "0x8013c0": "FactionManager::clearAndDestroy"
+  },
+  "instruction_evidence": [
+    "0x7990d5 calls virtual +0x300 on a nonnull lookup result",
+    "return RAX is NULL; 0x7990db forms RCX=RAX+0x3d0",
+    "0x28d400 and 0x28b830 do not overwrite RAX before the fault; dump RAX=0, RCX=0x3d0",
+    "0x28b83a dereferences RCX+8, matching 0x3d8"
+  ],
+  "immediate_cause": "null virtual-call result passed as nonexistent handle container during faction/platoon teardown",
+  "not_established": [
+    "exact virtual getter semantics and why it returned null",
+    "missing dependencies as sole upstream cause",
+    "connection between sidecar resource retention and this crash",
+    "actual failing player world retested with guard"
+  ],
+  "privacy": "original dump, raw stack/addresses, player files and full logs remain local"
+}
